@@ -1042,19 +1042,21 @@
           </div>
         </header>
         <main id="main-content">
-          <script type="module">
-            import {
-              createKlarClient
-            } from 'http://localhost:5173/sdk/content.js';
-            const klar = createKlarClient({
-              projectId: 373
-            });
-            const posts = await klar.list('blog-post', {
-              // published: true,
-              order: 'updated_at:desc',
-              limit: 10
-            });
-            console.log(posts);
+<script type="module">
+  import {
+    createKlarClient,
+    render,
+    insert
+  } from 'http://localhost:5173/sdk/content.js';
+  const klar = createKlarClient({
+    projectId: 373
+  });
+  const posts = await klar.list('blog-post', {
+    // published: true,
+    order: 'updated_at:desc',
+    limit: 10
+  });
+  console.log(posts);
 const testa = klar.render(posts,`
 <article>
   \${title}

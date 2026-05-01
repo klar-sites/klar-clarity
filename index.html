@@ -917,12 +917,12 @@
       }
     </style>
     <script>
-     window.__posts = fetch('http://localhost:5173/api/content?projectId=373&page_type=blog-post')
-      .then(r => r.json());
-    //console.log(posts);
-  </script>
+      window.__posts = fetch('http://localhost:5173/api/content?projectId=373&page_type=blog-post')
+        .then(r => r.json());
+      //console.log(posts);
+    </script>
   </head>
-  
+
   <body>
     <a href="#main-content"
       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-primary-foreground px-4 py-2 rounded z-50">Skip
@@ -1036,7 +1036,7 @@
 
 
 
-          
+
           <template id="post-tpl">
             <article class="container-blog py-16">
               <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -1062,20 +1062,26 @@
           </template>
 
 
-          
-            <script type="module">
-              import { insert, render } from 'http://localhost:5173/sdk/content.js';
-              const { items } = await window.__posts; 
-              const tpl = document.getElementById('post-tpl').innerHTML;
-              const testa = render(items, tpl);
-              insert('main', 'prepend', testa);  
-            
+
+          <script type="module">
+            import {
+              insert,
+              render
+            } from 'http://localhost:5173/sdk/content.js';
+            const {
+              items
+            } = await window.__posts;
+            const tpl = document.getElementById('post-tpl').innerHTML;
+            const testa = render(items, tpl);
+            insert('main', 'prepend', testa);
+            console.log(items);
+
             // document.querySelector('main').innerHTML = render(items, '...');
-            </script>
-          
+          </script>
 
 
-          
+
+
           <article class="container-blog py-16">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
               <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="images/hero-image-xUp6gwWA.jpg"

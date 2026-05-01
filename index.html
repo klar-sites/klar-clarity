@@ -1033,10 +1033,14 @@
           </div>
         </header>
         <main id="main-content">
+
+
+
+          
           <template id="post-tpl">
             <article class="container-blog py-16">
               <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="${topImage}"
+                <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="${cdn-topImage}"
                     alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category"
                     class="object-cover w-full h-full transition-transform duration-700 hover:scale-105"
                     decoding="async" fetchpriority="high" width="592" height="444"></div>
@@ -1056,6 +1060,9 @@
               </div>
             </article>
           </template>
+
+
+          
             <script type="module">
               import { insert, render } from 'http://localhost:5173/sdk/content.js';
               const { items } = await window.__posts; 
@@ -1066,6 +1073,8 @@
             // document.querySelector('main').innerHTML = render(items, '...');
             </script>
           
+
+
           
           <article class="container-blog py-16">
             <div class="grid lg:grid-cols-2 gap-12 items-center">

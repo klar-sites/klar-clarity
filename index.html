@@ -918,8 +918,13 @@
     </style>
     <script src="http://localhost:5173/sdk/content.iife.js"></script>
     <script>
-      const klarSdk = KlarSdk.createKlarClient({ projectId: 373 }); 
-      const posts = klarSdk.list('blog-post', { order: 'updated_at:desc', limit: 10 });
+      const klarSdk = KlarSdk.createKlarClient({
+        projectId: 373
+      });
+      const posts = klarSdk.list('blog-post', {
+        order: 'updated_at:desc',
+        limit: 10
+      });
     </script>
   </head>
 
@@ -1064,8 +1069,8 @@
           <script>
             const postTpl = document.getElementById('post-tpl').innerHTML;
             posts.then(items => {
-              // console.log(items)
-              klarSdk.insert('#main-content', 'prepend', klarSdk.render(items, postTpl)); 
+              console.log(items)
+              klarSdk.insert('#main-content', 'prepend', klarSdk.render(items, postTpl));
             });
           </script>
 

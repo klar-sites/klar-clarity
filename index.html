@@ -1038,9 +1038,9 @@
         </header>
         
         <main id="main-content">
-
+          <article class="container-blog py-16" id="klar-hero"></article>
+          
           <template id="post-tpl">
-            <article class="container-blog py-16">
               <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="${topImageUrl}"
                     alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category"
@@ -1060,14 +1060,13 @@
                       MORE<span class="ml-2" aria-hidden="true">→</span></a></div>
                 </div>
               </div>
-            </article>
           </template>
 
           <script>
             const postTpl = document.getElementById('post-tpl').innerHTML;
             posts.then(items => {
               console.log(items)
-              klarSdk.insert('#main-content', 'prepend', klarSdk.render(items, postTpl));
+              klarSdk.insert('#klar-hero', 'prepend', klarSdk.render(items, postTpl));
             });
           </script>
 

@@ -4953,6 +4953,11 @@
               <article>
                 <header class="mb-8">
                   <div class="flex items-center gap-2 mb-4"><span class="text-xs font-medium text-muted-foreground">FASHION</span><span class="text-muted-foreground text-xs">—</span><time class="text-xs text-muted-foreground" datetime="2023-09-15">Mars 20, 2025</time></div>
+                  <script>
+                    const time = document.querySelector('header time');
+                    // time.innerHTML = Date.now().toString();
+                    time.innerHTML = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+                  </script>
                   <h1 class="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight" data-klar-field="name:'title',type:'string'">En blogg för alla de som tycker det är kul att blogga 1</h1>
                   <div class="flex items-center justify-between gap-3">
                     <div class="flex items-center gap-3">
@@ -5334,6 +5339,7 @@
         });
       }
     </script>
+
 
 
 

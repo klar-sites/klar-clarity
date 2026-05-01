@@ -1658,7 +1658,7 @@
       const klar = createKlarClient({
         projectId: 373
       });
-      const posts = await klar.list('blog', {
+      const posts = await klar.list('blog-post', {
         published: true,
         order: 'published_at:desc',
         limit: 10

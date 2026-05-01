@@ -40,31 +40,6 @@
   <body>
 
     <div id="root">
-      <script>
-        ! function() {
-          try {
-            var d = document.documentElement,
-              c = d.classList;
-            c.remove('light', 'dark');
-            var e = localStorage.getItem('theme');
-            if ('system' === e || (!e && true)) {
-              var t = '(prefers-color-scheme: dark)',
-                m = window.matchMedia(t);
-              if (m.media !== t || m.matches) {
-                d.style.colorScheme = 'dark';
-                c.add('dark')
-              } else {
-                d.style.colorScheme = 'light';
-                c.add('light')
-              }
-            } else if (e) {
-              c.add(e || '')
-            }
-            if (e === 'light' || e === 'dark') d.style.colorScheme = e
-          } catch (e) {}
-        }()
-      </script>
-
       <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
         <ol tabindex="-1" class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
         </ol>
@@ -115,15 +90,15 @@
         <main id="main-content">
           <article class="container-blog py-16" id="klar-hero" data-klar-static>
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-              <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="/images/fashion-lifestyle-tBv1CS6f.jpg" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
+              <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
               <div class="space-y-6">
-                <h1 class="featured-title">En blogg för alla de som tycker det är kul att blogga</h1>
-                <div class="flex items-center space-x-4 text-sm"><span class="blog-meta">Rebecka Larsson /
+                <h1 class="featured-title">En blogg för alla de som tycker det är kul att blogga 23</h1>
+                <div class="flex items-center space-x-4 text-sm"><span class="blog-meta">Gabriel Lantz /
                     WRITER</span><span class="text-muted-foreground" aria-hidden="true">—</span><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-02">Date Format</time></div>
                 <p class="text-lg text-muted-foreground leading-relaxed">Featured article description — This is where
                   your main content excerpt would appear to give readers a preview of the full article.</p>
-                <div class="pt-4"><a href="/blog-post-4.html" aria-label="Read more about: Featured Article Title — Hero Content Showcase" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3">READ
-                    MORE<span class="ml-2" aria-hidden="true">→</span></a></div>
+                <div class="pt-4"><a href="/blog/blog-post.html" aria-label="Read more about: Featured Article Title — Hero Content Showcase" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3"><span data-klar-wrap>READ
+                    MORE</span><span class="ml-2" aria-hidden="true">→</span></a></div>
               </div>
             </div>
           </article>
@@ -153,44 +128,8 @@
               <h2 id="all-posts-heading" class="section-title mb-8">All Posts</h2>
               <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="all-posts">
                 <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog-post.html">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/business-post-6IsrfXyD.jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
-                    <div class="p-6 space-y-3 ">
-                      <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
-                      <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
-                        En blogg för alla de som tycker det är kul att blogga 23</h3>
-                      <p class="text-sm text-muted-foreground leading-relaxed">Blog post excerpt — Brief description of
-                        the article content for preview.</p>
-                    </div>
-                  </a>
-                </article>
-                <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog-post-3.html">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/lifestyle-post-B2o5gHGK (1).jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
-                    <div class="p-6 space-y-3 ">
-                      <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
-                      <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
-                        En blogg för alla de som tycker det är kul att blogg</h3>
-                      <p class="text-sm text-muted-foreground leading-relaxed">Blog post excerpt — Brief description of
-                        the article content for preview.</p>
-                    </div>
-                  </a>
-                </article>
-                <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog-post-2.html">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/work-lifestyle-Bg_wzXQT.jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
-                    <div class="p-6 space-y-3 ">
-                      <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
-                      <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
-                        En blogg för alla de som tycker det är kul att blogga 345</h3>
-                      <p class="text-sm text-muted-foreground leading-relaxed">Blog post excerpt — Brief description of
-                        the article content for preview.</p>
-                    </div>
-                  </a>
-                </article>
-                <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog-post-1.html">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/tech-post-HXCQgDvH (1).jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog/blog-post-1.html">
+                    <div class="relative overflow-hidden aspect-[4/3]"><img src="" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                     <div class="p-6 space-y-3 ">
                       <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
                       <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
@@ -201,8 +140,32 @@
                   </a>
                 </article>
                 <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog-post-5.html">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/fashion-post-4m_ykv-I.jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog/blog-post-2.html">
+                    <div class="relative overflow-hidden aspect-[4/3]"><img src="" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                    <div class="p-6 space-y-3 ">
+                      <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
+                      <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
+                        En blogg för alla de som tycker det är kul att blogga 345</h3>
+                      <p class="text-sm text-muted-foreground leading-relaxed">Blog post excerpt — Brief description of
+                        the article content for preview.</p>
+                    </div>
+                  </a>
+                </article>
+                <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
+                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog/blog-post-3.html">
+                    <div class="relative overflow-hidden aspect-[4/3]"><img src="" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                    <div class="p-6 space-y-3 ">
+                      <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
+                      <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
+                        En blogg för alla de som tycker det är kul att blogg</h3>
+                      <p class="text-sm text-muted-foreground leading-relaxed">Blog post excerpt — Brief description of
+                        the article content for preview.</p>
+                    </div>
+                  </a>
+                </article>
+                <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
+                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog/blog-post-4.html">
+                    <div class="relative overflow-hidden aspect-[4/3]"><img src="" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                     <div class="p-6 space-y-3 ">
                       <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
                       <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
@@ -213,12 +176,24 @@
                   </a>
                 </article>
                 <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog-post-4.html">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/fashion-lifestyle-tBv1CS6f.jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog/blog-post-5.html">
+                    <div class="relative overflow-hidden aspect-[4/3]"><img src="" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                     <div class="p-6 space-y-3 ">
                       <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
                       <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
                         En blogg för alla de som tycker det är kul att blogga</h3>
+                      <p class="text-sm text-muted-foreground leading-relaxed">Blog post excerpt — Brief description of
+                        the article content for preview.</p>
+                    </div>
+                  </a>
+                </article>
+                <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
+                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog/blog-post.html">
+                    <div class="relative overflow-hidden aspect-[4/3]"><img src="" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                    <div class="p-6 space-y-3 ">
+                      <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
+                      <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
+                        En blogg för alla de som tycker det är kul att blogga 23</h3>
                       <p class="text-sm text-muted-foreground leading-relaxed">Blog post excerpt — Brief description of
                         the article content for preview.</p>
                     </div>
@@ -288,6 +263,7 @@
         </footer>
       </div>
     </div>
+
 
   
 </body></html>

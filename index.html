@@ -916,11 +916,10 @@
         transform: scale(.8) translate(-50%, -50%)
       }
     </style>
+    <script src="http://localhost:5173/sdk/content.iife.js"></script>
     <script>
-      window.__klarReady = Promise.all([
-        fetch('http://localhost:5173/api/content?projectId=373&page_type=blog-post').then(r => r.json()),
-        import('http://localhost:5173/sdk/content.js'),
-      ]);
+      const klarSdk = KlarSdk.createKlarClient({ projectId: 373 }); 
+      const posts = klarSdk.list('blog-post', { order: 'updated_at:desc', limit: 10 });
     </script>
   </head>
 
@@ -1063,17 +1062,10 @@
           </template>
 
           <script>
-            (async () => {
-              const [{
-                items
-              }, {
-                render,
-                insert
-              }] = await window.__klarReady;
-              const tpl = document.getElementById('post-tpl').innerHTML;
-              insert('main', 'prepend', render(items, tpl));
-              // document.querySelector('main').innerHTML = render(items, tpl);
-            })();
+            const postTpl = document.getElementById('post-tpl').innerHTML;
+            posts.then(items => {
+              klarSdk.insert('#post-tpl', 'append', klarSdk.render(items, postTpl));
+            });
           </script>
 
 

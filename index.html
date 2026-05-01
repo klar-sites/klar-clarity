@@ -1064,7 +1064,7 @@
           <script>
             const postTpl = document.getElementById('post-tpl').innerHTML;
             posts.then(items => {
-              klarSdk.insert('#post-tpl', 'append', klarSdk.render(items, postTpl));
+              klarSdk.insert('main', 'append', klarSdk.render(items, postTpl));
             });
           </script>
 

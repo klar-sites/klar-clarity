@@ -1055,11 +1055,11 @@
               limit: 10
             });
             console.log(posts);
-            const testa = klar.render(posts,`
-              <article>
-                \${title}
-              </article>
-            `);
+const testa = klar.render(posts,`
+<article>
+  \${title}
+</article>
+`);
             klar.insert('main', 'before', testa);
             console.log(testa);
           </script>

@@ -1660,7 +1660,7 @@
       });
       const posts = await klar.list('blog-post', {
         published: true,
-        order: 'published_at:desc',
+        order: 'updated_at:desc',
         limit: 10
       });
       console.log(posts);

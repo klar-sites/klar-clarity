@@ -1067,10 +1067,12 @@
               const [{
                 items
               }, {
-                render
+                render,
+                insert
               }] = await window.__klarReady;
               const tpl = document.getElementById('post-tpl').innerHTML;
-              document.querySelector('main').innerHTML = render(items, tpl);
+              insert('main', 'prepend', render(items, tpl));
+              // document.querySelector('main').innerHTML = render(items, tpl);
             })();
           </script>
 

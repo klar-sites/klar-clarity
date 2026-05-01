@@ -1062,23 +1062,15 @@
             </article>
           </template>
 
+<script>
+   (async () => {
+    const [{ items }, { render }] = await window.__klarReady;
+    const tpl = document.getElementById('post-tpl').innerHTML;
+    document.querySelector('main').innerHTML = render(items, tpl);
+  })();
+  </script>
 
-
-          <script type="module">
-            import {
-              insert,
-              render
-            } from 'http://localhost:5173/sdk/content.js';
-            const {
-              items
-            } = await window.__posts;
-            const tpl = document.getElementById('post-tpl').innerHTML;
-            const testa = render(items, tpl);
-            insert('main', 'prepend', testa);
-            console.log(items);
-
-            // document.querySelector('main').innerHTML = render(items, '...');
-          </script>
+          
 
 
 

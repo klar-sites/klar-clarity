@@ -921,7 +921,7 @@
         fetch('http://localhost:5173/api/content?projectId=373&page_type=blog-post').then(r => r.json()),
         import('http://localhost:5173/sdk/content.js'),
       ]);
-  </script>
+    </script>
   </head>
 
   <body>
@@ -1062,15 +1062,19 @@
             </article>
           </template>
 
-<script>
-   (async () => {
-    const [{ items }, { render }] = await window.__klarReady;
-    const tpl = document.getElementById('post-tpl').innerHTML;
-    document.querySelector('main').innerHTML = render(items, tpl);
-  })();
-  </script>
+          <script>
+            (async () => {
+              const [{
+                items
+              }, {
+                render
+              }] = await window.__klarReady;
+              const tpl = document.getElementById('post-tpl').innerHTML;
+              document.querySelector('main').innerHTML = render(items, tpl);
+            })();
+          </script>
 
-          
+
 
 
 

@@ -1056,6 +1056,7 @@
             });
             console.log(posts);
             const testa = klar.render(posts, '<article>${title}</article>');
+            klar.insert('main', 'before', testa);
             console.log(testa);
           </script>
           <article class="container-blog py-16">

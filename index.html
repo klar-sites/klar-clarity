@@ -916,6 +916,20 @@
         transform: scale(.8) translate(-50%, -50%)
       }
     </style>
+    <script type="module">
+      import {
+        createKlarClient
+      } from 'http://localhost:5173/sdk/content.js';
+      const klar = createKlarClient({
+        projectId: 373
+      });
+      const posts = await klar.list('blog-post', {
+        // published: true,
+        order: 'updated_at:desc',
+        limit: 10
+      });
+      console.log(posts);
+    </script>
   </head>
 
   <body>
@@ -1650,20 +1664,5 @@
         </footer>
       </div>
     </div>
-
-    <script type="module">
-      import {
-        createKlarClient
-      } from 'http://localhost:5173/sdk/content.js';
-      const klar = createKlarClient({
-        projectId: 373
-      });
-      const posts = await klar.list('blog-post', {
-        // published: true,
-        order: 'updated_at:desc',
-        limit: 10
-      });
-      console.log(posts);
-    </script>
   </body>
 </html>

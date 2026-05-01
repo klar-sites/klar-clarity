@@ -38,10 +38,10 @@
     </script>
   </head>
   <body>
-    
+
     <div id="root">
       <script>
-        !function() {
+        ! function() {
           try {
             var d = document.documentElement,
               c = d.classList;
@@ -64,7 +64,7 @@
           } catch (e) {}
         }()
       </script>
-      
+
       <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
         <ol tabindex="-1" class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
         </ol>
@@ -122,12 +122,11 @@
                     WRITER</span><span class="text-muted-foreground" aria-hidden="true">—</span><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-02">Date Format</time></div>
                 <p class="text-lg text-muted-foreground leading-relaxed">Featured article description — This is where
                   your main content excerpt would appear to give readers a preview of the full article.</p>
-                <div class="pt-4"><a href="/blog-post.html" aria-label="Read more about: Featured Article Title — Hero Content Showcase" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3"><span data-klar-wrap>READ
-                    MORE</span><span class="ml-2" aria-hidden="true">→</span></a></div>
+                <div class="pt-4"><a href="/blog-post.html" aria-label="Read more about: Featured Article Title — Hero Content Showcase" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3">READ
+                    MORE<span class="ml-2" aria-hidden="true">→</span></a></div>
               </div>
             </div>
           </article>
-
           <template id="post-tpl">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
               <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="${topImageUrl}" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
@@ -142,7 +141,6 @@
               </div>
             </div>
           </template>
-
           <script>
             const postTpl = document.getElementById('post-tpl').innerHTML;
             posts.then(items => {
@@ -150,251 +148,6 @@
               klarSdk.insert('#klar-hero', 'replace', klarSdk.render(items[0], postTpl));
             });
           </script>
-
-          <article class="container-blog py-16">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-              <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="images/hero-image-xUp6gwWA.jpg" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" loading="eager" decoding="async" fetchpriority="high" width="592" height="444" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 592px"></div>
-              <div class="space-y-6">
-                <h1 class="featured-title">Featured Article Title — Hero Content Showcase</h1>
-                <div class="flex items-center space-x-4 text-sm"><span class="blog-meta">AUTHOR NAME /
-                    WRITER</span><span class="text-muted-foreground" aria-hidden="true">—</span><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-02">Date Format</time></div>
-                <p class="text-lg text-muted-foreground leading-relaxed">Featured article description — This is where
-                  your msain content excerpt would appear to give readers a preview of the full article.</p>
-                <div class="pt-4"><a href="/blog/rise-of-fashion-blogging" aria-label="Read more about: Featured Article Title — Hero Content Showcase" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3">READ
-                    MORE<span class="ml-2" aria-hidden="true">→</span></a></div>
-              </div>
-            </div>
-          </article>
-          <section aria-labelledby="editors-pick-heading">
-            <section class="container-blog py-16">
-              <div class="flex items-center justify-between mb-8">
-                <h2 id="editors-pick-heading" class="section-title mb-0">Editor's Pick</h2>
-                <div class="flex space-x-2" role="group" aria-label="Navigation controls for editor's picks"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 p-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Scroll to previous articles"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left h-4 w-4">
-                      <path d="m15 18-6-6 6-6"></path>
-                    </svg></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 p-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Scroll to next articles"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right h-4 w-4">
-                      <path d="m9 18 6-6-6-6"></path>
-                    </svg></button></div>
-              </div>
-              <div class="flex space-x-6 overflow-x-auto scrollbar-hide pb-4" role="region" aria-label="Editor's pick articles carousel" tabindex="0" style="scrollbar-width: none;">
-                <article class="flex-shrink-0 w-80 bg-card rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200">
-                  <a href="/article/editor-pick-title-featured-content-description" class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg" aria-label="Read article: Editor Pick Title — Featured Content Description">
-                    <div class="aspect-[4/3] overflow-hidden"><img src="images/fashion-lifestyle-tBv1CS6f.jpg" alt="Editor's pick article: Editor Pick Title — Featured Content Description - A professional image related to category" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy"></div>
-                    <div class="p-6">
-                      <div class="flex items-center space-x-4 mb-3"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
-                      <h3 class="text-lg font-bold text-foreground leading-tight mb-3">Editor Pick Title — Featured
-                        Content Description</h3>
-                      <p class="text-muted-foreground text-sm leading-relaxed mb-4">Editor pick excerpt — Brief preview
-                        of the featured article content.</p><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3 text-xs font-medium">READ
-                        MORE</button>
-                    </div>
-                  </a>
-                </article>
-                <article class="flex-shrink-0 w-80 bg-card rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200">
-                  <a href="/article/featured-article-content-summary" class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg" aria-label="Read article: Featured Article — Content Summary">
-                    <div class="aspect-[4/3] overflow-hidden"><img src="images/tech-post-HXCQgDvH (1).jpg" alt="Editor's pick article: Featured Article — Content Summary - A professional image related to category" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy"></div>
-                    <div class="p-6">
-                      <div class="flex items-center space-x-4 mb-3"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
-                      <h3 class="text-lg font-bold text-foreground leading-tight mb-3">Featured Article — Content
-                        Summary</h3>
-                      <p class="text-muted-foreground text-sm leading-relaxed mb-4">Article excerpt — Short description
-                        of what this featured content covers.</p><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3 text-xs font-medium">READ
-                        MORE</button>
-                    </div>
-                  </a>
-                </article>
-                <article class="flex-shrink-0 w-80 bg-card rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200">
-                  <a href="/article/pick-title-article-preview" class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg" aria-label="Read article: Pick Title — Article Preview">
-                    <div class="aspect-[4/3] overflow-hidden"><img src="images/lifestyle-post-B2o5gHGK.jpg" alt="Editor's pick article: Pick Title — Article Preview - A professional image related to category" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy"></div>
-                    <div class="p-6">
-                      <div class="flex items-center space-x-4 mb-3"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
-                      <h3 class="text-lg font-bold text-foreground leading-tight mb-3">Pick Title — Article Preview</h3>
-                      <p class="text-muted-foreground text-sm leading-relaxed mb-4">Content preview — Description of the
-                        article topic and main points.</p><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3 text-xs font-medium">READ
-                        MORE</button>
-                    </div>
-                  </a>
-                </article>
-                <article class="flex-shrink-0 w-80 bg-card rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200">
-                  <a href="/article/selected-content-featured-description" class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg" aria-label="Read article: Selected Content — Featured Description">
-                    <div class="aspect-[4/3] overflow-hidden"><img src="images/work-lifestyle-Bg_wzXQT.jpg" alt="Editor's pick article: Selected Content — Featured Description - A professional image related to category" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy"></div>
-                    <div class="p-6">
-                      <div class="flex items-center space-x-4 mb-3"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
-                      <h3 class="text-lg font-bold text-foreground leading-tight mb-3">Selected Content — Featured
-                        Description</h3>
-                      <p class="text-muted-foreground text-sm leading-relaxed mb-4">Featured excerpt — Summary of the
-                        highlighted article content.</p><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3 text-xs font-medium">READ
-                        MORE</button>
-                    </div>
-                  </a>
-                </article>
-                <article class="flex-shrink-0 w-80 bg-card rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200">
-                  <a href="/article/editor-choice-content-overview" class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg" aria-label="Read article: Editor Choice — Content Overview">
-                    <div class="aspect-[4/3] overflow-hidden"><img src="/assets/business-post-6IsrfXyD.jpg" alt="Editor's pick article: Editor Choice — Content Overview - A professional image related to category" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy"></div>
-                    <div class="p-6">
-                      <div class="flex items-center space-x-4 mb-3"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
-                      <h3 class="text-lg font-bold text-foreground leading-tight mb-3">Editor Choice — Content Overview
-                      </h3>
-                      <p class="text-muted-foreground text-sm leading-relaxed mb-4">Choice excerpt — Brief overview of
-                        this specially selected content.</p><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3 text-xs font-medium">READ
-                        MORE</button>
-                    </div>
-                  </a>
-                </article>
-                <article class="flex-shrink-0 w-80 bg-card rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200">
-                  <a href="/article/top-pick-article-highlight" class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg" aria-label="Read article: Top Pick — Article Highlight">
-                    <div class="aspect-[4/3] overflow-hidden"><img src="/assets/fashion-post-4m_ykv-I.jpg" alt="Editor's pick article: Top Pick — Article Highlight - A professional image related to category" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy"></div>
-                    <div class="p-6">
-                      <div class="flex items-center space-x-4 mb-3"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
-                      <h3 class="text-lg font-bold text-foreground leading-tight mb-3">Top Pick — Article Highlight</h3>
-                      <p class="text-muted-foreground text-sm leading-relaxed mb-4">Highlight excerpt — Preview of this
-                        top recommended article.</p><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3 text-xs font-medium">READ
-                        MORE</button>
-                    </div>
-                  </a>
-                </article>
-              </div>
-            </section>
-          </section>
-          <section aria-labelledby="trending-heading">
-            <section class="container-blog py-16 bg-muted/30">
-              <h2 id="trending-heading" class="section-title mb-8">Trending</h2>
-              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Trending Title — Popular Content Description" href="/blog/trending-title-popular-content-description">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="images/business-post-6IsrfXyD.jpg" alt="Article image for: Trending Title — Popular Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
-                    <div class="p-6 space-y-3 ">
-                      <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
-                      <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
-                        Trending Title — Popular Content Description</h3>
-                      <p class="text-sm text-muted-foreground leading-relaxed">Trending excerpt — Description of what
-                        makes this content popular.</p>
-                    </div>
-                  </a>
-                </article>
-                <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Hot Topic — Trending Article Summary" href="/blog/hot-topic-trending-article-summary">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="images/tech-post-HXCQgDvH (1).jpg" alt="Article image for: Hot Topic — Trending Article Summary - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
-                    <div class="p-6 space-y-3 ">
-                      <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
-                      <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
-                        Hot Topic — Trending Article Summary</h3>
-                      <p class="text-sm text-muted-foreground leading-relaxed">Hot topic excerpt — Brief summary of this
-                        trending article.</p>
-                    </div>
-                  </a>
-                </article>
-                <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Popular Post — Trending Content Preview" href="/blog/popular-post-trending-content-preview">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="images/fashion-lifestyle-tBv1CS6f (1).jpg" alt="Article image for: Popular Post — Trending Content Preview - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
-                    <div class="p-6 space-y-3 ">
-                      <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
-                      <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
-                        Popular Post — Trending Content Preview</h3>
-                      <p class="text-sm text-muted-foreground leading-relaxed">Popular excerpt — Preview of why this
-                        content is trending.</p>
-                    </div>
-                  </a>
-                </article>
-                <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Trending Article — Content Highlight" href="/blog/trending-article-content-highlight">
-                    <div class="relative overflow-hidden aspect-[3/2]"><img src="images/work-lifestyle-Bg_wzXQT (1).jpg" alt="Article image for: Trending Article — Content Highlight - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="300" height="200" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
-                    <div class="p-6 space-y-3 p-4 space-y-2">
-                      <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
-                      <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-base">
-                        Trending Article — Content Highlight</h3>
-                    </div>
-                  </a>
-                </article>
-                <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Popular Content — Trending Description" href="/blog/popular-content-trending-description">
-                    <div class="relative overflow-hidden aspect-[3/2]"><img src="images/lifestyle-post-B2o5gHGK.jpg" alt="Article image for: Popular Content — Trending Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="300" height="200" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
-                    <div class="p-6 space-y-3 p-4 space-y-2">
-                      <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
-                      <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-base">
-                        Popular Content — Trending Description</h3>
-                    </div>
-                  </a>
-                </article>
-                <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Hot Content — Trending Summary" href="/blog/hot-content-trending-summary">
-                    <div class="relative overflow-hidden aspect-[3/2]"><img src="images/fashion-post-4m_ykv-I.jpg" alt="Article image for: Hot Content — Trending Summary - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="300" height="200" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
-                    <div class="p-6 space-y-3 p-4 space-y-2">
-                      <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
-                      <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-base">
-                        Hot Content — Trending Summary</h3>
-                    </div>
-                  </a>
-                </article>
-              </div>
-            </section>
-          </section>
-          <section aria-labelledby="masonry-heading">
-            <section class="container-blog py-16">
-              <h2 id="masonry-heading" class="section-title mb-8">Featured Stories</h2>
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 auto-rows-[180px]" style="grid-auto-flow: dense;">
-                <article class="group cursor-pointer row-span-3 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
-                  <div class="relative w-full h-full rounded-lg overflow-hidden bg-card border border-border"><img src="images/business-post-6IsrfXyD.jpg" alt="Featured Story — Main Content" class="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105" loading="lazy" decoding="async" width="294" height="540" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 294px" style="min-height: 100%; max-height: 100%;">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none">
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                      <div class="flex items-center gap-2 mb-2"><span class="text-xs font-medium bg-primary/80 px-2 py-1 rounded-full">CATEGORY</span><span class="text-xs opacity-80">DATE</span></div>
-                      <h3 class="font-bold text-sm md:text-base mb-2 line-clamp-2">Featured Story — Main Content</h3>
-                    </div>
-                  </div>
-                </article>
-                <article class="group cursor-pointer row-span-2 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
-                  <div class="relative w-full h-full rounded-lg overflow-hidden bg-card border border-border"><img src="images/tech-post-HXCQgDvH (1).jpg" alt="Story Title — Content Preview" class="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105" loading="lazy" decoding="async" width="294" height="360" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 294px" style="min-height: 100%; max-height: 100%;">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none">
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                      <div class="flex items-center gap-2 mb-2"><span class="text-xs font-medium bg-primary/80 px-2 py-1 rounded-full">CATEGORY</span><span class="text-xs opacity-80">DATE</span></div>
-                      <h3 class="font-bold text-sm md:text-base mb-2 line-clamp-2">Story Title — Content Preview</h3>
-                    </div>
-                  </div>
-                </article>
-                <article class="group cursor-pointer row-span-1 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
-                  <div class="relative w-full h-full rounded-lg overflow-hidden bg-card border border-border"><img src="images/fashion-post-4m_ykv-I.jpg" alt="Post Title — Summary" class="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105" loading="lazy" decoding="async" width="294" height="180" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 294px" style="min-height: 100%; max-height: 100%;">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none">
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                      <div class="flex items-center gap-2 mb-2"><span class="text-xs font-medium bg-primary/80 px-2 py-1 rounded-full">CATEGORY</span><span class="text-xs opacity-80">DATE</span></div>
-                      <h3 class="font-bold text-sm md:text-base mb-2 line-clamp-2">Post Title — Summary</h3>
-                    </div>
-                  </div>
-                </article>
-                <article class="group cursor-pointer row-span-2 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
-                  <div class="relative w-full h-full rounded-lg overflow-hidden bg-card border border-border"><img src="images/lifestyle-post-B2o5gHGK.jpg" alt="Article Title — Overview" class="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105" loading="lazy" decoding="async" width="294" height="360" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 294px" style="min-height: 100%; max-height: 100%;">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none">
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                      <div class="flex items-center gap-2 mb-2"><span class="text-xs font-medium bg-primary/80 px-2 py-1 rounded-full">CATEGORY</span><span class="text-xs opacity-80">DATE</span></div>
-                      <h3 class="font-bold text-sm md:text-base mb-2 line-clamp-2">Article Title — Overview</h3>
-                    </div>
-                  </div>
-                </article>
-                <article class="group cursor-pointer row-span-2 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
-                  <div class="relative w-full h-full rounded-lg overflow-hidden bg-card border border-border"><img src="images/work-lifestyle-Bg_wzXQT.jpg" alt="Content Title — Description" class="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105" loading="lazy" decoding="async" width="294" height="360" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 294px" style="min-height: 100%; max-height: 100%;">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none">
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                      <div class="flex items-center gap-2 mb-2"><span class="text-xs font-medium bg-primary/80 px-2 py-1 rounded-full">CATEGORY</span><span class="text-xs opacity-80">DATE</span></div>
-                      <h3 class="font-bold text-sm md:text-base mb-2 line-clamp-2">Content Title — Description</h3>
-                    </div>
-                  </div>
-                </article>
-                <article class="group cursor-pointer row-span-1 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
-                  <div class="relative w-full h-full rounded-lg overflow-hidden bg-card border border-border"><img src="images/fashion-lifestyle-tBv1CS6f (1).jpg" alt="Sample Title — Preview" class="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105" loading="lazy" decoding="async" width="294" height="180" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 294px" style="min-height: 100%; max-height: 100%;">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none">
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                      <div class="flex items-center gap-2 mb-2"><span class="text-xs font-medium bg-primary/80 px-2 py-1 rounded-full">CATEGORY</span><span class="text-xs opacity-80">DATE</span></div>
-                      <h3 class="font-bold text-sm md:text-base mb-2 line-clamp-2">Sample Title — Preview</h3>
-                    </div>
-                  </div>
-                </article>
-              </div>
-            </section>
-          </section>
           <section aria-labelledby="all-posts-heading">
             <section class="container-blog py-16">
               <h2 id="all-posts-heading" class="section-title mb-8">All Posts</h2>
@@ -535,6 +288,7 @@
         </footer>
       </div>
     </div>
+
 
 
 

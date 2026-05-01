@@ -1062,8 +1062,8 @@ const testa = klar.render(posts,`
   \${title}
 </article>
 `);
-            klar.insert('main', 'before', testa);
-            console.log(testa);
+klar.insert('main', 'prepend', testa);
+console.log(testa);
           </script>
           <article class="container-blog py-16">
             <div class="grid lg:grid-cols-2 gap-12 items-center">

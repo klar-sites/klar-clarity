@@ -204,7 +204,7 @@
                   </a>
                 </article>
               </div>
-              <template id="all-posts-tpl">
+              <template id="all-posts-tpl" data-klar-strip>
                 <article data-klar-static class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
                   <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/${filePath}">
                     <div class="relative overflow-hidden aspect-[4/3]"><img src="${topImageUrl}" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
@@ -219,7 +219,7 @@
                 </article>
               </template>
 
-              <script>
+              <script data-klar-strip>
                 const allPostsTpl = document.getElementById('all-posts-tpl').innerHTML;
                 posts.then(items => {
                   console.log(items)
@@ -267,6 +267,7 @@
         </footer>
       </div>
     </div>
+
 
 
 

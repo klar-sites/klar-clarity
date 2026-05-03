@@ -17,7 +17,7 @@ function resetMenuTags() {
   const allTags = document.querySelector('#all-tags');
   allTags.previousSibling.previousSibling.querySelector('div svg')?.remove();
   allTags.previousSibling.previousSibling.setAttribute('aria-selected', false);
-  allTags.previousSibling.previousSibling.classList.remove('bg-muted');
+  allTags.previousSibling.previousSibling.classList.remove('bg-muted', 'font-medium');
     [...allTags.querySelectorAll('button')]
       .map((item) => {
         item.classList.remove('bg-muted', 'font-medium');

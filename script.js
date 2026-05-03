@@ -6,7 +6,7 @@ if (closeDropdown) {
     [...allCategories.querySelectorAll('button')]
       .map((item) => {
           item.addEventListener('click', (e) => {
-            e.currentTarget.querySelector('div svg').remove();
+            e.currentTarget.querySelector('div svg')?.remove();
             const tag = e.currentTarget.querySelector('div span').innerText;
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");

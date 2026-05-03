@@ -42,6 +42,7 @@ if (closeDropdown) {
             e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
             placeHolder.innerText = tag;
             setPosts(tag, null);
+            placeHolder.parentElement().click();
           });
       })
 

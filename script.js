@@ -58,6 +58,7 @@ if (closeDropdown) {
     [...allTags.querySelectorAll('button')]
       .map((item) => {
           item.addEventListener('click', (e) => {
+            e.currentTarget.classList.add('bg-muted', 'font-medium');
             let selectedCategory = allCategories.querySelector('[aria-selected="true"]');
             if (!selectedCategory) {
               selectedCategory = 'all';

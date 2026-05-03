@@ -1,9 +1,9 @@
 const closeDropdown = document.querySelector('#closeDropdown');
 closeDropdown.addEventListener('click', (e) => {
   closeDropdown.classList.add('hidden');
-  const catDropdown = document.querySelector('[aria-label="Filter by Category"]').nextSibling
+  const catDropdown = document.querySelector('[aria-label="Filter by Category"]').nextSibling;
   if (!catDropdown.classList) {
-    catDropdown = dropDown.nextSibling;
+    catDropdown = catDropdown.nextSibling;
   }
   catDropdown.classList.add('hidden');
 });

@@ -53,8 +53,9 @@ if (closeDropdown) {
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
-          placeHolder.innerText = 'All Categories';
+            placeHolder.innerText = 'All Categories';
             setPosts('all', null);
+            closeDropdown.click();
           });
 
 
@@ -80,6 +81,7 @@ if (closeDropdown) {
             e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
             placeHolderTags.innerText = tag;
             setPosts(selectedCategory, tag);
+            closeDropdown.click();
           });
       })
 
@@ -98,8 +100,9 @@ if (closeDropdown) {
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
-        placeHolderTags.innerText = 'All Tags';
+            placeHolderTags.innerText = 'All Tags';
             setPosts(selectedCategory, 'all');
+            closeDropdown.click();
           });
     
   },1000);

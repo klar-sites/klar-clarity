@@ -12,6 +12,10 @@ allCategories.previousSibling.previousSibling.querySelector('span')?.after(svgHt
   const allTags = document.querySelector('#all-tags');
   const svgHtmlTags = parser.parseFromString(svgFilter, "text/html");
 allTags.previousSibling.previousSibling.querySelector('span')?.after(svgHtmlTags.querySelector('svg'))
+  const clearFilter = document.querySelector('#clear-filters');
+          const filterInfo = document.querySelector('#filter-info');
+            clearFilter.classList.add('hidden');
+            filterInfo.classList.add('hidden');
   
 }
 

@@ -3,7 +3,7 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
   button.querySelector('svg').classList.add('rotate-180');
   console.log('test');
 });
-
+console.log('dd')fff
 
 
 document.querySelector('[aria-label="Toggle theme"]').addEventListener('click', (e) => {

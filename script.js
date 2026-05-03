@@ -72,7 +72,7 @@ if (closeDropdown) {
             } else {
               selectedCategory = selectedCategory.querySelector('div span').innerText;
             }
-            // console.log(selectedCategory)
+            console.log(selectedCategory)
             
             
             const tag = e.currentTarget.querySelector('div span').innerText;

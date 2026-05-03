@@ -5,17 +5,15 @@ document.querySelector('[aria-label="Toggle theme"]').addEventListener('click', 
     c = d.classList;
   c.remove('light', 'dark');
   var e = localStorage.getItem('theme');
-  if ('system' === e || (!e && true)) {
-    var t = '(prefers-color-scheme: dark)',
-      m = window.matchMedia(t);
-    if (m.media !== t || m.matches) {
-      d.style.colorScheme = 'light';
-      c.add('light');
-      localStorage.setItem('theme', 'light');
-    } else {
+    if (!e) {
       d.style.colorScheme = 'dark';
       c.add('dark');
       localStorage.setItem('theme', 'dark');
+    } else {
+      d.style.colorScheme = 'light';
+      c.add('light');
+      localStorage.setItem('theme', 'light');
+      
     }
   } else if (e) {
     c.add(e || '')

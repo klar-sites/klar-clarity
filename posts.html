@@ -74,7 +74,7 @@
           if (tag && tag !== 'all') {
             filterInfo.querySelector('p').innerText += ` • Tagged: ${tag}`
           }
-          
+
         });
       }
     </script>
@@ -379,7 +379,7 @@
             const allPostsTpl = document.getElementById('all-posts-tpl').innerHTML;
             posts.then(items => {
               klarSdk.insert('#all-posts', 'replace', klarSdk.render(items, allPostsTpl));
-              localStorage.setItem('block-posts', 'all-posts');
+              localStorage.setItem('all-posts', items);
             });
           </script>
         </main>

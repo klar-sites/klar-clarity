@@ -1,6 +1,7 @@
 document.querySelector('[aria-label="Filter by Category"]').addEventListener('click', (e) => {
   const button = this;
   button.querySelector('svg').classList.add('rotate-180');
+  console.log('test');
 });
 
 

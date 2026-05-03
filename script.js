@@ -7,7 +7,9 @@ function resetMenu() {
       .map((item) => {
         item.querySelector('div svg')?.remove();
       })
+}
 
+function resetMenuTags() {
   const allTags = document.querySelector('#all-tags');
   allTags.previousSibling.previousSibling.querySelector('div svg')?.remove();
     [...allTags.querySelectorAll('button')]
@@ -48,7 +50,7 @@ if (closeDropdown) {
     [...allTags.querySelectorAll('button')]
       .map((item) => {
           item.addEventListener('click', (e) => {
-            resetMenu();
+            resetMenuTags();
             const tag = e.currentTarget.querySelector('div span').innerText;
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
@@ -61,7 +63,7 @@ if (closeDropdown) {
 
     
       allTags.previousSibling.previousSibling.addEventListener('click', (e) => {
-            resetMenu();
+            resetMenuTags();
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));

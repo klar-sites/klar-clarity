@@ -38,33 +38,7 @@
     </script>
   </head>
   <body>
-
     <div id="root">
-      <script>
-        function() {
-          try {
-            var d = document.documentElement,
-              c = d.classList;
-            c.remove('light', 'dark');
-            var e = localStorage.getItem('theme');
-            if ('system' === e || (!e && true)) {
-              var t = '(prefers-color-scheme: dark)',
-                m = window.matchMedia(t);
-              if (m.media !== t || m.matches) {
-                d.style.colorScheme = 'dark';
-                c.add('dark')
-              } else {
-                d.style.colorScheme = 'light';
-                c.add('light')
-              }
-            } else if (e) {
-              c.add(e || '')
-            }
-            if (e === 'light' || e === 'dark') d.style.colorScheme = e
-          } catch (e) {}
-        }()
-      </script>
-
       <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
         <ol tabindex="-1" class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
         </ol>
@@ -282,7 +256,8 @@
 
 
 
-<script src="/script.js"></script>
+    <script src="/script.js"></script>
+
 
 
 

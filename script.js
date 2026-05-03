@@ -16,8 +16,8 @@ if (closeDropdown) {
   },1000);
 
   setTimeout(() => {
-    const allCategories = document.querySelector('#all-tags');
-    [...allCategories.querySelectorAll('button div span')]
+    const allTags = document.querySelector('#all-tags');
+    [...allTags.querySelectorAll('button div span')]
       .map((item) => {
           item.addEventListener('click', (e) => {
             const tag = e.currentTarget.innerText;

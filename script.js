@@ -2,6 +2,7 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
   const button = e.currentTarget;
   const chevron = button.querySelector('svg');
   const isExpanded = button.getAttribute('aria-expanded') === 'true';
+  const closeDropdown = document.querySelector('#closeDropdown');
   let dropDown = button.nextSibling;
   if (!dropDown.classList) {
     dropDown = dropDown.nextSibling;
@@ -11,10 +12,12 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
     button.querySelector('svg').classList.remove('rotate-180');
     button.setAttribute('aria-expanded', false);
     dropDown.classList.add('hidden');
+    closeDropdown.add('hidden');
   } else {
     button.querySelector('svg').classList.add('rotate-180');
     button.setAttribute('aria-expanded', true);
     dropDown.classList.remove('hidden');
+    closeDropdown.remove('hidden');
   }
 });
 

@@ -2,6 +2,7 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
   const button = e.currentTarget;
   const chevron = button.querySelector('svg');
   const isExpanded = button.getAttribute('aria-expanded') === 'true';
+  const dropDown = button.nextElement();
   console.log(button.getAttribute('aria-expanded'))
   if (isExpanded) {
     button.querySelector('svg').classList.remove('rotate-180');
@@ -9,6 +10,7 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
   } else {
     button.querySelector('svg').classList.add('rotate-180');
     button.setAttribute('aria-expanded', true);
+    dropDown.classList.add('hidden');
   }
 });
 

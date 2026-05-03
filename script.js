@@ -1,11 +1,13 @@
 const closeDropdown = document.querySelector('#closeDropdown');
 
 if (closeDropdown) {
+  setTimeout(
   const allCategories = document.querySelector('#all-categories');
-  allCategories.querySelector('button').addEventListener('click', (e) => {
+  allCategories.querySelector('button div span').addEventListener('click', (e) => {
     const tag = e.currentTarget.innerText;
     console.log(tag);
   });
+  ), 1000);
   
   document.querySelector('[aria-label="Filter by Category"]').addEventListener('click', (e) => {
     const button = e.currentTarget; 

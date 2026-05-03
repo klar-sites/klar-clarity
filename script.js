@@ -5,7 +5,7 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
   console.log(button.getAttribute('aria-expanded'))
   if (isExpanded) {
     button.querySelector('svg').classList.remove('rotate-180');
-    button.setAttribute('aria-expanded', false);  
+    button.setAttribute('aria-expanded', false);
   } else {
     button.querySelector('svg').classList.add('rotate-180');
     button.setAttribute('aria-expanded', true);

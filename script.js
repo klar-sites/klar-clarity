@@ -48,11 +48,12 @@ if (closeDropdown) {
           });
 
 
-    let selectedCategory = allCategories.querySelector('[aria-selected="true"]');
+    
     const allTags = document.querySelector('#all-tags');
     [...allTags.querySelectorAll('button')]
       .map((item) => {
           item.addEventListener('click', (e) => {
+            let selectedCategory = allCategories.querySelector('[aria-selected="true"]');
             if (!selectedCategory) {
               selectedCategory = 'all';
             }

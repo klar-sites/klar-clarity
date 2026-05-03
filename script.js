@@ -27,7 +27,7 @@ if (closeDropdown) {
       })
 
     
-  allCategories.previousSibling.previousSibling.querySelector('div svg')item.addEventListener('click', (e) => {
+  allCategories.previousSibling.previousSibling.querySelector('div svg').addEventListener('click', (e) => {
             resetMenu();
             const tag = e.currentTarget.querySelector('div span').innerText;
             const parser = new DOMParser();

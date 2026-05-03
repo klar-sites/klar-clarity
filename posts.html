@@ -40,7 +40,7 @@
         console.log(category);
         const categories = category;
         if (category === 'all') {
-          // where = {};
+          categories = undefined;
         }
         const posts1 = klarSdk.list('blog-post', {
           where: {

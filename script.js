@@ -1,17 +1,17 @@
 const closeDropdown = document.querySelector('#closeDropdown');
-closeDropdown.addEventListener('click', (e) => {
-  closeDropdown.classList.add('hidden');
-  let catDropdown = document.querySelector('[aria-label="Filter by Category"]').nextSibling;
-  if (!catDropdown.classList) {
-    catDropdown = catDropdown.nextSibling;
-  }
-  let tagDropdown = document.querySelector('[aria-label="Filter by Tag"]').nextSibling;
-  if (!tagDropdown.classList) {
-    tagDropdown = tagDropdown.nextSibling;
-  }
-  catDropdown.classList.add('hidden');
-  tagDropdown.classList.add('hidden');
-});
+// closeDropdown.addEventListener('click', (e) => {
+//   closeDropdown.classList.add('hidden');
+//   let catDropdown = document.querySelector('[aria-label="Filter by Category"]').nextSibling;
+//   if (!catDropdown.classList) {
+//     catDropdown = catDropdown.nextSibling;
+//   }
+//   let tagDropdown = document.querySelector('[aria-label="Filter by Tag"]').nextSibling;
+//   if (!tagDropdown.classList) {
+//     tagDropdown = tagDropdown.nextSibling;
+//   }
+//   catDropdown.classList.add('hidden');
+//   tagDropdown.classList.add('hidden');
+// });
 
 document.querySelector('[aria-label="Filter by Category"]').addEventListener('click', (e) => {
   const button = e.currentTarget;
@@ -26,6 +26,11 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
     button.querySelector('svg').classList.remove('rotate-180');
     button.setAttribute('aria-expanded', false);
     dropDown.classList.add('hidden');
+    closeDropdown.addEventListener('click', (e) => {
+      button.querySelector('svg').classList.remove('rotate-180');
+      button.setAttribute('aria-expanded', false);
+      dropDown.classList.add('hidden');
+    });
     // closeDropdown.add('hidden');
   } else {
     button.querySelector('svg').classList.add('rotate-180');

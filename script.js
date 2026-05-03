@@ -62,7 +62,7 @@ if (closeDropdown) {
             e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
             
             // console.log('asdf', tag)
-            setPosts(tag, null);
+            setPosts('all', tag);
           });
       })
 
@@ -74,7 +74,7 @@ if (closeDropdown) {
             e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
             
             // console.log('asdf', tag)
-            setPosts('all', null);
+            setPosts('all', 'all');
           });
     
   },1000);

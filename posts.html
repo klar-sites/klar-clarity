@@ -64,7 +64,8 @@
           if (items.length === 0) {
             clearFilter.classList.add('hidden');
             filterInfo.classList.add('hidden');
-            items = localStorage.getItem('all-posts');
+            items = JSON.parse(localStorage.getItem('all-posts'));
+            console.log(items)
           } else {
             clearFilter.classList.remove('hidden');
             filterInfo.classList.remove('hidden');

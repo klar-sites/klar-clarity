@@ -15,6 +15,20 @@ if (closeDropdown) {
       })
   },1000);
 
+  setTimeout(() => {
+    const allCategories = document.querySelector('#all-tags');
+    [...allCategories.querySelectorAll('button div span')]
+      .map((item) => {
+          item.addEventListener('click', (e) => {
+            const tag = e.currentTarget.innerText;
+            // console.log('asdf', tag)
+            setPosts(tag, null);
+          });
+        
+  
+      })
+  },1000);
+
   document.querySelector('[aria-label="Filter by Category"]').addEventListener('click', (e) => {
     const button = e.currentTarget; 
     const chevron = button.querySelector('svg');

@@ -73,11 +73,18 @@ if (closeDropdown) {
 
     
       allTags.previousSibling.previousSibling.addEventListener('click', (e) => {
-            resetMenuTags();
+        let selectedCategory = allCategories.querySelector('[aria-selected="true"]');
+            if (!selectedCategory) {
+              selectedCategory = 'all';
+            } else {
+              selectedCategory = selectedCategory.querySelector('div span').innerText;
+            }
+            console.log(selectedCategory)    
+        resetMenuTags();
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
-            setPosts('all', 'all');
+            setPosts(selectedCategory, 'all');
           });
     
   },1000);

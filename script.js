@@ -1,14 +1,11 @@
 const closeDropdown = document.querySelector('#closeDropdown');
 
 function resetMenu() {
-  const allCategories = document.querySelector('#all-categories');
+  document.querySelector('#all-categories');
     [...allCategories.querySelectorAll('button')]
       .map((item) => {
-          
         item.querySelector('div svg')?.remove();
-  
       })
-  
 }
 
 if (closeDropdown) {

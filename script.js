@@ -1,5 +1,5 @@
 const closeDropdown = document.querySelector('#closeDropdown');
-console.log('d')
+
 document.querySelector('[aria-label="Filter by Category"]').addEventListener('click', (e) => {
   const button = e.currentTarget; 
   const chevron = button.querySelector('svg');

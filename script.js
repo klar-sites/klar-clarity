@@ -1,5 +1,5 @@
 document.querySelector('[aria-label="Filter by Category"]').addEventListener('click', (e) => {
-  const el = this;
+  const button = this;
 });
 
 

@@ -3,6 +3,7 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
   const chevron = button.querySelector('svg');
 
   const isExpanded = button.getAttribute('aria-expanded') === 'true';
+  console.log(button.getAttribute('aria-expanded'))
   if (isExpanded) {
     button.setAttribute('aria-expanded', false);  
   } else {

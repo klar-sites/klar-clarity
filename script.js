@@ -8,11 +8,12 @@ document.querySelector('[aria-label="Toggle theme"]').addEventListener('click', 
     var t = '(prefers-color-scheme: dark)',
       m = window.matchMedia(t);
     if (m.media !== t || m.matches) {
-      d.style.colorScheme = 'dark';
-      c.add('dark')
-    } else {
       d.style.colorScheme = 'light';
       c.add('light')
+    } else {
+      d.style.colorScheme = 'dark';
+      c.add('dark')
+      
     }
   } else if (e) {
     c.add(e || '')

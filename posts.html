@@ -62,7 +62,7 @@
           console.log(items);
           const clearFilter = document.querySelector('#clear-filters');
           const filterInfo = document.querySelector('#filter-info');
-          filterInfo.querySelector('p').innerText = `Showing 1 of ${items.length} posts • Tagged: ${tag}`
+          filterInfo.querySelector('p').innerText = `Showing 1 of ${items.length} in ${category} • Tagged: ${tag}`
           if (items.length === 0) {
             clearFilter.classList.remove('hidden');
             filterInfo.classList.remove('hidden');

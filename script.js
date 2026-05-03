@@ -46,6 +46,7 @@ if (closeDropdown) {
     
       allCategories.previousSibling.previousSibling.addEventListener('click', (e) => {
             resetMenu();
+        e.currentTarget.classList.add('bg-muted', 'font-medium');
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));

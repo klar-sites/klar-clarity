@@ -59,7 +59,7 @@ if (closeDropdown) {
             } else {
               selectedCategory = selectedCategory.querySelector('div span').innerText;
             }
-            console.log(selectedCategory)
+            // console.log(selectedCategory)
             resetMenuTags();
             
             const tag = e.currentTarget.querySelector('div span').innerText;
@@ -79,7 +79,7 @@ if (closeDropdown) {
             } else {
               selectedCategory = selectedCategory.querySelector('div span').innerText;
             }
-            console.log(selectedCategory)    
+            // console.log(selectedCategory)    
         resetMenuTags();
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");

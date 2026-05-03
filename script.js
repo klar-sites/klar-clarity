@@ -77,7 +77,7 @@ if (closeDropdown) {
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
             placeHolderTags.innerText = tag;
-            console.log(selectedCategory)
+            // console.log(selectedCategory)
             setPosts(selectedCategory, tag);
             closeDropdown.click();
           });

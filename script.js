@@ -33,7 +33,6 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
     dropDown.classList.remove('hidden');
     closeDropdown.classList.remove('hidden');
     closeDropdown.addEventListener('click', (e) => {
-      console.log('test')
       button.querySelector('svg').classList.remove('rotate-180');
       button.setAttribute('aria-expanded', false);
       dropDown.classList.add('hidden');
@@ -60,6 +59,12 @@ document.querySelector('[aria-label="Filter by Tag"]').addEventListener('click',
     button.setAttribute('aria-expanded', true);
     dropDown.classList.remove('hidden');
     closeDropdown.classList.remove('hidden');
+    closeDropdown.addEventListener('click', (e) => {
+      button.querySelector('svg').classList.remove('rotate-180');
+      button.setAttribute('aria-expanded', false); 
+      dropDown.classList.add('hidden');
+      closeDropdown.classList.add('hidden');
+    });
   }
 });
 

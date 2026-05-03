@@ -18,6 +18,26 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
   }
 });
 
+document.querySelector('[aria-label="Filter by Tags"]').addEventListener('click', (e) => {
+  const button = e.currentTarget;
+  const chevron = button.querySelector('svg');
+  const isExpanded = button.getAttribute('aria-expanded') === 'true';
+  let dropDown = button.nextSibling;
+  if (!dropDown.classList) {
+    dropDown = dropDown.nextSibling;
+  }
+  
+  if (isExpanded) {
+    button.querySelector('svg').classList.remove('rotate-180');
+    button.setAttribute('aria-expanded', false);
+    dropDown.classList.add('hidden');
+  } else {
+    button.querySelector('svg').classList.add('rotate-180');
+    button.setAttribute('aria-expanded', true);
+    dropDown.classList.remove('hidden');
+  }
+});
+
 document.querySelector('[aria-label="Toggle theme"]').addEventListener('click', (e) => {
   try {
     var d = document.documentElement,

@@ -1,4 +1,5 @@
 document.querySelector('[aria-label="Toggle theme"]').addEventListener('click', (e) => {
+  try {
   console.log('d'); // <header> 
   var d = document.documentElement,
     c = d.classList;

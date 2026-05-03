@@ -5,7 +5,10 @@ if (closeDropdown) {
           const allCategories = document.querySelector('#all-categories');
           [...allCategories.querySelectorAll('button div span')]
             .map((item) => {
-        return null;
+        item.addEventListener('click', (e) => {
+          const tag = e.currentTarget.innerText;
+          console.log(tag);
+        });
         
             })
       },1000);

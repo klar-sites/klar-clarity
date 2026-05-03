@@ -61,6 +61,10 @@
           console.log(items);
           const clearFilter = document.querySelector('#clear-filters');
           const filterInfo = document.querySelector('#filter-info');
+          filterInfo.querySelector('p').innerText = `Showing 1 of ${items.length} posts in ${category}`
+          if (tag && tag !== 'all') {
+            filterInfo.querySelector('p').innerText += ` • Tagged: ${tag}`
+          }
           if (items.length === 0) {
             // clearFilter.classList.add('hidden');
             // filterInfo.classList.add('hidden');
@@ -71,11 +75,6 @@
             filterInfo.classList.remove('hidden');
           }
           klarSdk.insert('#all-posts', 'replace', klarSdk.render(items, allPostsTpl));
-          filterInfo.querySelector('p').innerText = `Showing 1 of ${items.length} posts in ${category}`
-          if (tag && tag !== 'all') {
-            filterInfo.querySelector('p').innerText += ` • Tagged: ${tag}`
-          }
-
         });
       }
     </script>

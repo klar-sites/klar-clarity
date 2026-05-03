@@ -34,6 +34,9 @@ function resetMenuTags() {
 if (closeDropdown) {
   const placeHolder = document.querySelector('[aria-label="Filter by Category"] span');
   setTimeout(() => {
+    document.querySelector('#clear-filter').addEventListener('click', (e) => {
+    
+    });
     const allCategories = document.querySelector('#all-categories');
     [...allCategories.querySelectorAll('button')]
       .map((item) => {

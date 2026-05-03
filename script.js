@@ -1,5 +1,10 @@
 const closeDropdown = document.querySelector('#closeDropdown');
 
+function clearFilter() {
+  resetMenu();
+  resetMenuTags();
+}
+
 function resetMenu() {
   const allCategories = document.querySelector('#all-categories');
   allCategories.previousSibling.previousSibling.querySelector('div svg')?.remove();

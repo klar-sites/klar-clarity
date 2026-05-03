@@ -22,7 +22,7 @@ if (closeDropdown) {
           item.addEventListener('click', (e) => {
             const tag = e.currentTarget.innerText;
             // console.log('asdf', tag)
-            setPosts(tag, null);
+            setPosts(null, tag);
           });
         
   

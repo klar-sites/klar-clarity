@@ -8,7 +8,9 @@ function clearFilters() {
   const allCategories = document.querySelector('#all-categories');
   const parser = new DOMParser();
   const svgHtml = parser.parseFromString(svgFilter, "text/html");
-  allCategories.previousSibling.previousSibling.querySelector('span')?.after(svgHtml.querySelector('svg'))
+allCategories.previousSibling.previousSibling.querySelector('span')?.after(svgHtml.querySelector('svg'))
+  const allTags = document.querySelector('#all-tags');
+allTags.previousSibling.previousSibling.querySelector('span')?.after(svgHtml.querySelector('svg'))
   
 }
 

@@ -119,8 +119,8 @@
                     WRITER</span><span class="text-muted-foreground" aria-hidden="true">—</span><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-02">Date Format</time></div>
                 <p class="text-lg text-muted-foreground leading-relaxed">Featured article description — This is where
                   your main content excerpt would appear to give readers a preview of the full article.</p>
-                <div class="pt-4"><a href="/blog/blog-post-4.html" aria-label="Read more about: Featured Article Title — Hero Content Showcase" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3">READ
-                    MORE<span class="ml-2" aria-hidden="true">→</span></a></div>
+                <div class="pt-4"><a href="/blog/blog-post-4.html" aria-label="Read more about: Featured Article Title — Hero Content Showcase" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3"><span data-klar-wrap>READ
+                    MORE</span><span class="ml-2" aria-hidden="true">→</span></a></div>
               </div>
             </div>
           </article>
@@ -142,7 +142,7 @@
           <script>
             const postTpl = document.getElementById('post-tpl').innerHTML;
             posts.then(items => {
-              console.log(items);
+              // console.log(items);
               klarSdk.insert('#klar-hero', 'replace', klarSdk.render(items[5], postTpl));
             });
           </script>

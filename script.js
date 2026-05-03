@@ -64,6 +64,7 @@ if (closeDropdown) {
     [...allTags.querySelectorAll('button')]
       .map((item) => {
           item.addEventListener('click', (e) => {
+            return;
             resetMenuTags();
             e.currentTarget.classList.add('bg-muted', 'font-medium');
             let selectedCategory = allCategories.querySelector('[aria-selected="true"]');

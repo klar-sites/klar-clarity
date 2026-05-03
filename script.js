@@ -34,8 +34,6 @@ if (closeDropdown) {
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
-            
-            // console.log('asdf', tag)
             setPosts(tag, null);
           });
       })
@@ -46,11 +44,12 @@ if (closeDropdown) {
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
-            
-            // console.log('asdf', tag)
             setPosts('all', null);
           });
 
+
+    const selectedCategory = allCategories.querySelector('[aria-selected]="true"');
+    console.log(selectedCategory)
     const allTags = document.querySelector('#all-tags');
     [...allTags.querySelectorAll('button')]
       .map((item) => {
@@ -61,7 +60,6 @@ if (closeDropdown) {
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
             
-            // console.log('asdf', tag)
             setPosts('all', tag);
           });
       })
@@ -72,8 +70,6 @@ if (closeDropdown) {
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
-            
-            // console.log('asdf', tag)
             setPosts('all', 'all');
           });
     

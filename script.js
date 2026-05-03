@@ -7,7 +7,7 @@ if (closeDropdown) {
       .map((item) => {
           item.addEventListener('click', (e) => {
             const tag = e.currentTarget.innerText;
-            console.log('asdf', tag)
+            // console.log('asdf', tag)
             setPosts(tag, null);
           });
         

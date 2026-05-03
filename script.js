@@ -8,8 +8,8 @@ function resetMenu() {
         item.querySelector('div svg')?.remove();
       })
 
-  const allCategories = document.querySelector('#all-tags');
-  allCategories.previousSibling.previousSibling.querySelector('div svg')?.remove();
+  const allTags = document.querySelector('#all-tags');
+  allTags.previousSibling.previousSibling.querySelector('div svg')?.remove();
     [...allCategories.querySelectorAll('button')]
       .map((item) => {
         item.querySelector('div svg')?.remove();

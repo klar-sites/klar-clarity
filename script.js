@@ -56,7 +56,7 @@ if (closeDropdown) {
             if (!selectedCategory) {
               selectedCategory = 'all';
             }
-            // console.log(selectedCategory)
+            console.log(selectedCategory)
             resetMenuTags();
             
             const tag = e.currentTarget.querySelector('div span').innerText;

@@ -27,13 +27,14 @@ function resetMenuTags() {
 }
 
 if (closeDropdown) {
+  const placeHolder = document.querySelector('[aria-label="Filter by Category"] span');
   setTimeout(() => {
     const allCategories = document.querySelector('#all-categories');
     [...allCategories.querySelectorAll('button')]
       .map((item) => {
           item.addEventListener('click', (e) => {
             resetMenu();
-            const placeHolder = document.querySelector('[aria-label="Filter by Category"] span');
+            
             e.currentTarget.classList.add('bg-muted', 'font-medium');
             e.currentTarget.setAttribute('aria-selected', true);
             const tag = e.currentTarget.querySelector('div span').innerText;

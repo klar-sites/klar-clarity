@@ -3,10 +3,10 @@ const closeDropdown = document.querySelector('#closeDropdown');
 if (closeDropdown) {
   setTimeout(() => {
     const allCategories = document.querySelector('#all-categories');
-    [...allCategories.querySelectorAll('button div span')]
+    [...allCategories.querySelectorAll('button')]
       .map((item) => {
           item.addEventListener('click', (e) => {
-            const tag = e.currentTarget.innerText;
+            const tag = e.currentTarget.querySelector('div span').innerText;
             // console.log('asdf', tag)
             setPosts(tag, null);
           });
@@ -17,10 +17,10 @@ if (closeDropdown) {
 
   setTimeout(() => {
     const allTags = document.querySelector('#all-tags');
-    [...allTags.querySelectorAll('button div span')]
+    [...allTags.querySelectorAll('button')]
       .map((item) => {
           item.addEventListener('click', (e) => {
-            const tag = e.currentTarget.innerText;
+            const tag = e.currentTarget.querySelector('div span').innerText;
             // console.log('asdf', tag)
             setPosts(null, tag);
           });

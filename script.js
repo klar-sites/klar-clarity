@@ -1,3 +1,9 @@
+document.querySelector('[aria-label="Filter by Category"]').addEventListener('click', (e) => {
+  
+});
+
+
+
 document.querySelector('[aria-label="Toggle theme"]').addEventListener('click', (e) => {
   try {
     var d = document.documentElement,

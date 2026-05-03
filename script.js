@@ -14,9 +14,11 @@ function resetMenu() {
 function resetMenuTags() {
   const allTags = document.querySelector('#all-tags');
   allTags.previousSibling.previousSibling.querySelector('div svg')?.remove();
+  allTags.previousSibling.previousSibling.querySelector('button').setAttribute('aria-selected', false);
     [...allTags.querySelectorAll('button')]
       .map((item) => {
         item.querySelector('div svg')?.remove();
+        item.setAttribute('aria-selected', false);
       })
 }
 

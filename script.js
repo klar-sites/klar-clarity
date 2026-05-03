@@ -58,6 +58,7 @@ if (closeDropdown) {
     [...allTags.querySelectorAll('button')]
       .map((item) => {
           item.addEventListener('click', (e) => {
+            resetMenuTags();
             e.currentTarget.classList.add('bg-muted', 'font-medium');
             let selectedCategory = allCategories.querySelector('[aria-selected="true"]');
             if (!selectedCategory) {
@@ -66,7 +67,7 @@ if (closeDropdown) {
               selectedCategory = selectedCategory.querySelector('div span').innerText;
             }
             // console.log(selectedCategory)
-            resetMenuTags();
+            
             
             const tag = e.currentTarget.querySelector('div span').innerText;
             const parser = new DOMParser();

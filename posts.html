@@ -59,13 +59,14 @@
         const allPostsTpl = document.getElementById('all-posts-tpl').innerHTML;
         posts1.then(items => {
           klarSdk.insert('#all-posts', 'replace', klarSdk.render(items, allPostsTpl));
+          console.log(items);
+          const clearFilter = document.querySelector('#clear-filters');
+          const filterInfo = document.querySelector('#filter-info');
+          // if (true) {
+          clearFilter.classList.remove('hidden');
+          filterInfo.classList.remove('hidden');
+          // }
         });
-        const clearFilter = document.querySelector('#clear-filters');
-        const filterInfo = document.querySelector('#filter-info');
-        // if (true) {
-        clearFilter.classList.remove('hidden');
-        filterInfo.classList.remove('hidden');
-        // }
       }
     </script>
   </head>

@@ -5,7 +5,8 @@ document.querySelector('[aria-label="Toggle theme"]').addEventListener('click', 
   var e = localStorage.getItem('theme');
   if (!e || e === 'light') {
     d.style.colorScheme = 'dark';
-    c.add('dark');
+    c.classList.remove('light');
+    c.classList.add('dark');
     localStorage.setItem('theme', 'dark');
   } else {
     d.style.colorScheme = 'light';

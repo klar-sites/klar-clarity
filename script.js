@@ -14,7 +14,6 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
   } else {
     button.querySelector('svg').classList.add('rotate-180');
     button.setAttribute('aria-expanded', true);
-    console.log(dropDown)
     dropDown.classList.remove('hidden');
   }
 });

@@ -64,7 +64,6 @@ if (closeDropdown) {
     [...allTags.querySelectorAll('button')]
       .map((item) => {
           item.addEventListener('click', (e) => {
-            return;
             resetMenuTags();
             e.currentTarget.classList.add('bg-muted', 'font-medium');
             let selectedCategory = allCategories.querySelector('[aria-selected="true"]');
@@ -104,20 +103,6 @@ if (closeDropdown) {
             closeDropdown.click();
           });
     
-  },1000);
-
-  setTimeout(() => {
-    const allTags = document.querySelector('#all-tags');
-    [...allTags.querySelectorAll('button')]
-      .map((item) => {
-          item.addEventListener('click', (e) => {
-            const tag = e.currentTarget.querySelector('div span').innerText;
-            // console.log('asdf', tag)
-            setPosts(null, tag);
-          });
-        
-  
-      })
   },1000);
 
   document.querySelector('[aria-label="Filter by Category"]').addEventListener('click', (e) => {

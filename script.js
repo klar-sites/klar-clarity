@@ -56,6 +56,8 @@ if (closeDropdown) {
             let selectedCategory = allCategories.querySelector('[aria-selected="true"]');
             if (!selectedCategory) {
               selectedCategory = 'all';
+            } else {
+              selectedCategory = selectedCategory.querySelector('div span').innerText;
             }
             console.log(selectedCategory)
             resetMenuTags();

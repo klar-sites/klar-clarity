@@ -35,8 +35,17 @@
         order: 'updated_at:desc',
         limit: 10
       });
+
       function setPosts(categoryId, tagId) {
         console.log(categoryId);
+        const allTagsTemplate = document.getElementById('all-tags-template').innerHTML;
+        klarSdk.facets('blog-post', 'tags').then(facets => {
+          // console.log(facets);
+          klarSdk.insert('#all-tags', 'replace', klarSdk.render(facets,
+            allTagsTemplate));
+          // klarSdk.vocabularies('blog-post', 'categories').then(facets => {
+          // });
+        });
       }
     </script>
   </head>

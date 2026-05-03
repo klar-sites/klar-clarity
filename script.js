@@ -3,7 +3,7 @@ document.querySelector('[aria-label="Toggle theme"]').addEventListener('click', 
     var d = document.documentElement,
     c = d.classList;
     var e = localStorage.getItem('theme');
-    if (e || e === 'light') {
+    if (!e || e === 'light') {
       d.style.colorScheme = 'dark';
       c.remove('light');
       c.add('dark');

@@ -1,17 +1,4 @@
 const closeDropdown = document.querySelector('#closeDropdown');
-// closeDropdown.addEventListener('click', (e) => {
-//   closeDropdown.classList.add('hidden');
-//   let catDropdown = document.querySelector('[aria-label="Filter by Category"]').nextSibling;
-//   if (!catDropdown.classList) {
-//     catDropdown = catDropdown.nextSibling;
-//   }
-//   let tagDropdown = document.querySelector('[aria-label="Filter by Tag"]').nextSibling;
-//   if (!tagDropdown.classList) {
-//     tagDropdown = tagDropdown.nextSibling;
-//   }
-//   catDropdown.classList.add('hidden');
-//   tagDropdown.classList.add('hidden');
-// });
 
 document.querySelector('[aria-label="Filter by Category"]').addEventListener('click', (e) => {
   const button = e.currentTarget;

@@ -1,12 +1,23 @@
 const closeDropdown = document.querySelector('#closeDropdown');
 
+function resetMenu() {
+  const allCategories = document.querySelector('#all-categories');
+    [...allCategories.querySelectorAll('button')]
+      .map((item) => {
+          
+        item.querySelector('div svg')?.remove();
+  
+      })
+  
+}
+
 if (closeDropdown) {
   setTimeout(() => {
     const allCategories = document.querySelector('#all-categories');
     [...allCategories.querySelectorAll('button')]
       .map((item) => {
           item.addEventListener('click', (e) => {
-            e.currentTarget.querySelector('div svg')?.remove();
+            resetMenu();
             const tag = e.currentTarget.querySelector('div span').innerText;
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");

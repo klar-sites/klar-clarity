@@ -1,6 +1,6 @@
 const closeDropdown = document.querySelector('#closeDropdown');
 
-function clearFilter() {
+function clearFilters() {
   resetMenu();
   resetMenuTags();
 }
@@ -34,8 +34,8 @@ function resetMenuTags() {
 if (closeDropdown) {
   const placeHolder = document.querySelector('[aria-label="Filter by Category"] span');
   setTimeout(() => {
-    document.querySelector('#clear-filter').addEventListener('click', (e) => {
-    
+    document.querySelector('#clear-filters').addEventListener('click', (e) => {
+      clearFilters();
     });
     const allCategories = document.querySelector('#all-categories');
     [...allCategories.querySelectorAll('button')]

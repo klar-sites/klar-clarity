@@ -38,13 +38,14 @@
 
       function setPosts(category, tag) {
         console.log(category);
-        const posts1 = klarSdk.list('blog-post', {
-          where: {
+        const where = { where: {
             categories: category,
             tags: {
               has: tag
             }
-          },
+          }};
+        const posts1 = klarSdk.list('blog-post', {
+          where,
           order: 'updated_at:desc',
           limit: 10
         });

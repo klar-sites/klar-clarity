@@ -2,7 +2,7 @@ const closeDropdown = document.querySelector('#closeDropdown');
 
 if (closeDropdown) {
   const allCategories = document.querySelector('#all-categories');
-  allCategories.querySelector('button div span').addEventListener('click', (e) => {
+  allCategories.querySelector('button').addEventListener('click', (e) => {
     const tag = e.currentTarget.innerText;
     console.log(tag);
   });

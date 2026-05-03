@@ -1,7 +1,6 @@
 document.querySelector('[aria-label="Filter by Category"]').addEventListener('click', (e) => {
   const button = e.currentTarget;
   const chevron = button.querySelector('svg');
-
   const isExpanded = button.getAttribute('aria-expanded') === 'true';
   console.log(button.getAttribute('aria-expanded'))
   if (isExpanded) {
@@ -10,11 +9,7 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
   } else {
     button.querySelector('svg').classList.add('rotate-180');
     button.setAttribute('aria-expanded', true);
-  }
-  
-  // console.log(e);
-  
-  
+  }  
 });
 
 document.querySelector('[aria-label="Toggle theme"]').addEventListener('click', (e) => {

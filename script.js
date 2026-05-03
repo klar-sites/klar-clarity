@@ -4,7 +4,7 @@ function resetMenu() {
   const allCategories = document.querySelector('#all-categories');
   allCategories.previousSibling.previousSibling.querySelector('div svg')?.remove();
   allCategories.previousSibling.previousSibling.setAttribute('aria-selected', false);
-  // allCategories.previousSibling.previousSibling.remove('bg-muted');
+  allCategories.previousSibling.previousSibling.classList.remove('bg-muted');
     [...allCategories.querySelectorAll('button')]
       .map((item) => {
         item.classList.remove('bg-muted');

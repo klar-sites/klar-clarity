@@ -27,7 +27,33 @@ if (closeDropdown) {
       })
 
     
-  allCategories.previousSibling.previousSibling.addEventListener('click', (e) => {
+      allCategories.previousSibling.previousSibling.addEventListener('click', (e) => {
+            resetMenu();
+            const parser = new DOMParser();
+            const svgHtml = parser.parseFromString(svgFilter, "text/html");
+            e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
+            
+            // console.log('asdf', tag)
+            setPosts('all', null);
+          });
+
+    const allTags = document.querySelector('#all-tags');
+    [...allTags.querySelectorAll('button')]
+      .map((item) => {
+          item.addEventListener('click', (e) => {
+            resetMenu();
+            const tag = e.currentTarget.querySelector('div span').innerText;
+            const parser = new DOMParser();
+            const svgHtml = parser.parseFromString(svgFilter, "text/html");
+            e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
+            
+            // console.log('asdf', tag)
+            setPosts(tag, null);
+          });
+      })
+
+    
+      allTags.previousSibling.previousSibling.addEventListener('click', (e) => {
             resetMenu();
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");

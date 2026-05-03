@@ -67,7 +67,7 @@ if (closeDropdown) {
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
             
-            setPosts('all', tag);
+            setPosts(selectedCategory, tag);
           });
       })
 

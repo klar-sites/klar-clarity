@@ -1,6 +1,15 @@
 document.querySelector('[aria-label="Filter by Category"]').addEventListener('click', (e) => {
   const button = e.currentTarget;
-  // console.log(e);  
+  const chevron = button.querySelector('svg');
+
+  const isExpanded = button.getAttribute('aria-expanded') === true;
+  if (isExpanded) {
+    button.setAttribute('aria-expanded', true);  
+  } else {
+    button.setAttribute('aria-expanded', true);
+  }
+  
+  // console.log(e);
   button.querySelector('svg').classList.add('rotate-180');
   
 });

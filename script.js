@@ -2,6 +2,7 @@ const closeDropdown = document.querySelector('#closeDropdown');
 
 function resetMenu() {
   const allCategories = document.querySelector('#all-categories');
+  allCategories.previousChild.querySelector('div svg')?.remove();
     [...allCategories.querySelectorAll('button')]
       .map((item) => {
         item.querySelector('div svg')?.remove();

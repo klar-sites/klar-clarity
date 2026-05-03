@@ -7,7 +7,7 @@ if (closeDropdown) {
       .map((item) => {
           item.addEventListener('click', (e) => {
             const tag = e.currentTarget.querySelector('div span').innerText;
-            svgFilter.after(e.currentTarget.querySelector('div span'));
+            e.currentTarget.querySelector('div span').after(svgFilter);
             
             // console.log('asdf', tag)
             setPosts(tag, null);

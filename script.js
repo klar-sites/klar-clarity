@@ -72,14 +72,12 @@ if (closeDropdown) {
             } else {
               selectedCategory = selectedCategory.querySelector('div span').innerText;
             }
-            console.log(selectedCategory)
-            
-            
             const tag = e.currentTarget.querySelector('div span').innerText;
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
             placeHolderTags.innerText = tag;
+            console.log(selectedCategory)
             setPosts(selectedCategory, tag);
             closeDropdown.click();
           });

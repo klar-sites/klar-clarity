@@ -8,8 +8,10 @@ if (closeDropdown) {
         
           item.addEventListener('click', (e) => {
             const tag = e.currentTarget.innerText;
+            console.log(tag)
             setPosts(tag, null);
           });
+        
   
       })
   },1000);

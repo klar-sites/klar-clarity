@@ -5,6 +5,11 @@ function clearFilters() {
   resetMenuTags();
   document.querySelector('[aria-label="Filter by Category"] span').innerText = 'All Categories';
   document.querySelector('[aria-label="Filter by Tag"] span').innerText = 'All Tags';
+  const allCategories = document.querySelector('#all-categories');
+  const parser = new DOMParser();
+  const svgHtml = parser.parseFromString(svgFilter, "text/html");
+  allCategories.previousSibling.previousSibling.querySelector('span')?.after(svgHtml.querySelector('svg'))
+  
 }
 
 function resetMenu() {

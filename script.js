@@ -48,7 +48,7 @@ if (closeDropdown) {
           });
 
 
-    const selectedCategory = allCategories.querySelector('[aria-selected]');
+    const selectedCategory = allCategories.querySelector('[aria-selected="true"]');
     console.log(selectedCategory)
     const allTags = document.querySelector('#all-tags');
     [...allTags.querySelectorAll('button')]

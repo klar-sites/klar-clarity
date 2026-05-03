@@ -39,19 +39,19 @@
       function setPosts(category, tag) {
         console.log(category);
         let categories = category;
-        let has = tag;
+        let tags = {
+              has: tag
+            };
         if (category === 'all') {
           categories = undefined;
         }
         if (tag === 'all') {
-          has = undefined;
+          tags = undefined;
         }
         const posts1 = klarSdk.list('blog-post', {
           where: {
             categories,
-            tags: {
-              has
-            }
+            tags
           },
           order: 'updated_at:desc',
           limit: 10

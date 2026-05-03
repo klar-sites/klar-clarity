@@ -7,7 +7,7 @@ function resetMenu() {
   // allCategories.previousSibling.previousSibling.remove('bg-muted');
     [...allCategories.querySelectorAll('button')]
       .map((item) => {
-        item.remove('bg-muted');
+        item.classList.remove('bg-muted');
         item.querySelector('div svg')?.remove();
         item.setAttribute('aria-selected', false);
       })

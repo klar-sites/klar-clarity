@@ -1,7 +1,7 @@
 const closeDropdown = document.querySelector('#closeDropdown');
 
 document.querySelector('[aria-label="Filter by Category"]').addEventListener('click', (e) => {
-  const button = e.currentTarget;
+  const button = e.currentTarget; 
   const chevron = button.querySelector('svg');
   const isExpanded = button.getAttribute('aria-expanded') === 'true';
   let dropDown = button.nextSibling;

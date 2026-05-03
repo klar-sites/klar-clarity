@@ -4,10 +4,10 @@ function resetMenu() {
   const allCategories = document.querySelector('#all-categories');
   allCategories.previousSibling.previousSibling.querySelector('div svg')?.remove();
   allCategories.previousSibling.previousSibling.setAttribute('aria-selected', false);
-  allCategories.previousSibling.previousSibling.classList.remove('bg-muted');
+  allCategories.previousSibling.previousSibling.classList.remove('bg-muted', 'font-medium');
     [...allCategories.querySelectorAll('button')]
       .map((item) => {
-        item.classList.remove('bg-muted');
+        item.classList.remove('bg-muted', 'font-medium');
         item.querySelector('div svg')?.remove();
         item.setAttribute('aria-selected', false);
       })
@@ -20,7 +20,7 @@ function resetMenuTags() {
   allTags.previousSibling.previousSibling.classList.remove('bg-muted');
     [...allTags.querySelectorAll('button')]
       .map((item) => {
-        item.classList.remove('bg-muted');
+        item.classList.remove('bg-muted', 'font-medium');
         item.querySelector('div svg')?.remove();
         item.setAttribute('aria-selected', false);
       })

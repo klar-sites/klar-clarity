@@ -7,7 +7,7 @@ if (closeDropdown) {
             .map((item) => {
         return null;
         
-            }
+            })
       },1000);
   
   document.querySelector('[aria-label="Filter by Category"]').addEventListener('click', (e) => {

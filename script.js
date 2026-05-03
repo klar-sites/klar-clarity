@@ -9,7 +9,7 @@ if (closeDropdown) {
             const tag = e.currentTarget.querySelector('div span').innerText;
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
-            e.currentTarget.querySelector('div span').after(svgHtml.innerHTML);
+            e.currentTarget.querySelector('div span').after(svgHtml.querySelector('svg').outerHTML);
             
             // console.log('asdf', tag)
             setPosts(tag, null);

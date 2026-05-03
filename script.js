@@ -3,9 +3,11 @@ const closeDropdown = document.querySelector('#closeDropdown');
 function resetMenu() {
   const allCategories = document.querySelector('#all-categories');
   allCategories.previousSibling.previousSibling.querySelector('div svg')?.remove();
+  allCategories.previousSibling.previousSibling..querySelector('button').setAttribute('aria-selected', false);
     [...allCategories.querySelectorAll('button')]
       .map((item) => {
         item.querySelector('div svg')?.remove();
+        item.setAttribute('aria-selected', false);
       })
 }
 

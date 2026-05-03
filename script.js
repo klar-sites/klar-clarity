@@ -10,7 +10,7 @@ function resetMenu() {
 
   const allTags = document.querySelector('#all-tags');
   allTags.previousSibling.previousSibling.querySelector('div svg')?.remove();
-    [...allCategories.querySelectorAll('button')]
+    [...allTags.querySelectorAll('button')]
       .map((item) => {
         item.querySelector('div svg')?.remove();
       })

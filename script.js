@@ -31,7 +31,7 @@ if (closeDropdown) {
             resetMenu();
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
-            e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
+            e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
             
             // console.log('asdf', tag)
             setPosts('All', null);

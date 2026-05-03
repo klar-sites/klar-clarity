@@ -22,6 +22,24 @@
     <meta name="twitter:title" content="Nexus - Personal Blog | Fashion, Technology &amp; Lifestyle">
     <meta name="twitter:description" content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
     <link rel="stylesheet" href="/style.css">
+    <script>
+      (function() {
+        try {
+          var d = document.documentElement,
+            c = d.classList;
+          var e = localStorage.getItem('theme');
+          if (!e || e === 'dark') {
+            d.style.colorScheme = 'dark';
+            c.add('dark');
+            // localStorage.setItem('theme', 'dark');
+          } else {
+            d.style.colorScheme = 'light';
+            c.add('light');
+            // localStorage.setItem('theme', 'light');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <!-- klar:strip-start -->
     <script src="http://localhost:5173/sdk/content.iife.js"></script>
     <script>
@@ -42,24 +60,6 @@
     <!-- klar:strip-end -->
   </head>
   <body>
-    <script>
-      (function() {
-        try {
-          var d = document.documentElement,
-            c = d.classList;
-          var e = localStorage.getItem('theme');
-          if (!e || e === 'dark') {
-            d.style.colorScheme = 'dark';
-            c.add('dark');
-            // localStorage.setItem('theme', 'dark');
-          } else {
-            d.style.colorScheme = 'light';
-            c.add('light');
-            // localStorage.setItem('theme', 'light');
-          }
-        } catch (e) {}
-      })();
-    </script>
     <div id="root">
       <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
         <ol tabindex="-1" class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
@@ -287,6 +287,7 @@
     </div>
 
     <script src="/script.js"></script>
+
 
 
 

@@ -82,13 +82,15 @@ if (closeDropdown) {
     
       allTags.previousSibling.previousSibling.addEventListener('click', (e) => {
         let selectedCategory = allCategories.querySelector('[aria-selected="true"]');
-            if (!selectedCategory) {
+        resetMenuTags();
+        e.currentTarget.classList.add('bg-muted', 'font-medium');    
+        if (!selectedCategory) {
               selectedCategory = 'all';
             } else {
               selectedCategory = selectedCategory.querySelector('div span').innerText;
             }
             // console.log(selectedCategory)    
-        resetMenuTags();
+        
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));

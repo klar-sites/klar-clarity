@@ -7,6 +7,13 @@ function resetMenu() {
       .map((item) => {
         item.querySelector('div svg')?.remove();
       })
+
+  const allCategories = document.querySelector('#all-tags');
+  allCategories.previousSibling.previousSibling.querySelector('div svg')?.remove();
+    [...allCategories.querySelectorAll('button')]
+      .map((item) => {
+        item.querySelector('div svg')?.remove();
+      })
 }
 
 if (closeDropdown) {

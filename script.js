@@ -29,13 +29,12 @@ if (closeDropdown) {
     
   allCategories.previousSibling.previousSibling.querySelector('div svg').addEventListener('click', (e) => {
             resetMenu();
-            const tag = e.currentTarget.querySelector('div span').innerText;
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
             
             // console.log('asdf', tag)
-            setPosts(tag, null);
+            setPosts('All', null);
           });
     
   },1000);

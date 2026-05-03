@@ -33,7 +33,7 @@ if (closeDropdown) {
       .map((item) => {
           item.addEventListener('click', (e) => {
             resetMenu();
-            e.currentTarget.classList.add('bg-muted');
+            e.currentTarget.classList.add('bg-muted', 'font-medium');
             e.currentTarget.setAttribute('aria-selected', true);
             const tag = e.currentTarget.querySelector('div span').innerText;
             const parser = new DOMParser();

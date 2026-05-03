@@ -4,8 +4,10 @@ function resetMenu() {
   const allCategories = document.querySelector('#all-categories');
   allCategories.previousSibling.previousSibling.querySelector('div svg')?.remove();
   allCategories.previousSibling.previousSibling.setAttribute('aria-selected', false);
+  allCategories.previousSibling.previousSibling.remove('bg-muted');
     [...allCategories.querySelectorAll('button')]
       .map((item) => {
+        item.remove('bg-muted');
         item.querySelector('div svg')?.remove();
         item.setAttribute('aria-selected', false);
       })

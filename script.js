@@ -29,7 +29,7 @@ document.querySelector('[aria-label="Filter by Tags"]').addEventListener('click'
   
   if (isExpanded) {
     button.querySelector('svg').classList.remove('rotate-180');
-    button.setAttribute('aria-expanded', false);
+    button.setAttribute('aria-expanded', false); 
     dropDown.classList.add('hidden');
   } else {
     button.querySelector('svg').classList.add('rotate-180');

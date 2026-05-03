@@ -116,18 +116,18 @@
 
                 <template id="all-categories-template">
                   <button class="w-full px-4 py-2 text-left text-sm hover:bg-muted transition-colors " role="option" aria-selected="false">
-                        <div class="flex items-center justify-between"><span>FASHION</span>
-                          <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(2)</span>
-                          </div>
-                        </div>
-                      </button>
+                    <div class="flex items-center justify-between"><span>FASHION</span>
+                      <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(2)</span>
+                      </div>
+                    </div>
+                  </button>
                 </template>
 
                 <script>
                   const allCategoriesTemplate = document.getElementById('all-categories-template').innerHTML;
                   posts.then(categories => {
                     console.log(categories)
-                    klarSdk.insert('#all-catgories', 'replace', klarSdk.render(categories, allCategoriesTemplate));
+                    klarSdk.insert('#all-categories', 'replace', klarSdk.render(categories, allCategoriesTemplate));
                   });
                 </script>
 
@@ -286,6 +286,7 @@
       </div>
     </div>
     <script src="/script.js"></script>
+
 
 
 

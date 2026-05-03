@@ -18,7 +18,7 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
   }
 });
 
-document.querySelector('[aria-label="Filter by Tags"]').addEventListener('click', (e) => {
+document.querySelector('[aria-label="Filter by Tag"]').addEventListener('click', (e) => {
   const button = e.currentTarget;
   const chevron = button.querySelector('svg');
   const isExpanded = button.getAttribute('aria-expanded') === 'true';

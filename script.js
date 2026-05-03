@@ -10,11 +10,12 @@ document.querySelector('[aria-label="Toggle theme"]').addEventListener('click', 
       m = window.matchMedia(t);
     if (m.media !== t || m.matches) {
       d.style.colorScheme = 'light';
-      c.add('light')
+      c.add('light');
+      localStorage.setItem('theme', 'light');
     } else {
       d.style.colorScheme = 'dark';
-      c.add('dark')
-      
+      c.add('dark');
+      localStorage.setItem('theme', 'dark');
     }
   } else if (e) {
     c.add(e || '')

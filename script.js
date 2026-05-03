@@ -2,7 +2,10 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
   const button = e.currentTarget;
   const chevron = button.querySelector('svg');
   const isExpanded = button.getAttribute('aria-expanded') === 'true';
-  const dropDown = button.nextSibling;
+  let dropDown = button.nextSibling;
+  if (!dropDown.classList) {
+    dropDown = dropDown.nextSibling;
+  }
   
   if (isExpanded) {
     button.querySelector('svg').classList.remove('rotate-180');

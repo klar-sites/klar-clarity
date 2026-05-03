@@ -34,7 +34,7 @@ if (closeDropdown) {
             e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
             
             // console.log('asdf', tag)
-            setPosts('All', null);
+            setPosts('all', null);
           });
     
   },1000);

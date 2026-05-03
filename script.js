@@ -2,7 +2,7 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
   const button = e.currentTarget;
   const chevron = button.querySelector('svg');
 
-  const isExpanded = button.getAttribute('aria-expanded') === true;
+  const isExpanded = button.getAttribute('aria-expanded') === 'true';
   if (isExpanded) {
     button.setAttribute('aria-expanded', false);  
   } else {

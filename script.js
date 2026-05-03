@@ -9,7 +9,7 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
   } else {
     button.querySelector('svg').classList.add('rotate-180');
     button.setAttribute('aria-expanded', true);
-  }  
+  }
 });
 
 document.querySelector('[aria-label="Toggle theme"]').addEventListener('click', (e) => {

@@ -33,12 +33,14 @@ if (closeDropdown) {
       .map((item) => {
           item.addEventListener('click', (e) => {
             resetMenu();
+            const placeHolder = document.querySelector('[aria-label="Filter by Category"] span');
             e.currentTarget.classList.add('bg-muted', 'font-medium');
             e.currentTarget.setAttribute('aria-selected', true);
             const tag = e.currentTarget.querySelector('div span').innerText;
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
+            placeHolder.innerText = tag;
             setPosts(tag, null);
           });
       })

@@ -12,12 +12,12 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
     button.querySelector('svg').classList.remove('rotate-180');
     button.setAttribute('aria-expanded', false);
     dropDown.classList.add('hidden');
-    closeDropdown.add('hidden');
+    // closeDropdown.add('hidden');
   } else {
     button.querySelector('svg').classList.add('rotate-180');
     button.setAttribute('aria-expanded', true);
     dropDown.classList.remove('hidden');
-    closeDropdown.remove('hidden');
+    // closeDropdown.remove('hidden');
   }
 });
 

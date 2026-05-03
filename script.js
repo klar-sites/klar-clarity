@@ -34,7 +34,6 @@ if (closeDropdown) {
       .map((item) => {
           item.addEventListener('click', (e) => {
             resetMenu();
-            
             e.currentTarget.classList.add('bg-muted', 'font-medium');
             e.currentTarget.setAttribute('aria-selected', true);
             const tag = e.currentTarget.querySelector('div span').innerText;
@@ -53,11 +52,12 @@ if (closeDropdown) {
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
+          placeHolder.innerText = 'All Categories';
             setPosts('all', null);
           });
 
 
-    
+    const placeHolderTags = document.querySelector('[aria-label="Filter by Tag"] span');
     const allTags = document.querySelector('#all-tags');
     [...allTags.querySelectorAll('button')]
       .map((item) => {
@@ -77,7 +77,7 @@ if (closeDropdown) {
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
-            
+            placeHolderTags.innerText = tag;
             setPosts(selectedCategory, tag);
           });
       })
@@ -97,6 +97,7 @@ if (closeDropdown) {
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
+        placeHolderTags.innerText = 'All Tags';
             setPosts(selectedCategory, 'all');
           });
     

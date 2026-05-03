@@ -5,10 +5,9 @@ if (closeDropdown) {
     const allCategories = document.querySelector('#all-categories');
     [...allCategories.querySelectorAll('button div span')]
       .map((item) => {
-          console.log(item)
           item.addEventListener('click', (e) => {
             const tag = e.currentTarget.innerText;
-            
+            console.log('asdf', tag)
             setPosts(tag, null);
           });
         

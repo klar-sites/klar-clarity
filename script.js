@@ -4,7 +4,7 @@ document.querySelector('[aria-label="Filter by Category"]').addEventListener('cl
 
   const isExpanded = button.getAttribute('aria-expanded') === true;
   if (isExpanded) {
-    button.setAttribute('aria-expanded', true);  
+    button.setAttribute('aria-expanded', false);  
   } else {
     button.setAttribute('aria-expanded', true);
   }

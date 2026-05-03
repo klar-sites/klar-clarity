@@ -48,12 +48,14 @@ if (closeDropdown) {
           });
 
 
-    const selectedCategory = allCategories.querySelector('[aria-selected="true"]');
-    console.log(selectedCategory)
+    let selectedCategory = allCategories.querySelector('[aria-selected="true"]');
     const allTags = document.querySelector('#all-tags');
     [...allTags.querySelectorAll('button')]
       .map((item) => {
           item.addEventListener('click', (e) => {
+            if (!selectedCategory) {
+              selectedCategory = 'all';
+            }
             // console.log(selectedCategory)
             resetMenuTags();
             

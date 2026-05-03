@@ -3,7 +3,7 @@ const closeDropdown = document.querySelector('#closeDropdown');
 if (closeDropdown) {
   setTimeout(() => {
           const allCategories = document.querySelector('#all-categories');
-          [...allCategories.querySelectorAll('button div span'))]
+          [...allCategories.querySelectorAll('button div span')]
             .map((item) => {
         return null;
         

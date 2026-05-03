@@ -10,7 +10,7 @@ function clearFilters() {
   const svgHtml = parser.parseFromString(svgFilter, "text/html");
 allCategories.previousSibling.previousSibling.querySelector('span')?.after(svgHtml.querySelector('svg'))
   const allTags = document.querySelector('#all-tags');
-// allTags.previousSibling.previousSibling.querySelector('span')?.after(svgHtml.querySelector('svg'))
+allTags.previousSibling.previousSibling.querySelector('span')?.after(parser.parseFromString(svgFilter, "text/html");.querySelector('svg'))
   
 }
 

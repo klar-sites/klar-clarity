@@ -40,7 +40,10 @@
         console.log(category);
         const posts1 = klarSdk.list('blog-post', {
           where: {
-            categories: category, tags: { has: 'css' } 
+            categories: category,
+            tags: {
+              has: tag
+            }
           },
           order: 'updated_at:desc',
           limit: 10

@@ -59,16 +59,17 @@
         const allPostsTpl = document.getElementById('all-posts-tpl').innerHTML;
         posts1.then(items => {
           console.log(items);
+          const allItems = JSON.parse(localStorage.getItem('all-posts'));
           const clearFilter = document.querySelector('#clear-filters');
           const filterInfo = document.querySelector('#filter-info');
-          filterInfo.querySelector('p').innerText = `Showing 1 of ${items.length} posts in ${category}`
+          filterInfo.querySelector('p').innerText = `Showing ${tems.length} of ${allItems.length} posts in ${category}`
           if (tag && tag !== 'all') {
             filterInfo.querySelector('p').innerText += ` • Tagged: ${tag}`
           }
           if (items.length === 0) {
             // clearFilter.classList.add('hidden');
             // filterInfo.classList.add('hidden');
-            items = JSON.parse(localStorage.getItem('all-posts'));
+            items = allItems;
             console.log(items)
           } else {
             clearFilter.classList.remove('hidden');

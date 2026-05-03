@@ -154,9 +154,10 @@
                 <script>
                   const allCategoriesTemplate = document.getElementById('all-categories-template').innerHTML;
                   klarSdk.facets('blog-post', 'tags').then(facets => { 
+                    console.log(facets)
                     klarSdk.vocabularies('blog-post', 'categories').then(vocabularies => {
                       
-                      console.log(facets)
+                      
                       klarSdk.insert('#all-categories', 'replace', klarSdk.render(vocabularies.categories.map(value =>
                           ({
                             value

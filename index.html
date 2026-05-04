@@ -4,62 +4,61 @@
     <script data-klar-config>
       const config = {
         pageTypes: ['blog-post'],
-        pages: [{ 
-            name: 'blog/blog-post-1.html',
-            tags: [{
-                categories: ['Technology', 'Podcast', 'Lifestyle']
-              },
-              {
-                tags: ['Leadership', 'Authenticity']
-              }
-            ]
-          }, {
-            name: 'blog/blog-post-2.html',
-            tags: [{
-                categories: ['Technology', 'Business', 'Lifestyle']
-              },
-              {
-                tags: ['Leadership']
-              }
-            ]
-          }, {
-            name: 'blog/blog-post-3.html',
-            tags: [{
-                categories: ['Technology', 'Lifestyle']
-              },
-              {
-                tags: ['Authenticity']
-              }
-            ]
-          }, {
-            name: 'blog/blog-post-4.html',
-            tags: [{
-                categories: ['Technology', 'Podcast', 'Business', 'Lifestyle']
-              },
-              {
-                tags: ['Leadership']
-              }
-            ]
-          }, {
-            name: 'blog/blog-post-5.html',
-            tags: [{
-                categories: ['Business', 'Lifestyle']
-              },
-              {
-                tags: ['Leadership', 'Authenticity']
-              }
-            ]
-          }, {
-            name: 'blog/blog-post-6.html',
-            tags: [{
-                categories: ['Technology']
-              },
-              {
-                tags: ['Leadership', 'Authenticity']
-              }
-            ]
-          },
-        ],
+        pages: [{
+          name: 'blog/blog-post-1.html',
+          tags: [{
+              categories: ['Technology', 'Podcast', 'Lifestyle']
+            },
+            {
+              tags: ['Leadership', 'Authenticity']
+            }
+          ]
+        }, {
+          name: 'blog/blog-post-2.html',
+          tags: [{
+              categories: ['Technology', 'Business', 'Lifestyle']
+            },
+            {
+              tags: ['Leadership']
+            }
+          ]
+        }, {
+          name: 'blog/blog-post-3.html',
+          tags: [{
+              categories: ['Technology', 'Lifestyle']
+            },
+            {
+              tags: ['Authenticity']
+            }
+          ]
+        }, {
+          name: 'blog/blog-post-4.html',
+          tags: [{
+              categories: ['Technology', 'Podcast', 'Business', 'Lifestyle']
+            },
+            {
+              tags: ['Leadership']
+            }
+          ]
+        }, {
+          name: 'blog/blog-post-5.html',
+          tags: [{
+              categories: ['Business', 'Lifestyle']
+            },
+            {
+              tags: ['Leadership', 'Authenticity']
+            }
+          ]
+        }, {
+          name: 'blog/blog-post-6.html',
+          tags: [{
+              categories: ['Technology']
+            },
+            {
+              tags: ['Leadership', 'Authenticity']
+            }
+          ]
+        }, ],
         tags: [{
           'blog-post': {
             categories: ['Technology'],
@@ -182,9 +181,9 @@
         <main id="main-content">
           <article class="container-blog py-16" id="klar-hero" data-klar-static>
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-              <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="/images/tech-post-HXCQgDvH (1).jpg" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
+              <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="/images/business-post-6IsrfXyD.jpg" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
               <div class="space-y-6">
-                <h1 class="featured-title">En blogg för alla de som älskar att skriva och skratta 89</h1>
+                <h1 class="featured-title">En blogg för alla de som älskar att skriva och skratta 8</h1>
                 <div class="flex items-center space-x-4 text-sm"><span class="blog-meta">Lars Erik /
                     WRITER</span><span class="text-muted-foreground" aria-hidden="true">—</span><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-02">Date Format</time></div>
                 <p class="text-lg text-muted-foreground leading-relaxed">Featured article description — This is where
@@ -197,7 +196,7 @@
           <!-- klar:strip-start -->
           <template id="post-tpl">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-              <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="${topImageUrl}" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
+              <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="${imageUrl}" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
               <div class="space-y-6">
                 <h1 class="featured-title">${title}</h1>
                 <div class="flex items-center space-x-4 text-sm"><span class="blog-meta">${authorName} /
@@ -223,11 +222,11 @@
               <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="all-posts">
                 <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
                   <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog/blog-post-1.html">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/tech-post-HXCQgDvH (1).jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                    <div class="relative overflow-hidden aspect-[4/3]"><img src="" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                     <div class="p-6 space-y-3 ">
                       <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
                       <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
-                        En blogg för alla de som älskar att skriva och skratta 89</h3>
+                        En blogg för alla de som älskar att skriva och skratta 8</h3>
                       <p class="text-sm text-muted-foreground leading-relaxed">Blog post excerpt — Brief description of
                         the article content for preview.</p>
                     </div>

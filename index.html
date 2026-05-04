@@ -69,6 +69,7 @@
     <!-- klar:strip-start -->
     <script src="http://localhost:5173/sdk/content.iife.js"></script>
     <script>
+      const projectId = localStorage('activeProjectId');
       const klarSdk = KlarSdk.createKlarClient({
         projectId: 382
       });

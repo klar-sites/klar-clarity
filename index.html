@@ -69,7 +69,7 @@
     <!-- klar:strip-start -->
     <script src="http://localhost:5173/sdk/content.iife.js"></script>
     <script>
-      const projectId = localStorage('activeProjectId');
+      const projectId = localStorage.getItem('activeProjectId');
       const klarSdk = KlarSdk.createKlarClient({
         projectId
       });
@@ -154,7 +154,7 @@
           <script>
             const postTpl = document.getElementById('post-tpl').innerHTML;
             posts.then(items => {
-              console.log('d',items);
+              console.log('d', items);
               klarSdk.insert('#klar-hero', 'replace', klarSdk.render(items[0], postTpl));
             });
           </script>

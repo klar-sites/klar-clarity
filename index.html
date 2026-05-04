@@ -71,7 +71,7 @@
     <script>
       const projectId = localStorage.getItem('activeProjectId');
       const klarSdk = KlarSdk.createKlarClient({
-        projectId
+        projectId: projectId
       });
       const posts = klarSdk.list('blog-post', {
         order: 'updated_at:desc',

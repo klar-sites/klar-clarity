@@ -154,7 +154,7 @@
           <script>
             const postTpl = document.getElementById('post-tpl').innerHTML;
             posts.then(items => {
-              // console.log(items);
+              console.log('d',items);
               klarSdk.insert('#klar-hero', 'replace', klarSdk.render(items[0], postTpl));
             });
           </script>

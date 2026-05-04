@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" class="light" style="color-scheme: light;">
-  <head>
-    <script data-klar-config>
+<!DOCTYPE html><html lang="en" class="light" style="color-scheme: light;"><head>
+    <script data-klar-config="">
       const config = {
         pageTypes: ['blog-post'],
         pages: [{
@@ -89,7 +87,7 @@
     <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/8jp6KAG7qJZgRp4lIs04ZYXqlhL2/social-images/social-1758609028260-download.jpg">
     <meta name="twitter:title" content="Nexus - Personal Blog | Fashion, Technology &amp; Lifestyle">
     <meta name="twitter:description" content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/klar-clarity/style.css">
     <script>
       (function() {
         try {
@@ -110,25 +108,7 @@
         } catch (e) {}
       })();
     </script>
-    <!-- klar:strip-start -->
-    <script src="http://localhost:5173/sdk/content.iife.js"></script>
-    <script>
-      const projectId = JSON.parse(localStorage.getItem('klar')).activeProjectId;
-      const klarSdk = KlarSdk.createKlarClient({
-        projectId
-      });
-      const posts = klarSdk.list('blog-post', {
-        order: 'updated_at:desc',
-        limit: 10
-      });
-      klarSdk.facets('blog-post', 'tags').then(items => {
-        // console.log(items);
-      });
-      klarSdk.vocabularies('blog-post').then(items => {
-        // console.log(items);
-      });
-    </script>
-    <!-- klar:strip-end -->
+    
   </head>
   <body>
     <div id="root">
@@ -141,10 +121,10 @@
         <header class="bg-background border-b border-border sticky top-0 z-50">
           <div class="container-blog">
             <div class="flex items-center justify-between h-20">
-              <div class="flex-shrink-0"><a class="block" href="/">
+              <div class="flex-shrink-0"><a class="block" href="/klar-clarity/">
                   <h1 class="text-2xl font-bold text-foreground">nexus</h1>
                 </a></div>
-              <nav class="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Main navigation"><a class="nav-link" href="/posts.html">ALL POST</a><a class="nav-link" href="/business.html">BUSINESS</a><a class="nav-link" href="/technology.html">TECHNOLOGY</a><a class="nav-link" href="/podcast.html">PODCAST</a>
+              <nav class="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Main navigation"><a class="nav-link" href="/klar-clarity/posts.html">ALL POST</a><a class="nav-link" href="/klar-clarity/business.html">BUSINESS</a><a class="nav-link" href="/klar-clarity/technology.html">TECHNOLOGY</a><a class="nav-link" href="/klar-clarity/podcast.html">PODCAST</a>
               </nav>
               <div class="hidden lg:flex items-center space-x-4"><a href="#" aria-label="Facebook" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook h-4 w-4">
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
@@ -179,50 +159,28 @@
           </div>
         </header>
         <main id="main-content">
-          <article class="container-blog py-16" id="klar-hero" data-klar-static>
+          <article class="container-blog py-16" id="klar-hero">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-              <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="/images/fashion-post-4m_ykv-I.jpg" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
+              <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="/klar-clarity/images/fashion-post-4m_ykv-I.jpg" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
               <div class="space-y-6">
                 <h1 class="featured-title">En blogg för alla de som tycker det är kul att bloggs</h1>
                 <div class="flex items-center space-x-4 text-sm"><span class="blog-meta">Gustav Lind'en /
                     WRITER</span><span class="text-muted-foreground" aria-hidden="true">—</span><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-02">Date Format</time></div>
                 <p class="text-lg text-muted-foreground leading-relaxed">Featured article description — This is where
                   your main content excerpt would appear to give readers a preview of the full article.</p>
-                <div class="pt-4"><a href="/blog/blog-post-6.html" aria-label="Read more about: Featured Article Title — Hero Content Showcase" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3">READ
+                <div class="pt-4"><a href="/klar-clarity/blog/blog-post-6.html" aria-label="Read more about: Featured Article Title — Hero Content Showcase" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3">READ
                     MORE<span class="ml-2" aria-hidden="true">→</span></a></div>
               </div>
             </div>
           </article>
-          <!-- klar:strip-start -->
-          <template id="post-tpl">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-              <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="${imageUrl}" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
-              <div class="space-y-6">
-                <h1 class="featured-title">${title}</h1>
-                <div class="flex items-center space-x-4 text-sm"><span class="blog-meta">${authorName} /
-                    WRITER</span><span class="text-muted-foreground" aria-hidden="true">—</span><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-02">Date Format</time></div>
-                <p class="text-lg text-muted-foreground leading-relaxed">Featured article description — This is where
-                  your main content excerpt would appear to give readers a preview of the full article.</p>
-                <div class="pt-4"><a href="/${filePath}" aria-label="Read more about: Featured Article Title — Hero Content Showcase" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3">READ
-                    MORE<span class="ml-2" aria-hidden="true">→</span></a></div>
-              </div>
-            </div>
-          </template>
-          <script>
-            const postTpl = document.getElementById('post-tpl').innerHTML;
-            posts.then(items => {
-              console.log('d', items);
-              klarSdk.insert('#klar-hero', 'replace', klarSdk.render(items[0], postTpl));
-            });
-          </script>
-          <!-- klar:strip-end -->
+          
           <section aria-labelledby="all-posts-heading">
             <section class="container-blog py-16">
               <h2 id="all-posts-heading" class="section-title mb-8">All Posts</h2>
               <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="all-posts">
                 <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog/blog-post-6.html">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/fashion-post-4m_ykv-I.jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/klar-clarity/blog/blog-post-6.html">
+                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/klar-clarity/images/fashion-post-4m_ykv-I.jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                     <div class="p-6 space-y-3 ">
                       <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
                       <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
@@ -233,8 +191,8 @@
                   </a>
                 </article>
                 <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog/blog-post-5.html">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/work-lifestyle-Bg_wzXQT (1).jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/klar-clarity/blog/blog-post-5.html">
+                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/klar-clarity/images/work-lifestyle-Bg_wzXQT (1).jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                     <div class="p-6 space-y-3 ">
                       <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
                       <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
@@ -245,8 +203,8 @@
                   </a>
                 </article>
                 <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog/blog-post-4.html">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/tech-post-HXCQgDvH (1).jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/klar-clarity/blog/blog-post-4.html">
+                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/klar-clarity/images/tech-post-HXCQgDvH (1).jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                     <div class="p-6 space-y-3 ">
                       <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
                       <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
@@ -257,8 +215,8 @@
                   </a>
                 </article>
                 <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog/blog-post-3.html">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/lifestyle-post-B2o5gHGK (1).jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/klar-clarity/blog/blog-post-3.html">
+                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/klar-clarity/images/lifestyle-post-B2o5gHGK (1).jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                     <div class="p-6 space-y-3 ">
                       <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
                       <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
@@ -269,8 +227,8 @@
                   </a>
                 </article>
                 <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog/blog-post-2.html">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/fashion-lifestyle-tBv1CS6f (1).jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/klar-clarity/blog/blog-post-2.html">
+                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/klar-clarity/images/fashion-lifestyle-tBv1CS6f (1).jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                     <div class="p-6 space-y-3 ">
                       <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
                       <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
@@ -281,8 +239,8 @@
                   </a>
                 </article>
                 <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog/blog-post-1.html">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/business-post-6IsrfXyD.jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/klar-clarity/blog/blog-post-1.html">
+                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/klar-clarity/images/business-post-6IsrfXyD.jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                     <div class="p-6 space-y-3 ">
                       <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
                       <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
@@ -293,28 +251,9 @@
                   </a>
                 </article>
               </div>
-              <template id="all-posts-tpl" data-klar-strip>
-                <article data-klar-static class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/${filePath}">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="${imageUrl}" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
-                    <div class="p-6 space-y-3 ">
-                      <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
-                      <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
-                        ${title}</h3>
-                      <p class="text-sm text-muted-foreground leading-relaxed">Blog post excerpt — Brief description of
-                        the article content for preview.</p>
-                    </div>
-                  </a>
-                </article>
-              </template>
+              
 
-              <script data-klar-strip>
-                const allPostsTpl = document.getElementById('all-posts-tpl').innerHTML;
-                posts.then(items => {
-                  //console.log(items);
-                  klarSdk.insert('#all-posts', 'replace', klarSdk.render(items, allPostsTpl));
-                });
-              </script>
+              
             </section>
           </section>
         </main>
@@ -329,19 +268,19 @@
               <div class="space-y-4">
                 <h3 class="font-medium text-foreground">Categories</h3>
                 <ul class="space-y-2 text-sm">
-                  <li><a class="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" href="/posts.html">Fashion</a></li>
-                  <li><a class="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" href="/technology.html">Technology</a></li>
-                  <li><a class="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" href="/business.html">Business</a></li>
-                  <li><a class="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" href="/posts.html">Lifestyle</a></li>
+                  <li><a class="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" href="/klar-clarity/posts.html">Fashion</a></li>
+                  <li><a class="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" href="/klar-clarity/technology.html">Technology</a></li>
+                  <li><a class="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" href="/klar-clarity/business.html">Business</a></li>
+                  <li><a class="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" href="/klar-clarity/posts.html">Lifestyle</a></li>
                 </ul>
               </div>
               <div class="space-y-4">
                 <h3 class="font-medium text-foreground">Quick Links</h3>
                 <ul class="space-y-2 text-sm">
-                  <li><a class="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" href="/about.html">About</a></li>
-                  <li><a class="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" href="/contact.html">Contact</a></li>
-                  <li><a class="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" href="/privacy.html">Privacy</a></li>
-                  <li><a class="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" href="/terms.html">Terms</a></li>
+                  <li><a class="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" href="/klar-clarity/about.html">About</a></li>
+                  <li><a class="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" href="/klar-clarity/contact.html">Contact</a></li>
+                  <li><a class="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" href="/klar-clarity/privacy.html">Privacy</a></li>
+                  <li><a class="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" href="/klar-clarity/terms.html">Terms</a></li>
                 </ul>
               </div>
               <div class="space-y-4">
@@ -357,6 +296,6 @@
       </div>
     </div>
 
-    <script src="/script.js"></script>
-  </body>
-</html>
+    <script src="/klar-clarity/script.js"></script>
+  
+</body></html>

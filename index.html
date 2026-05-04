@@ -3,13 +3,27 @@
   <head>
     <script data-klar-config>
       const config = {
-          pageTypes: ['blog - post'],
-          tags: [{
-            categories: ['Fashion'],
-            tags: ['Fashion']
-          }],
-          
-              };
+        pageTypes: ['blog - post'],
+        tags: [{
+          categories: ['Fashion'],
+          tags: ['Fashion']
+        }],
+
+        pageTemplates: [{
+                'blog-post-1.html':
+                {
+                  tags: [
+                    {
+                      categories: ['Fashion']
+                    }, 
+                    {
+                      tags: ['Fashion']
+                    
+                  }]
+                }
+                }]
+
+      };
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

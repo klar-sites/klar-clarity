@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en" class="light" style="color-scheme: light;"><head>
+<!DOCTYPE html>
+<html lang="en" class="light" style="color-scheme: light;">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,8 +27,9 @@
     <link rel="stylesheet" href="/style.css">
     <script src="http://localhost:5173/sdk/content.iife.js"></script>
     <script>
+      const projectId = JSON.parse(localStorage.getItem('klar')).activeProjectId;
       const klarSdk = KlarSdk.createKlarClient({
-        projectId: 373
+        projectId
       });
       const posts = klarSdk.list('blog-post', {
         order: 'updated_at:desc',
@@ -151,6 +154,20 @@
                       </button>
                       <div id="all-categories" data-klar-static>
                     <button class="w-full px-4 py-2 text-left text-sm hover:bg-muted transition-colors " role="option" aria-selected="false">
+                      <div class="flex items-center justify-between"><span>Business</span>
+                        <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(4)</span>
+                        </div>
+                      </div>
+                    </button>
+                  
+                    <button class="w-full px-4 py-2 text-left text-sm hover:bg-muted transition-colors " role="option" aria-selected="false">
+                      <div class="flex items-center justify-between"><span>Lifestyle</span>
+                        <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(4)</span>
+                        </div>
+                      </div>
+                    </button>
+                  
+                    <button class="w-full px-4 py-2 text-left text-sm hover:bg-muted transition-colors " role="option" aria-selected="false">
                       <div class="flex items-center justify-between"><span>Podcast</span>
                         <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(4)</span>
                         </div>
@@ -158,22 +175,8 @@
                     </button>
                   
                     <button class="w-full px-4 py-2 text-left text-sm hover:bg-muted transition-colors " role="option" aria-selected="false">
-                      <div class="flex items-center justify-between"><span>Business</span>
-                        <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(3)</span>
-                        </div>
-                      </div>
-                    </button>
-                  
-                    <button class="w-full px-4 py-2 text-left text-sm hover:bg-muted transition-colors " role="option" aria-selected="false">
                       <div class="flex items-center justify-between"><span>Technology</span>
-                        <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(3)</span>
-                        </div>
-                      </div>
-                    </button>
-                  
-                    <button class="w-full px-4 py-2 text-left text-sm hover:bg-muted transition-colors " role="option" aria-selected="false">
-                      <div class="flex items-center justify-between"><span>Fashion</span>
-                        <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(1)</span>
+                        <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(4)</span>
                         </div>
                       </div>
                     </button>
@@ -215,22 +218,15 @@
                       </button>
                       <div id="all-tags" data-klar-static>
                     <button class="w-full px-4 py-2 text-left text-sm hover:bg-muted transition-colors " role="option" aria-selected="false">
-                      <div class="flex items-center justify-between"><span>Lifestyle</span>
-                        <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(2)</span>
-                        </div>
-                      </div>
-                    </button>
-                  
-                    <button class="w-full px-4 py-2 text-left text-sm hover:bg-muted transition-colors " role="option" aria-selected="false">
                       <div class="flex items-center justify-between"><span>Authenticity</span>
-                        <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(1)</span>
+                        <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(4)</span>
                         </div>
                       </div>
                     </button>
                   
                     <button class="w-full px-4 py-2 text-left text-sm hover:bg-muted transition-colors " role="option" aria-selected="false">
                       <div class="flex items-center justify-between"><span>Leadership</span>
-                        <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(1)</span>
+                        <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(4)</span>
                         </div>
                       </div>
                     </button>
@@ -281,12 +277,12 @@
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="all-posts" data-klar-static>
             <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-              <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: The Rise of Fashion Blogging: The Role of Influencers in the Industry" href="/blog/blog-post-3.html">
-                <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/lifestyle-post-B2o5gHGK (1).jpg" alt="Article image for: The Rise of Fashion Blogging: The Role of Influencers in the Industry - A professional photo related to fashion" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+              <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: The Rise of Fashion Blogging: The Role of Influencers in the Industry" href="/blog/blog-post-1.html">
+                <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/tech-post-HXCQgDvH (1).jpg" alt="Article image for: The Rise of Fashion Blogging: The Role of Influencers in the Industry - A professional photo related to fashion" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                 <div class="p-6 space-y-3 ">
                   <div class="flex items-center space-x-2"><span class="blog-meta">FASHION</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">September 20, 2025</time></div>
                   <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
-                    En blogg för alla de som tycker det är kul att blogg Party</h3>
+                    En blogg för alla de som älskar att skriva och skratta 89</h3>
                   <p class="text-sm text-muted-foreground leading-relaxed">Explore how fashion bloggers and influencers
                     have transformed the industry landscape.</p>
                 </div>
@@ -307,38 +303,12 @@
             </article>
           
             <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-              <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: The Rise of Fashion Blogging: The Role of Influencers in the Industry" href="/blog/blog-post-1.html">
-                <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/tech-post-HXCQgDvH (1).jpg" alt="Article image for: The Rise of Fashion Blogging: The Role of Influencers in the Industry - A professional photo related to fashion" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+              <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: The Rise of Fashion Blogging: The Role of Influencers in the Industry" href="/blog/blog-post-3.html">
+                <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/lifestyle-post-B2o5gHGK (1).jpg" alt="Article image for: The Rise of Fashion Blogging: The Role of Influencers in the Industry - A professional photo related to fashion" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                 <div class="p-6 space-y-3 ">
                   <div class="flex items-center space-x-2"><span class="blog-meta">FASHION</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">September 20, 2025</time></div>
                   <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
-                    En blogg för alla de som älskar att skriva och skratta 89</h3>
-                  <p class="text-sm text-muted-foreground leading-relaxed">Explore how fashion bloggers and influencers
-                    have transformed the industry landscape.</p>
-                </div>
-              </a>
-            </article>
-          
-            <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-              <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: The Rise of Fashion Blogging: The Role of Influencers in the Industry" href="/blog/blog-post.html">
-                <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/business-post-6IsrfXyD.jpg" alt="Article image for: The Rise of Fashion Blogging: The Role of Influencers in the Industry - A professional photo related to fashion" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
-                <div class="p-6 space-y-3 ">
-                  <div class="flex items-center space-x-2"><span class="blog-meta">FASHION</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">September 20, 2025</time></div>
-                  <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
-                    En blogg för alla de som tycker det är kul att blogga</h3>
-                  <p class="text-sm text-muted-foreground leading-relaxed">Explore how fashion bloggers and influencers
-                    have transformed the industry landscape.</p>
-                </div>
-              </a>
-            </article>
-          
-            <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-              <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: The Rise of Fashion Blogging: The Role of Influencers in the Industry" href="/blog/blog-post-5.html">
-                <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/fashion-post-4m_ykv-I.jpg" alt="Article image for: The Rise of Fashion Blogging: The Role of Influencers in the Industry - A professional photo related to fashion" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
-                <div class="p-6 space-y-3 ">
-                  <div class="flex items-center space-x-2"><span class="blog-meta">FASHION</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">September 20, 2025</time></div>
-                  <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
-                    En blogg för alla de som tycker det är kul att bloggs 90</h3>
+                    En blogg för alla de som tycker det är kul att blogg Party</h3>
                   <p class="text-sm text-muted-foreground leading-relaxed">Explore how fashion bloggers and influencers
                     have transformed the industry landscape.</p>
                 </div>
@@ -422,4 +392,5 @@
       </div>
     </div>
     <script src="/script.js"></script>
-</body></html>
+  </body>
+</html>

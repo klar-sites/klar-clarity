@@ -109,7 +109,6 @@ if (closeDropdown) {
             });
     }
 
-
     const placeHolderTopics = document.querySelector('[aria-label="Filter by Topic"] span');
     const allTopics = document.querySelector('#all-topics');
     [...allTopics.querySelectorAll('button')]
@@ -117,13 +116,13 @@ if (closeDropdown) {
           item.addEventListener('click', (e) => {
             resetMenuTopics();
             e.currentTarget.classList.add('bg-muted', 'font-medium');
-            let selectedCategory = allCategories?.querySelector('[aria-selected="true"]');
+            let selectedCategory = allTopics?.querySelector('[aria-selected="true"]');
             if (!selectedCategory) {
               selectedCategory = 'all';
             } else {
               selectedCategory = selectedCategory.querySelector('div span').innerText;
             }
-            let selectedTag = allCategories?.querySelector('[aria-selected="true"]');
+            let selectedTag = allTopics?.querySelector('[aria-selected="true"]');
             if (!selectedTag) {
               selectedTag = 'all';
             } else {

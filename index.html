@@ -12,6 +12,21 @@
         projectId: projectData.activeProjectId
       });
 
+      const [featured, allPosts] = await Promise.all([
+        klar.list('blog-post', {
+          order: 'updated_at:desc',
+          limit: 2
+        }),
+        klar.list('blog-post', {
+          order: 'updated_at:desc',
+          limit: 10
+        }),
+      ]);
+      rootFeatured.innerHTML = renderFeatured(featured[1]);
+      rootAllPosts.innerHTML = renderAllPosts(allPosts);
+      // renderSection("Latest", latest) +
+      // renderSection("Featured", featured) +
+      // renderSection("More", more);
       function renderFeatured(post) {
         return `
           <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -63,21 +78,6 @@
       `;
       }
 
-      const [featured, allPosts] = await Promise.all([
-        klar.list('blog-post', {
-          order: 'updated_at:desc',
-          limit: 2
-        }),
-        klar.list('blog-post', {
-          order: 'updated_at:desc',
-          limit: 10
-        }),
-      ]);
-      rootFeatured.innerHTML = renderFeatured(featured[1]);
-      rootAllPosts.innerHTML = renderAllPosts(allPosts);
-      // renderSection("Latest", latest) +
-      // renderSection("Featured", featured) +
-      // renderSection("More", more);
     </script>
     <script data-klar-config data-klar-strip>
       const config = {

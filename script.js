@@ -6,7 +6,7 @@ mobileMenuToggle.addEventListener('click', (e) => {
   mobileMenu.classList.remove('hidden');  
   } else {
     
-  mobileMenu.classList.remove('hidden');
+  mobileMenu.classList.add('hidden');
   }
 });
 

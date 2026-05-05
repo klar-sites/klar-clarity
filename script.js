@@ -191,7 +191,7 @@ if (closeDropdown) {
             e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
             placeHolderTags.innerText = tag;
             // console.log(selectedCategory)
-            setPosts(selectedCategory, tag, topic);
+            setPosts(selectedCategory, tag, selectedTopic);
             closeDropdown.click();
           });
       })
@@ -218,7 +218,7 @@ if (closeDropdown) {
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
             placeHolderTags.innerText = 'All Tags';
-            setPosts(selectedCategory, 'all');
+            setPosts(selectedCategory, 'all', selectedTopic);
             closeDropdown.click();
           });
 

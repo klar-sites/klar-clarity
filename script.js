@@ -77,7 +77,8 @@ if (closeDropdown) {
       clearFilters();
     });
     const allCategories = document.querySelector('#all-categories');
-    if (allCategories) {
+    console.log(allCategories);
+    if (allCategories) { 
       [...allCategories.querySelectorAll('button')]
         .map((item) => {
             item.addEventListener('click', (e) => {

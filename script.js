@@ -1,3 +1,5 @@
+const mobileMenuToggle = document.querySelector('#mobile-menu-toggle');
+
 const closeDropdown = document.querySelector('#closeDropdown');
 
 function clearFilters() {

@@ -179,13 +179,19 @@ if (closeDropdown) {
             } else {
               selectedCategory = selectedCategory.querySelector('div span').innerText;
             }
+            let selectedTopic = allTopics?.querySelector('[aria-selected="true"]');
+            if (!selectedTopic) {
+              selectedTopic = 'all';
+            } else {
+              selectedTopic = selectedTopic.querySelector('div span').innerText;
+            }
             const tag = e.currentTarget.querySelector('div span').innerText;
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
             placeHolderTags.innerText = tag;
             // console.log(selectedCategory)
-            setPosts(selectedCategory, tag);
+            setPosts(selectedCategory, tag, topic);
             closeDropdown.click();
           });
       })
@@ -193,12 +199,19 @@ if (closeDropdown) {
     
       allTags.previousSibling.previousSibling.addEventListener('click', (e) => {
         let selectedCategory = allCategories?.querySelector('[aria-selected="true"]');
+        let selectedTopic = allTopics?.querySelector('[aria-selected="true"]');
         resetMenuTags();
         e.currentTarget.classList.add('bg-muted', 'font-medium');    
-        if (!selectedCategory) {
+            if (!selectedCategory) {
               selectedCategory = 'all';
             } else {
               selectedCategory = selectedCategory.querySelector('div span').innerText;
+            }
+            let selectedTopic = allTopics?.querySelector('[aria-selected="true"]');
+            if (!selectedTopic) {
+              selectedTopic = 'all';
+            } else {
+              selectedTopic = selectedTopic.querySelector('div span').innerText;
             }
             // console.log(selectedCategory)    
         

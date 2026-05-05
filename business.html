@@ -275,7 +275,7 @@
                   <script>
                     const allTagsTemplate = document.getElementById('all-tags-template').innerHTML;
                     klarSdk.facets('blog-post', 'tags').then(facets => {
-                      console.log(facets);
+                      // console.log(facets);
                       klarSdk.insert('#all-tags', 'replace', klarSdk.render(facets,
                         allTagsTemplate));
                       // klarSdk.vocabularies('blog-post', 'categories').then(facets => {

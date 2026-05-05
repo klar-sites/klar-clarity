@@ -2,11 +2,11 @@ const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
 console.log(mobileMenu.classList) 
 mobileMenuToggle.addEventListener('click', (e) => {
-  if (mobileMenu.classList.includes('hidden')) {
-  [...mobileMenu.classList].remove('hidden');  
+  if ([...mobileMenu.classList].includes('hidden')) {
+  mobileMenu.classList.remove('hidden');  
   } else {
     
-  [...mobileMenu.classList].add('hidden');
+  mobileMenu.classList.add('hidden');
   }
 });
 

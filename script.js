@@ -109,7 +109,7 @@ if (closeDropdown) {
     }
 
 
-    const placeHolderTopics = document.querySelector('[aria-label="Filter by Tag"] span');
+    const placeHolderTopics = document.querySelector('[aria-label="Filter by Topics"] span');
     const allTopics = document.querySelector('#all-topics');
     [...allTopics.querySelectorAll('button')]
       .map((item) => {

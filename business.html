@@ -223,7 +223,7 @@
                     </div>
                   </div>
                   <!-- klar:strip-start -->
-                  <template id="all-categories-template">
+                  <template id="all-topics-template">
                     <button class="w-full px-4 py-2 text-left text-sm hover:bg-muted transition-colors " role="option" aria-selected="false">
                       <div class="flex items-center justify-between"><span>${value}</span>
                         <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(${count})</span>
@@ -233,11 +233,11 @@
                   </template>
 
                   <script>
-                    const allCategoriesTemplate = document.getElementById('all-categories-template').innerHTML;
+                    const allCategoriesTemplate = document.getElementById('all-topics-template').innerHTML;
                     klarSdk.facets('blog-post', 'categories').then(facets => {
                       // console.log(facets);
-                      klarSdk.insert('#all-categories', 'replace', klarSdk.render(facets,
-                        allCategoriesTemplate));
+                      klarSdk.insert('#all-topics', 'replace', klarSdk.render(facets,
+                        allTopicsTemplate));
                       // klarSdk.vocabularies('blog-post', 'categories').then(facets => {
                       // });
                     });

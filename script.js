@@ -190,6 +190,7 @@ if (closeDropdown) {
               selectedCategory = selectedCategory.querySelector('div span').innerText;
             }
             let selectedTopic = allTopics?.querySelector('[aria-selected="true"]');
+            console.log(selectedTopic)
             if (!selectedTopic) {
               selectedTopic = 'all';
             } else {
@@ -200,7 +201,6 @@ if (closeDropdown) {
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
             placeHolderTags.innerText = tag;
-            console.log(selectedTopic)
             setPosts(selectedCategory, tag, selectedTopic);
             closeDropdown.click();
           });

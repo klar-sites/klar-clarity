@@ -357,6 +357,7 @@
             const allPostsTpl = document.getElementById('all-posts-tpl').innerHTML;
             posts.then(items => {
               console.log(items)
+              localStorage.setItem('all-posts', items);
               klarSdk.insert('#all-posts', 'replace', klarSdk.render(items, allPostsTpl));
             });
           </script>

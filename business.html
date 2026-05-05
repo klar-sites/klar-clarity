@@ -44,7 +44,6 @@
 
       function setPosts(category, tag, topic) {
         let categories = category;
-        categories = 'Business';
         let topics = topic;
         let tags = {
           has: tag
@@ -58,6 +57,7 @@
         if (tag === 'all') {
           tags = undefined;
         }
+        categories = 'Business';
         const posts1 = klarSdk.list('blog-post', {
           where: {
             categories,

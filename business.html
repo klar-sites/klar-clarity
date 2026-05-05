@@ -43,8 +43,10 @@
       });
 
       function setPosts(category, tag, topic) {
-        let categories = category;
-        let topics = topic;
+        let categories = 'Business';
+        let topics = {
+          has: topic
+        };
         let tags = {
           has: tag
         };
@@ -57,7 +59,6 @@
         if (tag === 'all') {
           tags = undefined;
         }
-        categories = 'Business';
         const posts1 = klarSdk.list('blog-post', {
           where: {
             categories,

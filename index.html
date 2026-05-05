@@ -13,7 +13,7 @@
       // ----------------------------
       const projectData = JSON.parse(localStorage.getItem('klar') || '{}');
       const klar = createKlarClient({
-        projectId: 393 || projectData.activeProjectId,
+        projectId: projectData.activeProjectId,
         // baseUrl: 'http://localhost:5173/db/393.json',
         // source: 'assets/db.json'
       });
@@ -91,7 +91,10 @@
     </script>
     <script data-klar-config data-klar-strip>
       const config = {
-        pageTypes: [{name: 'blog-post', editableElements: ".field-title     :field(name:title, type:string, order:1, section:'Content',sectionOrder:1, col:12),.field-image     :field(name:image, type:src, order:4, col: 10, section:'Content',sectionOrder:1),.field-category  :field(name:category, type:select, vocab:categories, strict:true, col:6, section:'Meta',sectionOrder:2),.field-author    :field(name:author, type:select, vocab:authors, strict:true, col:6, section:'Meta',sectionOrder:2),.field-createdAt :field(name:createdAt, type:date, format:'MMMM D, YYYY', field: createdAt, readonly:true, label: 'Created', col:12),.field-initial   :field(name:initial, type:string, order:5, col:6),.field-readTime  :field(name:readTime, type:string, order: 5, col: 6),.field-text      :field(name:text, type:html, ui:blocks)"}],
+        pageTypes: [{
+          name: 'blog-post',
+          editableElements: ".field-title     :field(name:title, type:string, order:1, section:'Content',sectionOrder:1, col:12),.field-image     :field(name:image, type:src, order:4, col: 10, section:'Content',sectionOrder:1),.field-category  :field(name:category, type:select, vocab:categories, strict:true, col:6, section:'Meta',sectionOrder:2),.field-author    :field(name:author, type:select, vocab:authors, strict:true, col:6, section:'Meta',sectionOrder:2),.field-createdAt :field(name:createdAt, type:date, format:'MMMM D, YYYY', field: createdAt, readonly:true, label: 'Created', col:12),.field-initial   :field(name:initial, type:string, order:5, col:6),.field-readTime  :field(name:readTime, type:string, order: 5, col: 6),.field-text      :field(name:text, type:html, ui:blocks)"
+        }],
         pages: [{
           name: 'blog/blog-post-1.html',
           tags: [{

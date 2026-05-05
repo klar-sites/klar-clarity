@@ -72,9 +72,9 @@
           const clearFilter = document.querySelector('#clear-filters');
           const filterInfo = document.querySelector('#filter-info');
           filterInfo.querySelector('p').innerText =
-            `Showing ${items.length} of ${allItems.length} posts • ${topic}`
+            `Showing ${items.length} of ${allItems.length} posts`;
           if (topic && topic !== 'all') {
-            // filterInfo.querySelector('p').innerText += ` • ${topic}`
+            filterInfo.querySelector('p').innerText += ` • ${topic}`
           }
           if (tag && tag !== 'all') {
             filterInfo.querySelector('p').innerText += ` • Tagged: ${tag}`
@@ -171,7 +171,6 @@
             </div>
           </div>
         </header>
-
         <main id="main-content" class="container-blog py-12">
           <div class="text-center mb-12">
             <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">Business</h1>

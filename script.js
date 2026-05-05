@@ -190,7 +190,7 @@ if (closeDropdown) {
               selectedCategory = selectedCategory.querySelector('div span').innerText;
             }
             let selectedTopic = allTopics?.querySelector('[aria-selected="true"]');
-            console.log(selectedTopic)
+            console.log(allTopics)
             if (!selectedTopic) {
               selectedTopic = 'all';
             } else {

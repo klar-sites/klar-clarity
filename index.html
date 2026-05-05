@@ -192,25 +192,6 @@
         } catch (e) {}
       })();
     </script>
-    <!-- klar:strip-start -->
-    <script src="http://localhost:5173/sdk/content.iife.js"></script>
-    <script>
-      const projectId = JSON.parse(localStorage.getItem('klar')).activeProjectId;
-      const klarSdk = KlarSdk.createKlarClient({
-        projectId
-      });
-      const posts = klarSdk.list('blog-post', {
-        order: 'updated_at:desc',
-        limit: 10
-      });
-      klarSdk.facets('blog-post', 'tags').then(items => {
-        // console.log(items);
-      });
-      klarSdk.vocabularies('blog-post').then(items => {
-        // console.log(items);
-      });
-    </script>
-    <!-- klar:strip-end -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">

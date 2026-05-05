@@ -54,6 +54,9 @@
         if (tag === 'all') {
           tags = undefined;
         }
+        console.log(category)
+        console.log(topic)
+        console.log(tag)
         const posts1 = klarSdk.list('blog-post', {
           where: {
             categories,

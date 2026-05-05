@@ -129,55 +129,58 @@
       });
     </script>
     <script type="module">
-    import { createKlarClient } from 'http://localhost:5173/sdk/content.js';
-    const app = document.getElementById("post-tpl");
-    const projectData = JSON.parse(localStorage.getItem('klar') || '{}');
-    const klar = createKlarClient({
-      projectId: projectData.activeProjectId
-    });
-    function renderSection(title, posts) {
-      return 'hehe';
-      return `
-        <section>
-          <h2>${title}</h2>
+      import {
+        createKlarClient
+      } from 'http://localhost:5173/sdk/content.js';
+      const app = document.getElementById("all-posts");
+      const projectData = JSON.parse(localStorage.getItem('klar') || '{}');
+      const klar = createKlarClient({
+        projectId: projectData.activeProjectId
+      });
+
+      function renderSection(title, posts) {
+        return `
           ${posts.map(post => `
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-              <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="${post.imageUrl}"
-                  alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category"
-                  class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async"
-                  fetchpriority="high" width="592" height="444"></div>
-              <div class="space-y-6">
-                <h1 class="featured-title">${post.title}</h1>
-                <div class="flex items-center space-x-4 text-sm"><span class="blog-meta">${post.authorName} /
-                    WRITER</span><span class="text-muted-foreground" aria-hidden="true">—</span><span
-                    class="blog-meta">CATEGORY</span><span class="text-muted-foreground"
-                    aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-02">Date Format</time></div>
-                <p class="text-lg text-muted-foreground leading-relaxed">Featured article description — This is where
-                  your main content excerpt would appear to give readers a preview of the full article.</p>
-                <div class="pt-4"><a href="/${post.filePath}"
-                    aria-label="Read more about: Featured Article Title — Hero Content Showcase"
-                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3">READ
-                    MORE<span class="ml-2" aria-hidden="true">→</span></a></div>
-              </div>
-            </div>
+                     <article data-klar-static
+                  class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
+                  <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    aria-label="Read article: Blog Post Title — Main Content Description" href="/${post.filePath}">
+                    <div class="relative overflow-hidden aspect-[4/3]"><img src="${post.imageUrl}"
+                        alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category"
+                        class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy" decoding="async" width="387" height="291"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                    <div class="p-6 space-y-3 ">
+                      <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span
+                          class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta"
+                          datetime="2023-09-10">DATE</time></div>
+                      <h3
+                        class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
+                        ${post.title}</h3>
+                      <p class="text-sm text-muted-foreground leading-relaxed">Blog post excerpt — Brief description of
+                        the article content for preview.</p>
+                    </div>
+                  </a>
+                </article>
           `).join('')}
-        </section>
       `;
-    }
+      }
 
-    const [latest, featured, more] = await Promise.all([
-      klar.list('blog-post', { order: 'updated_at:desc', limit: 1 }),
-      // klar.list('blog-post', { order: 'updated_at:desc', limit: 3 }),
-      // klar.list('blog-post', { order: 'updated_at:desc', limit: 2 })
-    ]);
+      const [latest, featured, more] = await Promise.all([
+        klar.list('blog-post', {
+          order: 'updated_at:desc',
+          limit: 1
+        }),
+        // klar.list('blog-post', { order: 'updated_at:desc', limit: 3 }),
+        // klar.list('blog-post', { order: 'updated_at:desc', limit: 2 })
+      ]);
 
-    app.innerHTML =
-      renderSection("Latest", latest);
+      app.innerHTML =
+        renderSection("Latest", latest);
       // renderSection("Latest", latest) +
       // renderSection("Featured", featured) +
       // renderSection("More", more);
-
-  </script>
+    </script>
     <!-- klar:strip-end -->
   </head>
   <body>
@@ -272,11 +275,11 @@
               <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="all-posts">
                 <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
                   <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/blog/blog-post-1.html">
-                    <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/business-post-6IsrfXyD.jpg" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                    <div class="relative overflow-hidden aspect-[4/3]"><img src="undefined" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                     <div class="p-6 space-y-3 ">
                       <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">DATE</time></div>
                       <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
-                        En blogg för alla de som älskar att skriva och skratta 7</h3>
+                        undefined</h3>
                       <p class="text-sm text-muted-foreground leading-relaxed">Blog post excerpt — Brief description of
                         the article content for preview.</p>
                     </div>

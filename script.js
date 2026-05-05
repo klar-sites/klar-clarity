@@ -116,13 +116,13 @@ if (closeDropdown) {
           item.addEventListener('click', (e) => {
             resetMenuTopics();
             e.currentTarget.classList.add('bg-muted', 'font-medium');
-            let selectedCategory = allTopics?.querySelector('[aria-selected="true"]');
+            let selectedCategory = allCategories?.querySelector('[aria-selected="true"]');
             if (!selectedCategory) {
               selectedCategory = 'all';
             } else {
               selectedCategory = selectedCategory.querySelector('div span').innerText;
             }
-            let selectedTag = allTopics?.querySelector('[aria-selected="true"]');
+            let selectedTag = allTags?.querySelector('[aria-selected="true"]');
             if (!selectedTag) {
               selectedTag = 'all';
             } else {
@@ -144,20 +144,26 @@ if (closeDropdown) {
         let selectedCategory = allCategories?.querySelector('[aria-selected="true"]');
         resetMenuTopics();
         e.currentTarget.classList.add('bg-muted', 'font-medium');    
-            if (!selectedCategory) {
-              selectedCategory = 'all';
-            } else {
-              selectedCategory = selectedCategory.querySelector('div span').innerText;
-            }
-            // console.log(selectedCategory)    
-        
-            const parser = new DOMParser();
-            const svgHtml = parser.parseFromString(svgFilter, "text/html");
-            e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
-            placeHolderTopics.innerText = 'All Tags';
-            setPosts(selectedCategory, 'all');
-            closeDropdown.click();
-          });
+        if (!selectedCategory) {
+          selectedCategory = 'all';
+        } else {
+          selectedCategory = selectedCategory.querySelector('div span').innerText;
+        }
+        let selectedTag = allTags?.querySelector('[aria-selected="true"]');
+        if (!selectedTag) {
+          selectedTag = 'all';
+        } else {
+          selectedTag = selectedTag.querySelector('div span').innerText;
+        }
+        // console.log(selectedCategory)    
+    
+        const parser = new DOMParser();
+        const svgHtml = parser.parseFromString(svgFilter, "text/html");
+        e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
+        placeHolderTopics.innerText = 'All Tags';
+        setPosts(selectedCategory, selectedTag, 'all');
+        closeDropdown.click();
+      });
 
 
     const placeHolderTags = document.querySelector('[aria-label="Filter by Tag"] span');

@@ -263,10 +263,6 @@ if (closeDropdown) {
             setPosts(selectedCategory, 'all', selectedTopic);
             closeDropdown.click();
           });
-
-
-    
-    
   },1000);
 
   if (document.querySelector('[aria-label="Filter by Category"]')) {

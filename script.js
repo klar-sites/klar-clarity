@@ -131,7 +131,7 @@ if (closeDropdown) {
               const svgHtml = parser.parseFromString(svgFilter, "text/html");
               e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
               placeHolder.innerText = 'All Categories';
-              let selectedTopic = allTopics?.querySelector('[aria-selected="true"]');
+              let selectedTopic = allTopics?.querySelector('[aria-selected="true"]'); 
               if (!selectedTopic) {
                 selectedTopic = 'all';
               } else {

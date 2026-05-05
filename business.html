@@ -72,7 +72,7 @@
           const clearFilter = document.querySelector('#clear-filters');
           const filterInfo = document.querySelector('#filter-info');
           filterInfo.querySelector('p').innerText =
-            `Showing ${items.length} of ${allItems.length} posts in ${category}`
+            `Showing ${items.length} of ${allItems.length} posts • ${topic}`
           if (topic && topic !== 'all') {
             filterInfo.querySelector('p').innerText += ` • ${topic}`
           }

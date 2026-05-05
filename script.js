@@ -135,7 +135,7 @@ if (closeDropdown) {
 
     
       allTopics.previousSibling.previousSibling.addEventListener('click', (e) => {
-        let selectedCategory = allCategories.querySelector('[aria-selected="true"]');
+        let selectedCategory = allCategories?.querySelector('[aria-selected="true"]');
         resetMenuTopics();
         e.currentTarget.classList.add('bg-muted', 'font-medium');    
         if (!selectedCategory) {

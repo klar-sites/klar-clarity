@@ -77,31 +77,78 @@ if (closeDropdown) {
       clearFilters();
     });
     const allCategories = document.querySelector('#all-categories');
-    [...allCategories.querySelectorAll('button')]
+    if (allCategories) {
+      [...allCategories.querySelectorAll('button')]
+        .map((item) => {
+            item.addEventListener('click', (e) => {
+              resetMenu();
+              e.currentTarget.classList.add('bg-muted', 'font-medium');
+              e.currentTarget.setAttribute('aria-selected', true);
+              const tag = e.currentTarget.querySelector('div span').innerText;
+              const parser = new DOMParser();
+              const svgHtml = parser.parseFromString(svgFilter, "text/html");
+              e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
+              placeHolder.innerText = tag;
+              setPosts(tag, null);
+              closeDropdown.click();
+            });
+        })
+  
+      
+        allCategories.previousSibling.previousSibling.addEventListener('click', (e) => {
+              resetMenu();
+          e.currentTarget.classList.add('bg-muted', 'font-medium');
+              const parser = new DOMParser();
+              const svgHtml = parser.parseFromString(svgFilter, "text/html");
+              e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
+              placeHolder.innerText = 'All Categories';
+              setPosts('all', null);
+              closeDropdown.click();
+            });
+    }
+
+
+    const placeHolderTopics = document.querySelector('[aria-label="Filter by Tag"] span');
+    const allTopics = document.querySelector('#all-topics');
+    [...allTopics.querySelectorAll('button')]
       .map((item) => {
           item.addEventListener('click', (e) => {
-            resetMenu();
+            resetMenuTopics();
             e.currentTarget.classList.add('bg-muted', 'font-medium');
-            e.currentTarget.setAttribute('aria-selected', true);
+            let selectedCategory = allCategories.querySelector('[aria-selected="true"]');
+            if (!selectedCategory) {
+              selectedCategory = 'all';
+            } else {
+              selectedCategory = selectedCategory.querySelector('div span').innerText;
+            }
             const tag = e.currentTarget.querySelector('div span').innerText;
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
-            placeHolder.innerText = tag;
-            setPosts(tag, null);
-            closeDropdown.click();
+            placeHolderTags.innerText = tag;
+            // console.log(selectedCategory)
+            setPosts(selectedCategory, tag);
+            closeDropdown.click(); 
           });
       })
 
     
-      allCategories.previousSibling.previousSibling.addEventListener('click', (e) => {
-            resetMenu();
-        e.currentTarget.classList.add('bg-muted', 'font-medium');
+      allTopics.previousSibling.previousSibling.addEventListener('click', (e) => {
+        let selectedCategory = allCategories.querySelector('[aria-selected="true"]');
+        resetMenuTopics();
+        e.currentTarget.classList.add('bg-muted', 'font-medium');    
+        if (!selectedCategory) {
+              selectedCategory = 'all';
+            } else {
+              selectedCategory = selectedCategory.querySelector('div span').innerText;
+            }
+            // console.log(selectedCategory)    
+        
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
-            placeHolder.innerText = 'All Categories';
-            setPosts('all', null);
+            placeHolderTags.innerText = 'All Tags';
+            setPosts(selectedCategory, 'all');
             closeDropdown.click();
           });
 
@@ -151,49 +198,7 @@ if (closeDropdown) {
           });
 
 
-    const placeHolderTopics = document.querySelector('[aria-label="Filter by Tag"] span');
-    const allTopics = document.querySelector('#all-topics');
-    [...allTopics.querySelectorAll('button')]
-      .map((item) => {
-          item.addEventListener('click', (e) => {
-            resetMenuTags();
-            e.currentTarget.classList.add('bg-muted', 'font-medium');
-            let selectedCategory = allCategories.querySelector('[aria-selected="true"]');
-            if (!selectedCategory) {
-              selectedCategory = 'all';
-            } else {
-              selectedCategory = selectedCategory.querySelector('div span').innerText;
-            }
-            const tag = e.currentTarget.querySelector('div span').innerText;
-            const parser = new DOMParser();
-            const svgHtml = parser.parseFromString(svgFilter, "text/html");
-            e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
-            placeHolderTags.innerText = tag;
-            // console.log(selectedCategory)
-            setPosts(selectedCategory, tag);
-            closeDropdown.click(); 
-          });
-      })
-
     
-      allTopics.previousSibling.previousSibling.addEventListener('click', (e) => {
-        let selectedCategory = allCategories.querySelector('[aria-selected="true"]');
-        resetMenuTags();
-        e.currentTarget.classList.add('bg-muted', 'font-medium');    
-        if (!selectedCategory) {
-              selectedCategory = 'all';
-            } else {
-              selectedCategory = selectedCategory.querySelector('div span').innerText;
-            }
-            // console.log(selectedCategory)    
-        
-            const parser = new DOMParser();
-            const svgHtml = parser.parseFromString(svgFilter, "text/html");
-            e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
-            placeHolderTags.innerText = 'All Tags';
-            setPosts(selectedCategory, 'all');
-            closeDropdown.click();
-          });
     
   },1000);
 

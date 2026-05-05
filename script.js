@@ -17,19 +17,25 @@ function clearFilters() {
   resetMenuTopics();
   resetMenuTags();
   document.querySelector('[aria-label="Filter by Category"] span').innerText = 'All Categories';
+  document.querySelector('[aria-label="Filter by Topic"] span').innerText = 'All Topics';
   document.querySelector('[aria-label="Filter by Tag"] span').innerText = 'All Tags';
   const allCategories = document.querySelector('#all-categories');
   const parser = new DOMParser();
   const svgHtml = parser.parseFromString(svgFilter, "text/html");
-allCategories.previousSibling.previousSibling.querySelector('span')?.after(svgHtml.querySelector('svg'))
+  allCategories.previousSibling.previousSibling.querySelector('span')?.after(svgHtml.querySelector('svg'))
+
+  const allTopics = document.querySelector('#all-topics');
+  const svgHtmlTags = parser.parseFromString(svgFilter, "text/html");
+  allTopics.previousSibling.previousSibling.querySelector('span')?.after(svgHtmlTags.querySelector('svg'))
+  
   const allTags = document.querySelector('#all-tags');
   const svgHtmlTags = parser.parseFromString(svgFilter, "text/html");
-allTags.previousSibling.previousSibling.querySelector('span')?.after(svgHtmlTags.querySelector('svg'))
-  const clearFilter = document.querySelector('#clear-filters');
-          const filterInfo = document.querySelector('#filter-info');
-            clearFilter.classList.add('hidden');
-            filterInfo.classList.add('hidden');
+  allTags.previousSibling.previousSibling.querySelector('span')?.after(svgHtmlTags.querySelector('svg'))
   
+  const clearFilter = document.querySelector('#clear-filters');
+  const filterInfo = document.querySelector('#filter-info');
+  clearFilter.classList.add('hidden');
+  filterInfo.classList.add('hidden');
 }
 
 function resetMenu() {

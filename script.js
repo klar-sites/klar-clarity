@@ -207,7 +207,6 @@ if (closeDropdown) {
             } else {
               selectedCategory = selectedCategory.querySelector('div span').innerText;
             }
-            let selectedTopic = allTopics?.querySelector('[aria-selected="true"]');
             if (!selectedTopic) {
               selectedTopic = 'all';
             } else {

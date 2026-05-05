@@ -18,10 +18,10 @@ function clearFilters() {
   resetMenuTags();
   document.querySelector('[aria-label="Filter by Topic"] span').innerText = 'All Topics';
   document.querySelector('[aria-label="Filter by Tag"] span').innerText = 'All Tags';
+  const parser = new DOMParser();
   if (document.querySelector('[aria-label="Filter by Category"] span')) {
     document.querySelector('[aria-label="Filter by Category"] span').innerText = 'All Categories';
     const allCategories = document.querySelector('#all-categories');
-    const parser = new DOMParser();
     const svgHtml = parser.parseFromString(svgFilter, "text/html");
     allCategories.previousSibling.previousSibling.querySelector('span')?.after(svgHtml.querySelector('svg'))
   }

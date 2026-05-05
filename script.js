@@ -1,4 +1,9 @@
-const mobileMenuToggle = document.querySelector('#mobile-menu-toggle');
+const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuToggle.addEventListener('click', (e) => {
+  mobileMenu.classList.remove('hidden');
+});
+
 
 const closeDropdown = document.querySelector('#closeDropdown');
 

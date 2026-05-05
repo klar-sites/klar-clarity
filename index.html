@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="light" style="color-scheme: light;">
   <head>
-    <script type="module" data-klar-stri>
+    <script type="module" data-klar-strip>
       // import {
       //   createKlarClient
       // } from 'http://localhost:5173/sdk/content.js';
@@ -93,15 +93,15 @@
       const config = {
         pageTypes: [{
           name: 'blog-post',
-          editableElements: 
-`.field-title     :field(name:title, type:string, order:1, section:'Content',sectionOrder:1, col:12),
+          editableElements: `.field-title     :field(name:title, type:string, order:1, section:'Content',sectionOrder:1, col:12),
 .field-image     :field(name:image, type:src, order:4, col: 10, section:'Content',sectionOrder:1),
 .field-category  :field(name:category, type:select, vocab:categories, strict:true, col:6, section:'Meta',sectionOrder:2),
 .field-author    :field(name:author, type:select, vocab:authors, strict:true, col:6, section:'Meta',sectionOrder:2),
 .field-createdAt :field(name:createdAt, type:date, format:'MMMM D, YYYY', field: createdAt, readonly:true, label: 'Created', col:12),
 .field-initial   :field(name:initial, type:string, order:5, col:6),
 .field-readTime  :field(name:readTime, type:string, order: 5, col: 6),
-.field-text      :field(name:text, type:html, ui:blocks)`}],
+.field-text      :field(name:text, type:html, ui:blocks)`
+        }],
         pages: [{
           name: 'blog/blog-post-1.html',
           tags: [{

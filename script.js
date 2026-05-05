@@ -88,6 +88,8 @@ if (closeDropdown) {
       clearFilters();
     });
     const allCategories = document.querySelector('#all-categories');
+    const allTopics = document.querySelector('#all-topics');
+    const allTags = document.querySelector('#all-tags');
     // console.log(allCategories);
     if (allCategories) { 
       [...allCategories.querySelectorAll('button')]
@@ -101,7 +103,22 @@ if (closeDropdown) {
               const svgHtml = parser.parseFromString(svgFilter, "text/html");
               e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
               placeHolder.innerText = tag;
-              setPosts(tag, null);
+
+            let selectedTopic = allTopics?.querySelector('[aria-selected="true"]');
+            if (!selectedTopic) {
+              selectedTopic = 'all';
+            } else {
+              selectedTopic = selectedTopic.querySelector('div span').innerText;
+            }
+            let selectedTag = allTags?.querySelector('[aria-selected="true"]');
+            // console.log(allTopics)
+            if (!selectedTag) {
+              selectedTag = 'all';
+            } else {
+              selectedTag = selectedTag.querySelector('div span').innerText;
+            }
+              
+              setPosts(tag, selectedTag, selectedTopic);
               closeDropdown.click();
             });
         })
@@ -114,13 +131,26 @@ if (closeDropdown) {
               const svgHtml = parser.parseFromString(svgFilter, "text/html");
               e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
               placeHolder.innerText = 'All Categories';
-              setPosts('all', null);
+              let selectedTopic = allTopics?.querySelector('[aria-selected="true"]');
+              if (!selectedTopic) {
+                selectedTopic = 'all';
+              } else {
+                selectedTopic = selectedTopic.querySelector('div span').innerText;
+              }
+              let selectedTag = allTags?.querySelector('[aria-selected="true"]');
+              // console.log(allTopics)
+              if (!selectedTag) {
+                selectedTag = 'all';
+              } else {
+                selectedTag = selectedTag.querySelector('div span').innerText;
+              }
+              setPosts('all', selectedTag, selectedTopic);
               closeDropdown.click();
             });
     }
 
     const placeHolderTopics = document.querySelector('[aria-label="Filter by Topic"] span');
-    const allTopics = document.querySelector('#all-topics');
+    
     [...allTopics.querySelectorAll('button')]
       .map((item) => {
           item.addEventListener('click', (e) => {
@@ -178,7 +208,7 @@ if (closeDropdown) {
 
 
     const placeHolderTags = document.querySelector('[aria-label="Filter by Tag"] span');
-    const allTags = document.querySelector('#all-tags');
+    
     [...allTags.querySelectorAll('button')]
       .map((item) => {
           item.addEventListener('click', (e) => {

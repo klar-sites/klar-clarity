@@ -14,6 +14,7 @@ const closeDropdown = document.querySelector('#closeDropdown');
 
 function clearFilters() {
   resetMenu();
+  resetMenuTopics();
   resetMenuTags();
   document.querySelector('[aria-label="Filter by Category"] span').innerText = 'All Categories';
   document.querySelector('[aria-label="Filter by Tag"] span').innerText = 'All Tags';

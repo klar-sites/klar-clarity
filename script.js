@@ -8,7 +8,6 @@ mobileMenuToggle.addEventListener('click', (e) => {
   }
 });
 
-
 const closeDropdown = document.querySelector('#closeDropdown');
 
 function clearFilters() {

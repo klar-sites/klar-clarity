@@ -52,11 +52,11 @@ function resetMenu() {
 }
 
 function resetMenuTopics() {
-  const allTags = document.querySelector('#all-topics');
-  allTags.previousSibling.previousSibling.querySelector('div svg')?.remove();
-  allTags.previousSibling.previousSibling.setAttribute('aria-selected', false);
-  allTags.previousSibling.previousSibling.classList.remove('bg-muted', 'font-medium');
-    [...allTags.querySelectorAll('button')]
+  const allTopics = document.querySelector('#all-topics');
+  allTopics.previousSibling.previousSibling.querySelector('div svg')?.remove();
+  allTopics.previousSibling.previousSibling.setAttribute('aria-selected', false);
+  allTopics.previousSibling.previousSibling.classList.remove('bg-muted', 'font-medium');
+    [...allTopics.querySelectorAll('button')]
       .map((item) => {
         item.classList.remove('bg-muted', 'font-medium');
         item.querySelector('div svg')?.remove();

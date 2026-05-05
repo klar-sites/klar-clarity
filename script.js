@@ -27,9 +27,8 @@ function clearFilters() {
   }
   
   const allTopics = document.querySelector('#all-topics');
-  const parser1 = new DOMParser();
-  const svgHtmlTopics = parser1.parseFromString(svgFilter, "text/html");
-  svgHtmlTopics.previousSibling.previousSibling.querySelector('span')?.after(svgHtmlTopics.querySelector('svg'))
+  const svgHtmlTopics = parser.parseFromString(svgFilter, "text/html");
+  allTopics.previousSibling.previousSibling.querySelector('span')?.after(svgHtmlTopics.querySelector('svg'))
   
   const allTags = document.querySelector('#all-tags');
   const svgHtmlTags = parser.parseFromString(svgFilter, "text/html");

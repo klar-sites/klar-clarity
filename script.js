@@ -231,6 +231,33 @@ if (closeDropdown) {
       }
     });
   }
+
+  document.querySelector('[aria-label="Filter by Topic"]').addEventListener('click', (e) => {
+    const button = e.currentTarget;
+    const chevron = button.querySelector('svg');
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    let dropDown = button.nextSibling;
+    if (!dropDown.classList) {
+      dropDown = dropDown.nextSibling;
+    }
+    
+    if (isExpanded) {
+      button.querySelector('svg').classList.remove('rotate-180');
+      button.setAttribute('aria-expanded', false); 
+      dropDown.classList.add('hidden');
+    } else {
+      button.querySelector('svg').classList.add('rotate-180');
+      button.setAttribute('aria-expanded', true);
+      dropDown.classList.remove('hidden');
+      closeDropdown.classList.remove('hidden');
+      closeDropdown.addEventListener('click', (e) => {
+        button.querySelector('svg').classList.remove('rotate-180');
+        button.setAttribute('aria-expanded', false); 
+        dropDown.classList.add('hidden');
+        closeDropdown.classList.add('hidden');
+      });
+    }
+  });
   
   document.querySelector('[aria-label="Filter by Tag"]').addEventListener('click', (e) => {
     const button = e.currentTarget;

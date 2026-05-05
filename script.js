@@ -160,7 +160,7 @@ if (closeDropdown) {
         const parser = new DOMParser();
         const svgHtml = parser.parseFromString(svgFilter, "text/html");
         e.currentTarget.querySelector('span').after(svgHtml.querySelector('svg'));
-        placeHolderTopics.innerText = 'All Tags';
+        placeHolderTopics.innerText = 'All Topics';
         setPosts(selectedCategory, selectedTag, 'all');
         closeDropdown.click();
       });

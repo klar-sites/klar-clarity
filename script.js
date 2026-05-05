@@ -192,7 +192,7 @@ if (closeDropdown) {
 
     
       allTags.previousSibling.previousSibling.addEventListener('click', (e) => {
-        let selectedCategory = allCategories.querySelector('[aria-selected="true"]');
+        let selectedCategory = allCategories?.querySelector('[aria-selected="true"]');
         resetMenuTags();
         e.currentTarget.classList.add('bg-muted', 'font-medium');    
         if (!selectedCategory) {

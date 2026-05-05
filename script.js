@@ -116,7 +116,7 @@ if (closeDropdown) {
           item.addEventListener('click', (e) => {
             resetMenuTopics();
             e.currentTarget.classList.add('bg-muted', 'font-medium');
-            let selectedCategory = allCategories.querySelector('[aria-selected="true"]');
+            let selectedCategory = allCategories?.querySelector('[aria-selected="true"]');
             if (!selectedCategory) {
               selectedCategory = 'all';
             } else {

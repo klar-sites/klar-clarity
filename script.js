@@ -122,13 +122,19 @@ if (closeDropdown) {
             } else {
               selectedCategory = selectedCategory.querySelector('div span').innerText;
             }
+            let selectedTag = allCategories?.querySelector('[aria-selected="true"]');
+            if (!selectedTag) {
+              selectedTag = 'all';
+            } else {
+              selectedTag = selectedTag.querySelector('div span').innerText;
+            }
             const tag = e.currentTarget.querySelector('div span').innerText;
             const parser = new DOMParser();
             const svgHtml = parser.parseFromString(svgFilter, "text/html");
             e.currentTarget.querySelector('div .gap-2 span').after(svgHtml.querySelector('svg'));
             placeHolderTags.innerText = tag;
             // console.log(selectedCategory)
-            setPosts(selectedCategory, tag);
+            setPosts(selectedCategory, selectedTag, tag);
             closeDropdown.click(); 
           });
       })

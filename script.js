@@ -88,7 +88,7 @@ if (closeDropdown) {
       clearFilters();
     });
     const allCategories = document.querySelector('#all-categories');
-    console.log(allCategories);
+    // console.log(allCategories);
     if (allCategories) { 
       [...allCategories.querySelectorAll('button')]
         .map((item) => {

@@ -13,7 +13,7 @@
       // ----------------------------
       const projectData = JSON.parse(localStorage.getItem('klar') || '{}');
       const klar = createKlarClient({
-        projectId: projectData.activeProjectId,
+        projectId: 393 || projectData.activeProjectId,
         // baseUrl: 'https://klar-sites.github.io/klar-clarity/assets/db.json',
         source: 'assets/klar-content.json'
       });

@@ -5,13 +5,13 @@
       import {
         createKlarClient
       } from 'http://localhost:5173/sdk/content.js';
-      const rootFeatured = document.getElementById("klar-hero");
-      const rootAllPosts = document.getElementById("all-posts");
+      // ----------------------------
+      // Klar client
+      // ----------------------------
       const projectData = JSON.parse(localStorage.getItem('klar') || '{}');
       const klar = createKlarClient({
         projectId: projectData.activeProjectId
       });
-
       const [featured, allPosts] = await Promise.all([
         klar.list('blog-post', {
           order: 'updated_at:desc',
@@ -22,12 +22,10 @@
           limit: 10
         }),
       ]);
-      rootFeatured.innerHTML = renderFeatured(featured[1]);
-      rootAllPosts.innerHTML = renderAllPosts(allPosts);
-      // renderSection("Latest", latest) +
-      // renderSection("Featured", featured) +
-      // renderSection("More", more);
-      function renderFeatured(post) {
+      // ----------------------------
+      // Components
+      // ----------------------------
+      function Featured(post) {
         return `
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="${post.content.imageUrl}"
@@ -50,8 +48,7 @@
           </div>
         `;
       }
-
-      function renderAllPosts(posts) {
+      function AllPosts(posts) {
         return `
           ${posts.map(post => `
             <article data-klar-static class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
@@ -77,7 +74,13 @@
           `).join('')}
       `;
       }
-
+      // ----------------------------
+      // Run everything
+      // ----------------------------
+      const rootFeatured = document.getElementById("klar-hero");
+      const rootAllPosts = document.getElementById("all-posts");
+      rootFeatured.innerHTML = Featured(featured[1]);
+      rootAllPosts.innerHTML = AllPosts(allPosts);
     </script>
     <script data-klar-config data-klar-strip>
       const config = {

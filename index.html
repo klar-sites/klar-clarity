@@ -14,7 +14,10 @@
         // baseUrl: 'http://localhost:5173',
         // source: '/static/db.json'
         // source: 'https://editor.klar.website/static/db.json'
-        source: location.host === '' ? 'https://editor.klar.website/static/db.json' : 'klar-clarity/assets/db.json'
+        source: location.host === 
+          '' ? 
+          'https://editor.klar.website/static/db.json' : 
+          'klar-clarity/assets/db.json'
       });
       const [featured, allPosts] = await Promise.all([
         klar.list('blog-post', {

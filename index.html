@@ -15,7 +15,7 @@
       const klar = createKlarClient({
         projectId: projectData.activeProjectId,
         baseUrl: 'http://localhost:5173',
-        source: 'assets/db.jsn'
+        source: 'assets/db.json'
       });
       const [featured, allPosts] = await Promise.all([
         klar.list('blog-post', {

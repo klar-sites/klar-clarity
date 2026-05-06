@@ -12,7 +12,7 @@ window.klar = createKlarClient({
   source: location.host ===
     '' ?
     // 'https://editor.klar.website/static/db.json' : '/klar-clarity/assets/db.json'
-    'http://localhost:5173/db/' + projectId + '.json' : 'http://localhost:5173/db/' + projectId + '.json'
+    `http://localhost:5173/db/${projectId}.json' : 'http://localhost:5173/db/${projectId}.json`
 });
 window.klarSdk = klar;
 

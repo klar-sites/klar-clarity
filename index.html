@@ -29,11 +29,11 @@
       // 1. Klar client: Declared in script.js
       // ----------------------------
       const [featured, allPosts] = await Promise.all([
-        klar.list('blog-post', {
+        klarSdk.list('blog-post', {
           order: 'updated_at:desc',
           limit: 2
         }),
-        klar.list('blog-post', {
+        klarSdk.list('blog-post', {
           order: 'updated_at:desc',
           limit: 10
         }),

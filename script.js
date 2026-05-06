@@ -69,10 +69,10 @@ function setupTocScrollSpy() {
         const headingsArray = Array.from(headings);
         const index = headingsArray.indexOf(entry.target);
         
-        buttons.forEach((btn) => btn.classList.remove('toc-active'));
+        buttons.forEach((btn) => btn.classList.remove('bg-muted'));
         
         if (buttons[index]) {
-          buttons[index].classList.add('toc-active');
+          buttons[index].classList.add('bg-muted');
         }
       }
     });

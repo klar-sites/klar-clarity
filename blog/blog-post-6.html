@@ -365,7 +365,7 @@
               </section>
             </div>
             <aside class="lg:col-span-1 space-y-8">
-              <div class="rounded-lg border bg-card text-card-foreground shadow-sm sticky top-24">
+              <div class="rounded-lg border bg-card text-card-foreground shadow-sm sticky top-24" style="top:113px">
                 <div class="flex flex-col space-y-1.5 p-6 pb-3">
                   <h3 class="font-semibold tracking-tight text-lg flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list h-5 w-5">
                       <path d="M3 12h.01"></path>
@@ -423,9 +423,10 @@
             <path d="m5 12 7-7 7 7"></path>
             <path d="M12 19V5"></path>
           </svg></button>
-        <script>// Back to top button functionality
+        <script>
+          // Back to top button functionality
           const backToTopButton = document.getElementById('back-to-top');
-          
+
           window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
               backToTopButton.classList.remove('hidden');
@@ -433,12 +434,16 @@
               backToTopButton.classList.add('hidden');
             }
           });
-          
+
           backToTopButton.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
           });
         </script>
       </div>
     </div>
+
   
 </body></html>

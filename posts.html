@@ -26,13 +26,8 @@
     <meta name="twitter:title" content="Nexus - Personal Blog | Fashion, Technology &amp; Lifestyle">
     <meta name="twitter:description" content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
     <script src="http://localhost:5173/sdk/content.iife.js"></script>
-    <script>
-      const projectData = localStorage.getItem('klar') ? JSON.parse(localStorage.getItem('klar')) : {};
-      const projectId = projectData.activeProjectId || 404;
-      const klarSdk = KlarSdk.createKlarClient({
-        projectId
-      });
-      const posts = klarSdk.list('blog-post', {
+    <script type="module">
+      window.posts = klarSdk.list('blog-post', {
         order: 'updated_at:desc',
         limit: 10
       });
@@ -239,7 +234,7 @@
                     </button>
                   </template>
 
-                  <script>
+                  <script type="module">
                     const allCategoriesTemplate = document.getElementById('all-categories-template').innerHTML;
                     klarSdk.facets('blog-post', 'categories').then(facets => {
                       // console.log(facets);
@@ -288,7 +283,7 @@
                     </button>
                   </template>
 
-                  <script>
+                  <script type="module">
                     const allTopicsTemplate = document.getElementById('all-topics-template').innerHTML;
                     klarSdk.facets('blog-post', 'topics').then(facets => {
                       // console.log(facets);
@@ -338,7 +333,7 @@
                     </button>
                   </template>
 
-                  <script>
+                  <script type="module">
                     const allTagsTemplate = document.getElementById('all-tags-template').innerHTML;
                     klarSdk.facets('blog-post', 'tags').then(facets => {
                       // console.log(facets);
@@ -383,10 +378,10 @@
                 </div>
               </a>
             </article>
-          
+
             <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
               <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: The Rise of Fashion Blogging: The Role of Influencers in the Industry" href="/blog/blog-post-2.html">
-                <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/fashion-lifestyle-tBv1CS6f (1).jpg" alt="Article image for: The Rise of Fashion Blogging: The Role of Influencers in the Industry - A professional photo related to fashion" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/fashion-lifestyle-tBv1CS6f (1).jpg?klar=mou447nj" alt="Article image for: The Rise of Fashion Blogging: The Role of Influencers in the Industry - A professional photo related to fashion" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                 <div class="p-6 space-y-3 ">
                   <div class="flex items-center space-x-2"><span class="blog-meta">FASHION</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">September 20, 2025</time></div>
                   <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
@@ -396,10 +391,10 @@
                 </div>
               </a>
             </article>
-          
+
             <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
               <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: The Rise of Fashion Blogging: The Role of Influencers in the Industry" href="/blog/blog-post-3.html">
-                <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/lifestyle-post-B2o5gHGK (1).jpg" alt="Article image for: The Rise of Fashion Blogging: The Role of Influencers in the Industry - A professional photo related to fashion" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/lifestyle-post-B2o5gHGK (1).jpg?klar=mou447nj" alt="Article image for: The Rise of Fashion Blogging: The Role of Influencers in the Industry - A professional photo related to fashion" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                 <div class="p-6 space-y-3 ">
                   <div class="flex items-center space-x-2"><span class="blog-meta">FASHION</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">September 20, 2025</time></div>
                   <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
@@ -409,7 +404,7 @@
                 </div>
               </a>
             </article>
-          
+
             <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
               <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: The Rise of Fashion Blogging: The Role of Influencers in the Industry" href="/blog/blog-post-1.html">
                 <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/business-post-6IsrfXyD.jpg" alt="Article image for: The Rise of Fashion Blogging: The Role of Influencers in the Industry - A professional photo related to fashion" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
@@ -422,10 +417,10 @@
                 </div>
               </a>
             </article>
-          
+
             <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
               <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: The Rise of Fashion Blogging: The Role of Influencers in the Industry" href="/blog/blog-post-4.html">
-                <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/tech-post-HXCQgDvH (1).jpg" alt="Article image for: The Rise of Fashion Blogging: The Role of Influencers in the Industry - A professional photo related to fashion" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/tech-post-HXCQgDvH (1).jpg?klar=mou447nj" alt="Article image for: The Rise of Fashion Blogging: The Role of Influencers in the Industry - A professional photo related to fashion" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                 <div class="p-6 space-y-3 ">
                   <div class="flex items-center space-x-2"><span class="blog-meta">FASHION</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">September 20, 2025</time></div>
                   <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">
@@ -435,10 +430,10 @@
                 </div>
               </a>
             </article>
-          
+
             <article class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
               <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: The Rise of Fashion Blogging: The Role of Influencers in the Industry" href="/blog/blog-post-5.html">
-                <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/work-lifestyle-Bg_wzXQT (1).jpg" alt="Article image for: The Rise of Fashion Blogging: The Role of Influencers in the Industry - A professional photo related to fashion" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                <div class="relative overflow-hidden aspect-[4/3]"><img src="/images/work-lifestyle-Bg_wzXQT (1).jpg?klar=mou447nj" alt="Article image for: The Rise of Fashion Blogging: The Role of Influencers in the Industry - A professional photo related to fashion" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                 <div class="p-6 space-y-3 ">
                   <div class="flex items-center space-x-2"><span class="blog-meta">FASHION</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-10">September 20, 2025</time></div>
                   <h3 class="font-bold text-foreground leading-tight group-hover:text-black transition-colors text-lg">

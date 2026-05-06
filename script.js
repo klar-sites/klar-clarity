@@ -36,8 +36,16 @@ function generateTableOfContents() {
     button.style.paddingLeft = '20px';
     button.textContent = heading.textContent;
     
+    // Fix: Use scroll with offset to account for sticky header
     button.addEventListener('click', () => {
-      heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const headerOffset = 100; // sticky header height + some padding
+      const elementPosition = heading.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     });
     
     tocNav.appendChild(button);
@@ -61,6 +69,9 @@ function setupTocScrollSpy() {
   
   if (headings.length === 0) return;
   
+  // Fix: Use a tighter rootMargin so only headings near the top of the viewport trigger
+  // -100px top = accounts for sticky header (80px) + buffer
+  // -80% bottom = only the top 20% of viewport is the "trigger zone"
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -77,7 +88,7 @@ function setupTocScrollSpy() {
       }
     });
   }, {
-    rootMargin: '-80px 0px -60% 0px',
+    rootMargin: '-100px 0px -80% 0px',
     threshold: 0
   });
   
@@ -99,7 +110,6 @@ if (document.readyState === 'loading') {
 } else {
   generateTableOfContents();
 }
-
 
 
 

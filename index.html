@@ -13,7 +13,7 @@
         // projectId: projectData.activeProjectId,
         // baseUrl: 'http://localhost:5173',
         // source: '/static/db.json'
-        source: 'http://localhost:5173/static/db.json'
+        source: 'https://editor.klar.website/static/db.json'
       });
       const [featured, allPosts] = await Promise.all([
         klar.list('blog-post', {

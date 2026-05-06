@@ -1,3 +1,30 @@
+import {
+        createKlarClient
+      } from 'https://editor.klar.website/sdk/content-static.js';
+// ----------------------------
+// Klar client
+// ----------------------------
+const projectData = JSON.parse(localStorage.getItem('klar') || '{}');
+const projectId = projectData.activeProjectId || 404;
+window.klar = createKlarClient({
+  // projectId: projectData.activeProjectId,
+  // baseUrl: 'http://localhost:5173',
+  // source: '/static/db.json'
+  // source: 'https://editor.klar.website/static/db.json'
+  source: location.host ===
+    '' ?
+    // 'https://editor.klar.website/static/db.json' : '/klar-clarity/assets/db.json'
+    'http://localhost:5173/db/' + projectId + '.json' : 'http://localhost:5173/db/' + projectId + '.json'
+});
+
+
+
+
+
+
+
+
+
 const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
 mobileMenuToggle.addEventListener('click', (e) => {

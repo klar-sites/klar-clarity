@@ -15,7 +15,7 @@ window.klarSdk = createKlarClient({
     `http://localhost:5173/db/${projectId}.json` : `http://localhost:5173/db/${projectId}.json`
 });
 
-function generateTableOfContents() {
+function setupTocScrollSpy() {
   const articleContent = document.querySelector('[data-article-content="true"]');
   const tocNav = document.getElementById('toc-nav');
   
@@ -23,25 +23,38 @@ function generateTableOfContents() {
   
   const headings = articleContent.querySelectorAll('h2');
   
-  tocNav.innerHTML = '';
+  if (headings.length === 0) return;
   
-  headings.forEach((heading, index) => {
-    // Ensure the heading has an id for scrolling
-    if (!heading.id) {
-      heading.id = 'heading-' + index;
-    }
-    
-    const button = document.createElement('button');
-    button.className = 'block w-full text-left text-sm py-1 px-2 rounded hover:bg-muted transition-colors text-muted-foreground hover:text-foreground';
-    button.style.paddingLeft = '20px';
-    button.textContent = heading.textContent;
-    
-    button.addEventListener('click', () => {
-      heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        const buttons = tocNav.querySelectorAll('button');
+        const headingsArray = Array.from(headings);
+        const index = headingsArray.indexOf(entry.target);
+        
+        buttons.forEach((btn) => btn.classList.remove('toc-active'));
+        
+        if (buttons[index]) {
+          buttons[index].classList.add('toc-active');
+        }
+      }
     });
-    
-    tocNav.appendChild(button);
+  }, {
+    rootMargin: '-80px 0px -60% 0px',
+    threshold: 0
   });
+  
+  headings.forEach((heading) => {
+    observer.observe(heading);
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupTocScrollSpy);
+} else {
+  // Small delay to ensure TOC is generated first
+  setTimeout(setupTocScrollSpy, 100);
 }
 
 // Run on DOM ready

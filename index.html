@@ -14,7 +14,7 @@
       const projectData = JSON.parse(localStorage.getItem('klar') || '{}');
       const klar = createKlarClient({
         projectId: projectData.activeProjectId,
-        baseUrl: 'http://localhost:5173',
+        // baseUrl: 'http://localhost:5173',
         source: '/sdk/db.json'
       });
       const [featured, allPosts] = await Promise.all([

@@ -35,7 +35,7 @@
       const klarSdk = KlarSdk.createKlarClient({
         projectId
       });
-      const posts = klarSdk.list('blog-post', {
+      window.posts = klarSdk.list('blog-post', {
         where: {
           categories: 'Podcast'
         },

@@ -33,166 +33,6 @@
     <meta name="twitter:description"
       content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
     <script type="module" src="/script.js"></script>
-    <script type="module" data-klar-strip>
-      // ----------------------------
-      // 1. Klar client: Declared in script.js
-      // ----------------------------
-      const [featured, allPosts] = await Promise.all([
-        klarSdk.list('blog-post', {
-          order: 'updated_at:desc',
-          limit: 2
-        }),
-        klarSdk.list('blog-post', {
-          order: 'updated_at:desc',
-          limit: 10
-        }),
-      ]);
-      // ----------------------------
-      // 2. Components
-      // ----------------------------
-      function Featured(post) {
-        return `
-          <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="${post.content.imageUrl}"
-                alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category"
-                class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async"
-                fetchpriority="high" width="592" height="444"></div>
-            <div class="space-y-6">
-              <h1 class="featured-title">${post.content.title}</h1>
-              <div class="flex items-center space-x-4 text-sm"><span class="blog-meta">${post.content.author} /
-                  WRITER</span><span class="text-muted-foreground" aria-hidden="true">—</span><span
-                  class="blog-meta">CATEGORY</span><span class="text-muted-foreground"
-                  aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-02">Date Format</time></div>
-              <p class="text-lg text-muted-foreground leading-relaxed">Featured article description — This is where
-                your main content excerpt would appear to give readers a preview of the full article.</p>
-              <div class="pt-4"><a href="${post.url}"
-                  aria-label="Read more about: Featured Article Title — Hero Content Showcase"
-                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3">READ
-                  MORE<span class="ml-2" aria-hidden="true">→</span></a></div>
-            </div>
-          </div>
-        `;
-      }
-
-      function AllPosts(posts) {
-        return `
-          ${posts.map(post => `
-            <article data-klar-static class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-              <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                aria-label="Read article: Blog Post Title — Main Content Description" href="/${post.filePath}">
-                <div class="relative overflow-hidden aspect-[4/3]"><img src="${post.content.imageUrl}"
-                    alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category"
-                    class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy" decoding="async" width="387" height="291"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
-                <div class="p-6 space-y-3 "> 
-                  <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span
-                      class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta"
-                      datetime="2023-09-10">DATE</time></div>
-                  <h3
-                    class="font-bold text-foreground leading-tight transition-colors text-lg">
-                    ${post.content.title}</h3>
-                  <p class="text-sm text-muted-foreground leading-relaxed">Blog post excerpt — Brief description of
-                    the article content for preview.</p>
-                </div>
-              </a>
-            </article>
-          `).join('')}
-      `;
-      }
-      // ----------------------------
-      // 3. Run everything
-      // ----------------------------
-      const rootFeatured = document.getElementById("klar-hero");
-      const rootAllPosts = document.getElementById("all-posts");
-      rootFeatured.innerHTML = Featured(featured[0]);
-      rootAllPosts.innerHTML = AllPosts(allPosts);
-      // console.log(allPosts);
-    </script>
-    <script data-klar-config>
-      const config = {
-        pageTypes: [{
-          name: 'blog-post',
-          editableElements: `.field-title     :field(name:title, type:string, order:1, section:'Content',sectionOrder:1, col:12),
-.field-image     :field(name:image, type:src, order:4, col: 10, section:'Content',sectionOrder:1),
-.field-category  :field(name:category, type:select, vocab:categories, strict:true, col:6, section:'Meta',sectionOrder:2),
-.field-author    :field(name:author, type:select, vocab:authors, strict:true, col:6, section:'Meta',sectionOrder:2),
-.field-createdAt :field(name:createdAt, type:date, format:'MMMM D, YYYY', field: createdAt, readonly:true, label: 'Created', col:12),
-.field-initial   :field(name:initial, type:string, order:5, col:6),
-.field-readTime  :field(name:readTime, type:string, order: 5, col: 6),
-.field-text      :field(name:text, type:html, ui:blocks)`
-        }],
-        pages: [{
-          name: 'blog/blog-post-1.html',
-          tags: [{
-              categories: ['Technology', 'Podcast', 'Lifestyle']
-            },
-            {
-              tags: ['Leadership', 'Authenticity']
-            }
-          ]
-        }, {
-          name: 'blog/blog-post-2.html',
-          tags: [{
-              categories: ['Technology', 'Business', 'Lifestyle']
-            },
-            {
-              tags: ['Leadership']
-            }
-          ]
-        }, {
-          name: 'blog/blog-post-3.html',
-          tags: [{
-              categories: ['Technology', 'Lifestyle']
-            },
-            {
-              tags: ['Authenticity']
-            }
-          ]
-        }, {
-          name: 'blog/blog-post-4.html',
-          tags: [{
-              categories: ['Technology', 'Podcast', 'Business', 'Lifestyle']
-            },
-            {
-              topics: ['Personal Branding']
-            },
-            {
-              tags: ['Leadership']
-            }
-          ]
-        }, {
-          name: 'blog/blog-post-5.html',
-          tags: [{
-              categories: ['Business', 'Lifestyle']
-            },
-            {
-              tags: ['Leadership', 'Authenticity']
-            }
-          ]
-        }, {
-          name: 'blog/blog-post-6.html',
-          tags: [{
-              categories: ['Technology']
-            },
-            {
-              topics: ['Personal Branding', 'Digital Marketing']
-            },
-            {
-              tags: ['Leadership', 'Authenticity']
-            }
-          ]
-        }, ],
-        tags: [{
-          'blog-post': {
-            categories: ['Technology', 'Podcast', 'Lifestyle'],
-            topics: ['Digital Marketing', 'Personal Branding'],
-            tags: ['Leadership', 'Authenticity'],
-            authors: ['Lisa Eriksson', 'Klar Karlsson', 'Niklas Svensson']
-          }
-        }]
-      };
-    </script>
     <script>
       (function() {
         try {
@@ -351,7 +191,106 @@
             </div>
           </div>
         </header>
-        <main id="main-content" class="container-blog py-12"><div class="max-w-4xl mx-auto"><div class="text-center mb-12"><h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">About Nexus</h1><p class="text-xl text-muted-foreground max-w-2xl mx-auto">Exploring the intersection of fashion, technology, business, and lifestyle</p></div><div class="mb-16"><div class="aspect-video rounded-lg bg-muted mb-8 flex items-center justify-center"><div class="text-center"><div class="w-24 h-24 bg-primary rounded-full mx-auto mb-4 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart h-12 w-12 text-primary-foreground"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></div><p class="text-muted-foreground">Author Photo Placeholder</p></div></div></div><div class="grid md:grid-cols-2 gap-12 mb-16"><div class="space-y-6"><h2 class="text-3xl font-bold text-foreground">Our Story</h2><div class="space-y-4 text-muted-foreground"><p>Welcome to Nexus, where diverse worlds converge. Founded with a passion for exploring the connections between fashion, technology, business, and lifestyle, we believe that the most interesting insights happen at the intersections.</p><p>Our mission is to provide thoughtful, well-researched content that helps you navigate the complex landscape of modern life. Whether you're interested in the latest fashion trends, emerging technologies, business strategies, or lifestyle optimization, we're here to guide your journey.</p><p>We curate content that matters, diving deep into topics that shape our world while maintaining an accessible, engaging approach that speaks to curious minds everywhere.</p></div></div><div class="space-y-8"><div><h3 class="text-xl font-semibold text-foreground mb-4">What We Cover</h3><ul class="space-y-3"><li class="flex items-center gap-3"><div class="w-2 h-2 bg-primary rounded-full"></div><span class="text-muted-foreground">Fashion trends and style insights</span></li><li class="flex items-center gap-3"><div class="w-2 h-2 bg-primary rounded-full"></div><span class="text-muted-foreground">Technology and innovation</span></li><li class="flex items-center gap-3"><div class="w-2 h-2 bg-primary rounded-full"></div><span class="text-muted-foreground">Business strategy and entrepreneurship</span></li><li class="flex items-center gap-3"><div class="w-2 h-2 bg-primary rounded-full"></div><span class="text-muted-foreground">Lifestyle and personal development</span></li></ul></div><div class="bg-muted p-6 rounded-lg"><h3 class="text-xl font-semibold text-foreground mb-4">Quick Stats</h3><div class="space-y-3"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar h-5 w-5 text-primary"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg><span class="text-muted-foreground">Publishing since 2023</span></div><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin h-5 w-5 text-primary"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg><span class="text-muted-foreground">Based globally, thinking locally</span></div><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail h-5 w-5 text-primary"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg><span class="text-muted-foreground">Weekly newsletter subscribers</span></div></div></div></div></div><div class="text-center bg-muted p-8 rounded-lg"><h2 class="text-2xl font-bold text-foreground mb-4">Ready to Join Our Community?</h2><p class="text-muted-foreground mb-6 max-w-2xl mx-auto">Stay updated with our latest insights and discoveries. Connect with like-minded individuals who share your curiosity about the world around us.</p><div class="flex flex-col sm:flex-row gap-4 justify-center"><a class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-black hover:text-white border border-black h-11 px-8" href="/contact">Get in Touch</a><a class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-11 px-8" href="/posts">Browse Articles</a></div></div></div></main>
+        <main id="main-content" class="container-blog py-12">
+          <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+              <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">About Nexus</h1>
+              <p class="text-xl text-muted-foreground max-w-2xl mx-auto">Exploring the intersection of fashion,
+                technology, business, and lifestyle</p>
+            </div>
+            <div class="mb-16">
+              <div class="aspect-video rounded-lg bg-muted mb-8 flex items-center justify-center">
+                <div class="text-center">
+                  <div class="w-24 h-24 bg-primary rounded-full mx-auto mb-4 flex items-center justify-center"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-heart h-12 w-12 text-primary-foreground">
+                      <path
+                        d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z">
+                      </path>
+                    </svg></div>
+                  <p class="text-muted-foreground">Author Photo Placeholder</p>
+                </div>
+              </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+              <div class="space-y-6">
+                <h2 class="text-3xl font-bold text-foreground">Our Story</h2>
+                <div class="space-y-4 text-muted-foreground">
+                  <p>Welcome to Nexus, where diverse worlds converge. Founded with a passion for exploring the
+                    connections between fashion, technology, business, and lifestyle, we believe that the most
+                    interesting insights happen at the intersections.</p>
+                  <p>Our mission is to provide thoughtful, well-researched content that helps you navigate the complex
+                    landscape of modern life. Whether you're interested in the latest fashion trends, emerging
+                    technologies, business strategies, or lifestyle optimization, we're here to guide your journey.</p>
+                  <p>We curate content that matters, diving deep into topics that shape our world while maintaining an
+                    accessible, engaging approach that speaks to curious minds everywhere.</p>
+                </div>
+              </div>
+              <div class="space-y-8">
+                <div>
+                  <h3 class="text-xl font-semibold text-foreground mb-4">What We Cover</h3>
+                  <ul class="space-y-3">
+                    <li class="flex items-center gap-3">
+                      <div class="w-2 h-2 bg-primary rounded-full"></div><span class="text-muted-foreground">Fashion
+                        trends and style insights</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                      <div class="w-2 h-2 bg-primary rounded-full"></div><span class="text-muted-foreground">Technology
+                        and innovation</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                      <div class="w-2 h-2 bg-primary rounded-full"></div><span class="text-muted-foreground">Business
+                        strategy and entrepreneurship</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                      <div class="w-2 h-2 bg-primary rounded-full"></div><span class="text-muted-foreground">Lifestyle
+                        and personal development</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="bg-muted p-6 rounded-lg">
+                  <h3 class="text-xl font-semibold text-foreground mb-4">Quick Stats</h3>
+                  <div class="space-y-3">
+                    <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-calendar h-5 w-5 text-primary">
+                        <path d="M8 2v4"></path>
+                        <path d="M16 2v4"></path>
+                        <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                        <path d="M3 10h18"></path>
+                      </svg><span class="text-muted-foreground">Publishing since 2023</span></div>
+                    <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-map-pin h-5 w-5 text-primary">
+                        <path
+                          d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                        </path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                      </svg><span class="text-muted-foreground">Based globally, thinking locally</span></div>
+                    <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-mail h-5 w-5 text-primary">
+                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                      </svg><span class="text-muted-foreground">Weekly newsletter subscribers</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center bg-muted p-8 rounded-lg">
+              <h2 class="text-2xl font-bold text-foreground mb-4">Ready to Join Our Community?</h2>
+              <p class="text-muted-foreground mb-6 max-w-2xl mx-auto">Stay updated with our latest insights and
+                discoveries. Connect with like-minded individuals who share your curiosity about the world around us.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center"><a
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-black hover:text-white border border-black h-11 px-8"
+                  href="/contact">Get in Touch</a><a
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-11 px-8"
+                  href="/posts">Browse Articles</a></div>
+            </div>
+          </div>
+        </main>
         <footer class="bg-muted border-t border-border" role="contentinfo">
           <div class="container-blog py-12">
             <div class="grid md:grid-cols-4 gap-8">

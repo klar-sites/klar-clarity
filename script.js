@@ -88,7 +88,7 @@ function setupTocScrollSpy() {
       }
     });
   }, {
-    rootMargin: '-100px 0px -80% 0px',
+    rootMargin: '-100px 0px -60% 0px',
     threshold: 0
   });
   

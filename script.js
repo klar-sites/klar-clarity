@@ -4,7 +4,7 @@ import { createKlarClient } from 'https://editor.klar.website/sdk/content-static
 // ----------------------------
 const projectData = localStorage.getItem('klar') ? JSON.parse(localStorage.getItem('klar')) : {};
 const projectId = projectData.activeProjectId || 404;
-window.klar = createKlarClient({
+window.klarSdk = createKlarClient({
   // projectId: projectData.activeProjectId,
   // baseUrl: 'http://localhost:5173',
   // source: '/static/db.json'
@@ -14,7 +14,6 @@ window.klar = createKlarClient({
     // 'https://editor.klar.website/static/db.json' : '/klar-clarity/assets/db.json'
     `http://localhost:5173/db/${projectId}.json` : `http://localhost:5173/db/${projectId}.json`
 });
-window.klarSdk = klar;
 
 
 

@@ -33,166 +33,6 @@
     <meta name="twitter:description"
       content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
     <script type="module" src="/script.js"></script>
-    <script type="module" data-klar-strip>
-      // ----------------------------
-      // 1. Klar client: Declared in script.js
-      // ----------------------------
-      const [featured, allPosts] = await Promise.all([
-        klarSdk.list('blog-post', {
-          order: 'updated_at:desc',
-          limit: 2
-        }),
-        klarSdk.list('blog-post', {
-          order: 'updated_at:desc',
-          limit: 10
-        }),
-      ]);
-      // ----------------------------
-      // 2. Components
-      // ----------------------------
-      function Featured(post) {
-        return `
-          <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="${post.content.imageUrl}"
-                alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category"
-                class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async"
-                fetchpriority="high" width="592" height="444"></div>
-            <div class="space-y-6">
-              <h1 class="featured-title">${post.content.title}</h1>
-              <div class="flex items-center space-x-4 text-sm"><span class="blog-meta">${post.content.author} /
-                  WRITER</span><span class="text-muted-foreground" aria-hidden="true">—</span><span
-                  class="blog-meta">CATEGORY</span><span class="text-muted-foreground"
-                  aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-02">Date Format</time></div>
-              <p class="text-lg text-muted-foreground leading-relaxed">Featured article description — This is where
-                your main content excerpt would appear to give readers a preview of the full article.</p>
-              <div class="pt-4"><a href="${post.url}"
-                  aria-label="Read more about: Featured Article Title — Hero Content Showcase"
-                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3">READ
-                  MORE<span class="ml-2" aria-hidden="true">→</span></a></div>
-            </div>
-          </div>
-        `;
-      }
-
-      function AllPosts(posts) {
-        return `
-          ${posts.map(post => `
-            <article data-klar-static class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
-              <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                aria-label="Read article: Blog Post Title — Main Content Description" href="/${post.filePath}">
-                <div class="relative overflow-hidden aspect-[4/3]"><img src="${post.content.imageUrl}"
-                    alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category"
-                    class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy" decoding="async" width="387" height="291"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
-                <div class="p-6 space-y-3 "> 
-                  <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span
-                      class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta"
-                      datetime="2023-09-10">DATE</time></div>
-                  <h3
-                    class="font-bold text-foreground leading-tight transition-colors text-lg">
-                    ${post.content.title}</h3>
-                  <p class="text-sm text-muted-foreground leading-relaxed">Blog post excerpt — Brief description of
-                    the article content for preview.</p>
-                </div>
-              </a>
-            </article>
-          `).join('')}
-      `;
-      }
-      // ----------------------------
-      // 3. Run everything
-      // ----------------------------
-      const rootFeatured = document.getElementById("klar-hero");
-      const rootAllPosts = document.getElementById("all-posts");
-      rootFeatured.innerHTML = Featured(featured[0]);
-      rootAllPosts.innerHTML = AllPosts(allPosts);
-      // console.log(allPosts);
-    </script>
-    <script data-klar-config>
-      const config = {
-        pageTypes: [{
-          name: 'blog-post',
-          editableElements: `.field-title     :field(name:title, type:string, order:1, section:'Content',sectionOrder:1, col:12),
-.field-image     :field(name:image, type:src, order:4, col: 10, section:'Content',sectionOrder:1),
-.field-category  :field(name:category, type:select, vocab:categories, strict:true, col:6, section:'Meta',sectionOrder:2),
-.field-author    :field(name:author, type:select, vocab:authors, strict:true, col:6, section:'Meta',sectionOrder:2),
-.field-createdAt :field(name:createdAt, type:date, format:'MMMM D, YYYY', field: createdAt, readonly:true, label: 'Created', col:12),
-.field-initial   :field(name:initial, type:string, order:5, col:6),
-.field-readTime  :field(name:readTime, type:string, order: 5, col: 6),
-.field-text      :field(name:text, type:html, ui:blocks)`
-        }],
-        pages: [{
-          name: 'blog/blog-post-1.html',
-          tags: [{
-              categories: ['Technology', 'Podcast', 'Lifestyle']
-            },
-            {
-              tags: ['Leadership', 'Authenticity']
-            }
-          ]
-        }, {
-          name: 'blog/blog-post-2.html',
-          tags: [{
-              categories: ['Technology', 'Business', 'Lifestyle']
-            },
-            {
-              tags: ['Leadership']
-            }
-          ]
-        }, {
-          name: 'blog/blog-post-3.html',
-          tags: [{
-              categories: ['Technology', 'Lifestyle']
-            },
-            {
-              tags: ['Authenticity']
-            }
-          ]
-        }, {
-          name: 'blog/blog-post-4.html',
-          tags: [{
-              categories: ['Technology', 'Podcast', 'Business', 'Lifestyle']
-            },
-            {
-              topics: ['Personal Branding']
-            },
-            {
-              tags: ['Leadership']
-            }
-          ]
-        }, {
-          name: 'blog/blog-post-5.html',
-          tags: [{
-              categories: ['Business', 'Lifestyle']
-            },
-            {
-              tags: ['Leadership', 'Authenticity']
-            }
-          ]
-        }, {
-          name: 'blog/blog-post-6.html',
-          tags: [{
-              categories: ['Technology']
-            },
-            {
-              topics: ['Personal Branding', 'Digital Marketing']
-            },
-            {
-              tags: ['Leadership', 'Authenticity']
-            }
-          ]
-        }, ],
-        tags: [{
-          'blog-post': {
-            categories: ['Technology', 'Podcast', 'Lifestyle'],
-            topics: ['Digital Marketing', 'Personal Branding'],
-            tags: ['Leadership', 'Authenticity'],
-            authors: ['Lisa Eriksson', 'Klar Karlsson', 'Niklas Svensson']
-          }
-        }]
-      };
-    </script>
     <script>
       (function() {
         try {
@@ -351,7 +191,34 @@
             </div>
           </div>
         </header>
-        <main id="main-content" class="container-blog py-12"><div class="max-w-4xl mx-auto"><h1 class="text-4xl md:text-5xl font-bold text-foreground mb-8">Search Results</h1><form class="mb-8"><div class="relative max-w-md"><label for="search-input" class="sr-only">Search articles</label><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="text" class="flex h-10 w-full rounded-md border border-input bg-background px-3 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm pl-10 pr-12 py-3" id="search-input" placeholder="Search articles..." aria-label="Search articles" value=""></div></form><div class="text-center py-12"><h2 class="text-2xl font-semibold text-foreground mb-4">What are you looking for?</h2><p class="text-muted-foreground mb-6">Enter a search term above to find articles, or browse our latest content:</p><div class="flex flex-wrap justify-center gap-4"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-10 px-4 py-2">All Posts</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-10 px-4 py-2">Business</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-10 px-4 py-2">Technology</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-10 px-4 py-2">Podcast</button></div></div></div></main>
+        <main id="main-content" class="container-blog py-12">
+          <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-8">Search Results</h1>
+            <form class="mb-8">
+              <div class="relative max-w-md"><label for="search-input" class="sr-only">Search articles</label><svg
+                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-search absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.3-4.3"></path>
+                </svg><input type="text"
+                  class="flex h-10 w-full rounded-md border border-input bg-background px-3 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm pl-10 pr-12 py-3"
+                  id="search-input" placeholder="Search articles..." aria-label="Search articles" value=""></div>
+            </form>
+            <div class="text-center py-12">
+              <h2 class="text-2xl font-semibold text-foreground mb-4">What are you looking for?</h2>
+              <p class="text-muted-foreground mb-6">Enter a search term above to find articles, or browse our latest
+                content:</p>
+              <div class="flex flex-wrap justify-center gap-4"><button
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-10 px-4 py-2">All
+                  Posts</button><button
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-10 px-4 py-2">Business</button><button
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-10 px-4 py-2">Technology</button><button
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-10 px-4 py-2">Podcast</button>
+              </div>
+            </div>
+          </div>
+        </main>
         <footer class="bg-muted border-t border-border" role="contentinfo">
           <div class="container-blog py-12">
             <div class="grid md:grid-cols-4 gap-8">

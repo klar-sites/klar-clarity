@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;display=swap" rel="stylesheet" media="all">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;display=swap" rel="stylesheet">
     <title>Nexus - Personal Blog | Fashion, Technology &amp; Lifestyle</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <meta name="description" content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
     <meta name="author" content="Nexus Blog">
     <link rel="canonical" href="https://nexus.lovable.app/">
@@ -71,7 +71,7 @@
         });
         const allPostsTpl = document.getElementById('all-posts-tpl').innerHTML;
         posts1.then(items => {
-          const allItems = JSON.parse(localStorage.getItem('all-posts')); 
+          const allItems = JSON.parse(localStorage.getItem('all-posts'));
           const clearFilter = document.querySelector('#clear-filters');
           const filterInfo = document.querySelector('#filter-info');
           filterInfo.querySelector('p').innerText =

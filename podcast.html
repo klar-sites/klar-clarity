@@ -31,9 +31,8 @@
       const klarSdk1 = KlarSdk.createKlarClient({
         projectId,
         source: location.host ===
-    '' ?
-    // 'https://editor.klar.website/static/db.json' : '/klar-clarity/assets/db.json'
-    `http://localhost:5173/db/${projectId}.json` : `http://localhost:5173/db/${projectId}.json`
+          '' ?
+          `http://localhost:5173/db/${projectId}.json` : `http://localhost:5173/db/${projectId}.json`
       });
       window.posts = klarSdk1.list('blog-post', {
         where: {

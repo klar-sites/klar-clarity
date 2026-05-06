@@ -1,3 +1,4 @@
+console.log('Gabriel Lantz');
 import { createKlarClient } from 'https://editor.klar.website/sdk/content-static.js';
 // ----------------------------
 // Klar client

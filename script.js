@@ -15,6 +15,42 @@ window.klarSdk = createKlarClient({
     `http://localhost:5173/db/${projectId}.json` : `http://localhost:5173/db/${projectId}.json`
 });
 
+function generateTableOfContents() {
+  const articleContent = document.querySelector('[data-article-content="true"]');
+  const tocNav = document.getElementById('toc-nav');
+  
+  if (!articleContent || !tocNav) return;
+  
+  const headings = articleContent.querySelectorAll('h2');
+  
+  tocNav.innerHTML = '';
+  
+  headings.forEach((heading, index) => {
+    // Ensure the heading has an id for scrolling
+    if (!heading.id) {
+      heading.id = 'heading-' + index;
+    }
+    
+    const button = document.createElement('button');
+    button.className = 'block w-full text-left text-sm py-1 px-2 rounded hover:bg-muted transition-colors text-muted-foreground hover:text-foreground';
+    button.style.paddingLeft = '20px';
+    button.textContent = heading.textContent;
+    
+    button.addEventListener('click', () => {
+      heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    
+    tocNav.appendChild(button);
+  });
+}
+
+// Run on DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', generateTableOfContents);
+} else {
+  generateTableOfContents();
+}
+
 
 
 

@@ -3,21 +3,7 @@
   <head>
     <script type="module" data-klar-stri>
       
-      // ----------------------------
-      // Klar client
-      // ----------------------------
-      const projectData = JSON.parse(localStorage.getItem('klar') || '{}');
-      const projectId = projectData.activeProjectId || 404;
-      const klar = createKlarClient({
-        // projectId: projectData.activeProjectId,
-        // baseUrl: 'http://localhost:5173',
-        // source: '/static/db.json'
-        // source: 'https://editor.klar.website/static/db.json'
-        source: location.host ===
-          '' ?
-          // 'https://editor.klar.website/static/db.json' : '/klar-clarity/assets/db.json'
-          'http://localhost:5173/db/' + projectId + '.json' : 'http://localhost:5173/db/' + projectId + '.json'
-      });
+      
       const [featured, allPosts] = await Promise.all([
         klar.list('blog-post', {
           order: 'updated_at:desc',
@@ -298,7 +284,7 @@
         <main id="main-content">
           <article class="container-blog py-16" id="klar-hero" data-klar-static>
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-              <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="/images/fashion-lifestyle-tBv1CS6f (1).jpg?klar=motqu3il?klar=motqvic3" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
+              <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="/images/fashion-lifestyle-tBv1CS6f (1).jpg?klar=motqw382" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
               <div class="space-y-6">
                 <h1 class="featured-title">En blogg för alla de som tycker det är kul att blogga</h1>
                 <div class="flex items-center space-x-4 text-sm"><span class="blog-meta">undefined /

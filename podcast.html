@@ -57,7 +57,8 @@
         const posts1 = klarSdk.list('blog-post', {
           where: {
             categories,
-            topics
+            topics,
+            tags
           },
           order: 'updated_at:desc',
           limit: 10
@@ -240,7 +241,8 @@
                     klarSdk.facets('blog-post', 'topics', {
                       where: {
                         categories: 'Podcast'
-                      }}).then(facets => {
+                      }
+                    }).then(facets => {
                       // console.log(facets);
                       klarSdk.insert('#all-topics', 'replace', klarSdk.render(facets,
                         allTopicsTemplate));
@@ -293,7 +295,8 @@
                     klarSdk.facets('blog-post', 'tags', {
                       where: {
                         categories: 'Podcast'
-                      }}).then(facets => {
+                      }
+                    }).then(facets => {
                       // console.log(facets);
                       klarSdk.insert('#all-tags', 'replace', klarSdk.render(facets,
                         allTagsTemplate));

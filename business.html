@@ -56,7 +56,8 @@
         const posts1 = klarSdk.list('blog-post', {
           where: {
             categories,
-            topics
+            topics,
+            tags
           },
           order: 'updated_at:desc',
           limit: 10
@@ -216,7 +217,7 @@
                   
                     <button class="w-full px-4 py-2 text-left text-sm hover:bg-muted transition-colors " role="option" aria-selected="false">
                       <div class="flex items-center justify-between"><span>Digital Marketing</span>
-                        <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(2)</span>
+                        <div class="flex items-center gap-2"><span class="text-xs text-muted-foreground">(1)</span>
                         </div>
                       </div>
                     </button>
@@ -235,7 +236,11 @@
 
                   <script type="module">
                     const allTopicsTemplate = document.getElementById('all-topics-template').innerHTML;
-                    klarSdk.facets('blog-post', 'topics').then(facets => {
+                    klarSdk.facets('blog-post', 'topics', {
+                      where: {
+                        categories: 'Business'
+                      }
+                    }).then(facets => {
                       // console.log(facets);
                       klarSdk.insert('#all-topics', 'replace', klarSdk.render(facets,
                         allTopicsTemplate));

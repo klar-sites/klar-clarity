@@ -3,7 +3,9 @@
   <head>
     <script type="module" src="/script.js"></script>
     <script type="module" data-klar-stri>
-      console.log(window);
+      // ----------------------------
+      // Klar client: Declared in script.js. Instance is window.klar
+      // ----------------------------
       const [featured, allPosts] = await Promise.all([
         klar.list('blog-post', {
           order: 'updated_at:desc',

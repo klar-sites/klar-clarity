@@ -17,7 +17,7 @@
         source: location.host ===
           '' ?
           // 'https://editor.klar.website/static/db.json' : '/klar-clarity/assets/db.json'
-          'http://localhost:5173/db/404.json' : '/klar-clarity/assets/db.json'
+          'http://localhost:5173/db/404.json' : 'http://localhost:5173/db/404.json'
       });
       const [featured, allPosts] = await Promise.all([
         klar.list('blog-post', {

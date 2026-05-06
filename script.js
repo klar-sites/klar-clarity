@@ -1,4 +1,5 @@
 console.log('hehe');
+console.log('hehe 1');
 import { createKlarClient } from 'https://editor.klar.website/sdk/content-static.js';
 // ----------------------------
 // Klar client

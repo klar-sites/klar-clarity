@@ -4,7 +4,7 @@
     <script type="module" src="/script.js"></script>
     <script type="module" data-klar-stri>
       // ----------------------------
-      // Klar client: Declared in script.js. Instance is window.klar
+      // 1. Klar client: Declared in script.js
       // ----------------------------
       const [featured, allPosts] = await Promise.all([
         klar.list('blog-post', {
@@ -17,7 +17,7 @@
         }),
       ]);
       // ----------------------------
-      // 4. Components
+      // 2. Components
       // ----------------------------
       function Featured(post) {
         return `
@@ -70,11 +70,10 @@
       `;
       }
       // ----------------------------
-      // Run everything
+      // 3. Run everything
       // ----------------------------
       const rootFeatured = document.getElementById("klar-hero");
       const rootAllPosts = document.getElementById("all-posts");
-      console.log(allPosts)
       rootFeatured.innerHTML = Featured(featured[1]);
       rootAllPosts.innerHTML = AllPosts(allPosts);
     </script>

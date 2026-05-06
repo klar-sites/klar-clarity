@@ -9,6 +9,7 @@
       // Klar client
       // ----------------------------
       const projectData = JSON.parse(localStorage.getItem('klar') || '{}');
+      const projectId = projectData.activeProjectId;
       const klar = createKlarClient({
         // projectId: projectData.activeProjectId,
         // baseUrl: 'http://localhost:5173',
@@ -17,7 +18,7 @@
         source: location.host ===
           '' ?
           // 'https://editor.klar.website/static/db.json' : '/klar-clarity/assets/db.json'
-          'http://localhost:5173/db/404.json' : 'http://localhost:5173/db/404.json'
+          'http://localhost:5173/db/'+projectId+'.json' : 'http://localhost:5173/db/'+projectId+'.json'
       });
       const [featured, allPosts] = await Promise.all([
         klar.list('blog-post', {

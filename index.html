@@ -2,9 +2,6 @@
 <html lang="en" class="light" style="color-scheme: light;">
   <head>
     <script type="module" data-klar-stri>
-      // import {
-      //   createKlarClient
-      // } from 'http://localhost:5173/sdk/content.js';
       import {
         createKlarClient
       } from 'https://editor.klar.website/sdk/content-static.js';
@@ -15,7 +12,7 @@
       const klar = createKlarClient({
         // projectId: projectData.activeProjectId,
         // baseUrl: 'http://localhost:5173',
-        // source: '/sdk/db.json'
+        // source: '/static/db.json'
         source: 'http://localhost:5173/static/db.json'
       });
       const [featured, allPosts] = await Promise.all([

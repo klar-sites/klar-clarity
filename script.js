@@ -2,7 +2,7 @@ import { createKlarClient } from 'https://editor.klar.website/sdk/content-static
 // ----------------------------
 // Klar client
 // ----------------------------
-const projectData = JSON.parse(localStorage.getItem('klar') || '{}');
+const projectData = JSON.parse(localStorage.getItem('klar') || {});
 const projectId = projectData.activeProjectId || 404;
 window.klar = createKlarClient({
   // projectId: projectData.activeProjectId,

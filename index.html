@@ -64,6 +64,7 @@
           </div>
         `;
       }
+
       function AllPosts(posts) {
         return `
           ${posts.map(post => `
@@ -95,9 +96,9 @@
       // ----------------------------
       const rootFeatured = document.getElementById("klar-hero");
       const rootAllPosts = document.getElementById("all-posts");
+      console.log(allPosts);
       rootFeatured.innerHTML = Featured(featured[0]);
       rootAllPosts.innerHTML = AllPosts(allPosts);
-      // console.log(allPosts);
     </script>
     <script data-klar-config>
       const config = {

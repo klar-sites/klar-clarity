@@ -40,7 +40,7 @@ function generateTableOfContents() {
       const headerOffset = 100; // sticky header height + some padding
       const elementPosition = heading.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      
+       
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'

@@ -9,13 +9,8 @@ function getProjectId() {
 // ----------------------------
 projectId = getProjectId();
 window.klarSdk = createKlarClient({
-  // projectId: projectData.activeProjectId,
-  // baseUrl: 'http://localhost:5173',
-  // source: '/static/db.json'
-  // source: 'https://editor.klar.website/static/db.json'
   source: location.host ===
     '' ?
-    // 'https://editor.klar.website/static/db.json' : '/klar-clarity/assets/db.json'
     `http://localhost:5173/db/${projectId}.json` : `http://localhost:5173/db/${projectId}.json`
 });
 

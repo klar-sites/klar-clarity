@@ -7,7 +7,7 @@ function getProjectId() {
 // ----------------------------
 // Klar client
 // ----------------------------
-projectId = getProjectId();
+window.projectId = getProjectId();
 window.klarSdk = createKlarClient({
   source: location.host ===
     '' ?

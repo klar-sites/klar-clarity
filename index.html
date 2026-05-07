@@ -27,7 +27,6 @@
     <script src="https://editor.klar.website/sdk/content-static.iife.js"></script>
     <script>
       let projectId = 404;
-
       function getProjectId() {
         const projectData = localStorage.getItem('klar') ? JSON.parse(localStorage.getItem('klar')) : {};
         return projectData.activeProjectId || projectId;
@@ -45,8 +44,8 @@
         order: 'updated_at:desc',
         limit: 10
       });
-      console.log(projectId);
-      console.log(klarSdk);
+      // console.log(projectId);
+      // console.log(klarSdk);
     </script>
     <script type="module" data-klar-strip>
       /*
@@ -433,8 +432,8 @@
                   </a>
                 </article>
               </div>
-  
-              
+
+
               <template id="all-posts-tpl" data-klar-strip>
                 <article data-klar-static class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
                   <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/${filePath}">
@@ -457,7 +456,7 @@
                   klarSdk.insert('#all-posts', 'replace', klarSdk.render(items, allPostsTpl));
                 });
               </script>
-              
+
             </section>
           </section>
         </main>

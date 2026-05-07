@@ -22,6 +22,8 @@
     <script src="/script.js" type="module"></script>
   </head>
   <body>
+    <template data-for="test-template" data-query="list('blog-post', {order: 'updated_at:desc', limit: 1})"></template>
+    <div id="test-template"></div>
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-primary-foreground px-4 py-2 rounded z-50">Skip
       to main content</a>
     <div id="root">
@@ -142,8 +144,7 @@
                     //   year: 'numeric'
                     // })
                   </script>
-                  <h1 class="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight field-title">En blogg för
-                    alla de som tycker det är kul att blogga</h1>
+                  <h1 class="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight field-title">En blogg för alla de som tycker det är kul att blogga</h1>
                   <div class="flex items-center justify-between gap-3">
                     <div class="flex items-center gap-3">
                       <div class="w-10 h-10 rounded-full bg-muted flex items-center justify-center"><span class="text-sm font-medium field-initial">M</span></div>
@@ -390,9 +391,6 @@
               <p class="text-sm text-muted-foreground">© 2026 Nexus Blog. All rights reserved.</p>
             </div>
           </div>
-          <template data-for="test-template" data-query="list('blog-post', {order: 'updated_at:desc', limit: 1})"></template>
-    <div id="test-template"></div>
-
         </footer>
         <button id="back-to-top" class="hidden inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-black hover:text-white border border-black h-10 w-10 fixed bottom-8 right-8 z-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-200" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up h-4 w-4">
             <path d="m5 12 7-7 7 7"></path>
@@ -419,6 +417,7 @@
         </script>
       </div>
     </div>
+
 
 
 

@@ -25,6 +25,11 @@
     <meta name="twitter:description" content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
     <script type="module" src="/script.js"></script>
     <script>
+      let projectId = 404;
+      function getProjectId() {
+        const projectData = localStorage.getItem('klar') ? JSON.parse(localStorage.getItem('klar')) : {};
+        return projectData.activeProjectId || projectId;
+      }
       console.log(projectId);
       console.log(klarSdk);
     </script>

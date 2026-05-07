@@ -24,7 +24,7 @@
     <meta name="twitter:title" content="Nexus - Personal Blog | Fashion, Technology &amp; Lifestyle">
     <meta name="twitter:description" content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
     <script type="module" src="/script.js"></script>
-    <script src="http://localhost:5173/sdk/content-static.iife.js"></script>
+    <script src="https://editor.klar.website/sdk/content-static.iife.js"></script>
     <script>
       let projectId = 404;
 
@@ -36,7 +36,7 @@
       // Klar client
       // ----------------------------
       window.projectId = getProjectId();
-      window.klarSdk = createKlarClient({
+      window.klarSdk = KlarSdk.createKlarClient({
         source: location.host ===
           '' ?
           `http://localhost:5173/db/${projectId}.json` : `http://localhost:5173/db/${projectId}.json`

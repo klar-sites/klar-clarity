@@ -41,6 +41,10 @@
           '' ?
           `http://localhost:5173/db/${projectId}.json` : `http://localhost:5173/db/${projectId}.json`
       });
+      const posts = klarSdk.list('blog-post', {
+        order: 'updated_at:desc',
+        limit: 10
+      });
       console.log(projectId);
       console.log(klarSdk);
     </script>
@@ -322,7 +326,7 @@
 
 
 
-<!-- klar:strip-start -->
+          <!-- klar:strip-start -->
           <template id="post-tpl">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
               <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="${topImageUrl}" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
@@ -348,7 +352,7 @@
 
 
 
-          
+
 
           <section aria-labelledby="all-posts-heading">
             <section class="container-blog py-16">

@@ -25,30 +25,7 @@
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-primary-foreground px-4 py-2 rounded z-50">Skip
       to main content</a>
     <div id="root">
-      <script>
-        ! function() {
-          try {
-            var d = document.documentElement,
-              c = d.classList;
-            c.remove('light', 'dark');
-            var e = localStorage.getItem('theme');
-            if ('system' === e || (!e && true)) {
-              var t = '(prefers-color-scheme: dark)',
-                m = window.matchMedia(t);
-              if (m.media !== t || m.matches) {
-                d.style.colorScheme = 'dark';
-                c.add('dark')
-              } else {
-                d.style.colorScheme = 'light';
-                c.add('light')
-              }
-            } else if (e) {
-              c.add(e || '')
-            }
-            if (e === 'light' || e === 'dark') d.style.colorScheme = e
-          } catch (e) {}
-        }()
-      </script><a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:font-medium focus:no-underline focus:shadow-lg">Skip
+      <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:font-medium focus:no-underline focus:shadow-lg">Skip
         to main content</a>
       <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
         <ol tabindex="-1" class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
@@ -416,6 +393,7 @@
         </script>
       </div>
     </div>
+
 
 
 

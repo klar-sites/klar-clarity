@@ -26,10 +26,20 @@
     <script type="module" src="/script.js"></script>
     <script>
       let projectId = 404;
+
       function getProjectId() {
         const projectData = localStorage.getItem('klar') ? JSON.parse(localStorage.getItem('klar')) : {};
         return projectData.activeProjectId || projectId;
       }
+      // ----------------------------
+      // Klar client
+      // ----------------------------
+      window.projectId = getProjectId();
+      window.klarSdk = createKlarClient({
+        source: location.host ===
+          '' ?
+          `http://localhost:5173/db/${projectId}.json` : `http://localhost:5173/db/${projectId}.json`
+      });
       console.log(projectId);
       console.log(klarSdk);
     </script>

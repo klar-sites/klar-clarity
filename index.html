@@ -240,13 +240,22 @@
       {% for tag in content.tags %}<span>{{ tag }}</span>{% endfor %}
     </template>
     <template data-for="tag-cloud" data-query="facets('blog-post', 'tags')">
-  <a href="/tag/{{ value }}">{{ value }} ({{ count }})</a>
-</template>
+      <a href="/tag/{{ value }}">{{ value }} ({{ count }})</a>
+    </template>
+    <div id="hero-template-container" class="features">
+      <div>En blogg för alla de som tycker det är k ul att bloggs</div>
+      <div>https://cdn.jsdelivr.net/gh/klar-sites/klar-clarity@main/images/fashion-post-4m_ykv-I.jpg</div>
+      <div>https://cdn.jsdelivr.net/gh/klar-sites/klar-clarity@main/images/fashion-post-4m_ykv-I.jpg</div>
+      <div>/blog/blog-post-6.html</div>
+      <div>2026-05-07 12:40:44</div>
+      <div>En blogg för alla de som tycker det är k ul att bloggs</div>
+      <span>Leadership</span><span>Authenticity</span>
+    </div>
     <div id="tag-cloud">
-  <a href="/tag/Authenticity">Authenticity (5)</a>
-
-  <a href="/tag/Leadership">Leadership (5)</a>
-</div>
+      <a href="/tag/Authenticity">Authenticity (5)</a>
+    
+      <a href="/tag/Leadership">Leadership (5)</a>
+    </div>
     <div id="root">
       <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
         <ol tabindex="-1" class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
@@ -325,15 +334,6 @@
           </div>
         </header>
         <main id="main-content">
-          <div id="hero-template-container" class="features">
-      <div>En blogg för alla de som tycker det är k ul att bloggs</div>
-      <div>https://cdn.jsdelivr.net/gh/klar-sites/klar-clarity@main/images/fashion-post-4m_ykv-I.jpg</div>
-      <div>https://cdn.jsdelivr.net/gh/klar-sites/klar-clarity@main/images/fashion-post-4m_ykv-I.jpg</div>
-      <div>/blog/blog-post-6.html</div>
-      <div>2026-05-07 12:40:44</div>
-      <div>En blogg för alla de som tycker det är k ul att bloggs</div>
-      <span>Leadership</span><span>Authenticity</span>
-    </div>
 
 
           <article class="container-blog py-16" id="klar-hero" data-klar-static="">

@@ -232,7 +232,7 @@
     </script>
   </head>
   <body>
-    <template data-for="hero" data-query="list('blog-post', {order: 'updated_at:desc', limit: 1})"> 
+    <template data-for="hero" data-query="list('blog-post', {order: 'updated_at:desc', limit: 1})">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="{{ imageUrl }}" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
         <div class="space-y-6">
@@ -341,7 +341,7 @@
           </div>
         </header>
         <main id="main-content">
-          <article class="container-blog py-16" id="hero"> 
+          <article class="container-blog py-16" id="hero" data-klar-static="">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="https://cdn.jsdelivr.net/gh/klar-sites/klar-clarity@main/images/lifestyle-post-B2o5gHGK (1).jpg" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
         <div class="space-y-6">
@@ -500,7 +500,5 @@
         </footer>
       </div>
     </div>
-
-
   
 </body></html>

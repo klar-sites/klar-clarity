@@ -234,6 +234,7 @@
       <div>{{url}}</div>
       <div>{{updatedAt}}</div>
       <div>{{content.title}}</div>
+      {% for tag in content.tags %}<span>{{ tag }}</span>{% endfor %}
     </template>
     <div id="root">
       <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
@@ -317,6 +318,7 @@
       <div>/blog/blog-post-6.html</div>
       <div>2026-05-07 12:40:44</div>
       <div>En blogg för alla de som tycker det är k ul att bloggs</div>
+      <span>Leadership</span><span>Authenticity</span>
     </div>
 
 

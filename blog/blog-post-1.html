@@ -22,6 +22,8 @@
     <script src="/script.js" type="module"></script>
   </head>
   <body>
+    <template data-for="test-template" data-query="list('blog-post', {order: 'updated_at:desc', limit: 1})"></template>
+    <div id="test-template"></div>
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-primary-foreground px-4 py-2 rounded z-50">Skip
       to main content</a>
     <div id="root">
@@ -131,7 +133,7 @@
             <div class="lg:col-span-2">
               <article>
                 <header class="mb-8">
-                  <div class="flex items-center gap-2 mb-4"><span class="text-xs font-medium text-muted-foreground field-category"><span data-klar-outline="hover">Business</span></span><span class="text-muted-foreground text-xs">—</span><time class="text-xs text-muted-foreground field-createdAt" datetime="2023-09-15">May 5, 2026</time>
+                  <div class="flex items-center gap-2 mb-4"><span class="text-xs font-medium text-muted-foreground field-category"><span>Business</span></span><span class="text-muted-foreground text-xs">—</span><time class="text-xs text-muted-foreground field-createdAt" datetime="2023-09-15">May 5, 2026</time>
                   </div>
                   <script>
                     const time = document.querySelector('.field-published');
@@ -444,5 +446,7 @@
         </script>
       </div>
     </div>
+
+
   
 </body></html>

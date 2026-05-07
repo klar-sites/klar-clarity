@@ -310,9 +310,11 @@
         <main id="main-content">
           <div id="hero-template-container" class="features">
             <div>/blog/blog-post-6.html</div>
+            <div>En blogg för alla de som tycker det är k ul att bloggs</div>
           </div>
           <template data-for="hero-template-container" data-query="list('blog-post', {order: 'updated_at:desc', limit: 1})">
             <div>{{url}}</div>
+            <div>{{title}}</div>
           </template>
 
           <article class="container-blog py-16" id="klar-hero" data-klar-static="">

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" class="light" style="color-scheme: light;">
-  <head>
+<!DOCTYPE html><html lang="en" class="light" style="color-scheme: light;"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
@@ -50,7 +48,7 @@
       // console.log(klarSdk);
       */
     </script>
-    <script type="module" data-klar-strip>
+    <script type="module" data-klar-strip="">
       /*
       // ----------------------------
       // 1. Klar client: Declared in script.js
@@ -128,7 +126,7 @@
       rootAllPosts.innerHTML = AllPosts(allPosts);
       */
     </script>
-    <script data-klar-config>
+    <script data-klar-config="">
       const config = {
         pageTypes: [{
           name: 'blog-post',
@@ -312,22 +310,35 @@
           </div>
         </header>
         <main id="main-content">
-
-
-          <article class="container-blog py-16" id="klar-hero" data-klar-static>
+          <article class="container-blog py-16" id="klar-hero" data-klar-static="">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-              <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="/images/fashion-post-4m_ykv-I.jpg" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
+              <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="https://cdn.jsdelivr.net/gh/klar-sites/klar-clarity@main/images/business-post-6IsrfXyD.jpg" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
               <div class="space-y-6">
-                <h1 class="featured-title">En blogg för alla de som tycker det är kul att blogg</h1>
-                <div class="flex items-center space-x-4 text-sm"><span class="blog-meta">Gabriel Lantz /
-                    WRITER</span><span class="text-muted-foreground" aria-hidden="true">—</span><span class="blog-meta">CATEGORY</span><span class="text-muted-foreground" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-02">Date Format</time></div>
+                <h1 class="featured-title">En blogg för alla de som älskar att skriva och skratta 1</h1>
+                <div class="flex items-center space-x-4 text-sm"><span class="blog-meta">Lisa Eriksson /
+                    WRITER</span><span class="text-muted-foreground" aria-hidden="true">—</span><span class="blog-meta">Business</span><span class="text-muted-foreground" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-02">Date format</time></div>
                 <p class="text-lg text-muted-foreground leading-relaxed">Featured article description — This is where
                   your main content excerpt would appear to give readers a preview of the full article.</p>
-                <div class="pt-4"><a href="/blog/blog-post-6.html" aria-label="Read more about: Featured Article Title — Hero Content Showcase" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3"><span data-klar-wrap>READ
+                <div class="pt-4"><a href="/blog/blog-post-1.html" aria-label="Read more about: Featured Article Title — Hero Content Showcase" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3"><span data-klar-wrap="">READ
                       MORE</span><span class="ml-2" aria-hidden="true">→</span></a></div>
               </div>
             </div>
           </article>
+
+          <template data-for="klar-hero" data-query="list('blog-post', {order: 'updated_at:desc', limit: 1})">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+              <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="{{ imageUrl }}" alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" width="592" height="444"></div>
+              <div class="space-y-6">
+                <h1 class="featured-title">{{title}}</h1>
+                <div class="flex items-center space-x-4 text-sm"><span class="blog-meta">{{author}} /
+                    WRITER</span><span class="text-muted-foreground" aria-hidden="true">—</span><span class="blog-meta">{{category}}</span><span class="text-muted-foreground" aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-02">Date format</time></div>
+                <p class="text-lg text-muted-foreground leading-relaxed">Featured article description — This is where
+                  your main content excerpt would appear to give readers a preview of the full article.</p>
+                <div class="pt-4"><a href="{{url}}" aria-label="Read more about: Featured Article Title — Hero Content Showcase" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3"><span data-klar-wrap="">READ
+                      MORE</span><span class="ml-2" aria-hidden="true">→</span></a></div>
+              </div>
+            </div>
+          </template>
 
           <!-- klar:strip-start -->
           <template id="post-tpl">
@@ -437,8 +448,8 @@
                 </article>
               </div>
 
-              <template id="all-posts-tpl" data-klar-strip>
-                <article data-klar-static class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
+              <template id="all-posts-tpl" data-klar-strip="">
+                <article data-klar-static="" class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
                   <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Read article: Blog Post Title — Main Content Description" href="/${filePath}">
                     <div class="relative overflow-hidden aspect-[4/3]"><img src="${imageUrl}" alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="387" height="291" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
                     <div class="p-6 space-y-3 ">
@@ -452,7 +463,7 @@
                 </article>
               </template>
 
-              <script data-klar-strip>
+              <script data-klar-strip="">
                 /*
                 const allPostsTpl = document.getElementById('all-posts-tpl').innerHTML;
                 posts.then(items => {
@@ -503,5 +514,5 @@
         </footer>
       </div>
     </div>
-  </body>
-</html>
+  
+</body></html>

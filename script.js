@@ -1,13 +1,13 @@
 import { createKlarClient } from 'https://editor.klar.website/sdk/content-static.js';
+let projectId = 404;
 function getProjectId() {
   const projectData = localStorage.getItem('klar') ? JSON.parse(localStorage.getItem('klar')) : {};
-  const projectId = projectData.activeProjectId || 404;
-  return projectId;
+  return projectData.activeProjectId || projectId;
 }
 // ----------------------------
 // Klar client
 // ----------------------------
-const projectId = getProjectId();
+projectId = getProjectId();
 window.klarSdk = createKlarClient({
   // projectId: projectData.activeProjectId,
   // baseUrl: 'http://localhost:5173',

@@ -8,96 +8,129 @@
   </head>
   <body style="background-color: #ffffff;">
     <main id="main-content" class="container-blog py-12">
-          <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-12">
-              <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">Get in Touch</h1>
-              <p class="text-xl text-muted-foreground max-w-2xl mx-auto">Have a question, suggestion, or just want to
-                say hello? We'd love to hear from you.</p>
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">Get in Touch</h1> 
+          <p class="text-xl text-muted-foreground max-w-2xl mx-auto">Have a question, suggestion, or just want to
+            say hello? We'd love to hear from you.</p>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="flex flex-col space-y-1.5 p-6">
+              <h3 class="text-2xl font-semibold leading-none tracking-tight flex items-center gap-2"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square h-5 w-5">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>Send us a Message</h3>
+              <p class="text-sm text-muted-foreground">Fill out the form below and we'll get back to you as soon as
+                possible.</p>
             </div>
-            <div class="grid lg:grid-cols-2 gap-12">
-              <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
-                <div class="flex flex-col space-y-1.5 p-6">
-                  <h3 class="text-2xl font-semibold leading-none tracking-tight flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square h-5 w-5">
-                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                    </svg>Send us a Message</h3>
-                  <p class="text-sm text-muted-foreground">Fill out the form below and we'll get back to you as soon as
-                    possible.</p>
+            <div class="p-6 pt-0">
+              <form class="space-y-6">
+                <div class="space-y-2"><label
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="name">Name</label><input type="text"
+                    class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                    id="name" name="name" placeholder="Your full name" required="" value=""></div>
+                <div class="space-y-2"><label
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="email">Email</label><input type="email"
+                    class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                    id="email" name="email" placeholder="your.email@example.com" required="" value=""></div>
+                <div class="space-y-2"><label
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="subject">Subject</label><input type="text"
+                    class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                    id="subject" name="subject" placeholder="What's this about?" required="" value=""></div>
+                <div class="space-y-2"><label
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="message">Message</label><textarea
+                    class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    id="message" name="message" placeholder="Tell us more about your inquiry..." rows="6"
+                    required=""></textarea></div><button
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-black hover:text-white border border-black h-10 px-4 py-2 w-full"
+                  type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-send h-4 w-4 mr-2">
+                    <path
+                      d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z">
+                    </path>
+                    <path d="m21.854 2.147-10.94 10.939"></path>
+                  </svg><span data-klar-wrap="">Send Message</span></button>
+              </form>
+            </div>
+          </div>
+          <div class="space-y-8">
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+              <div class="flex flex-col space-y-1.5 p-6">
+                <h3 class="text-2xl font-semibold leading-none tracking-tight flex items-center gap-2"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-mail h-5 w-5">
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                  </svg>Contact Information</h3>
+                <p class="text-sm text-muted-foreground">Other ways to reach us</p>
+              </div>
+              <div class="p-6 pt-0 space-y-6">
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-primary/10 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                      height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail h-5 w-5 text-primary">
+                      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg></div>
+                  <div>
+                    <h3 class="font-medium text-foreground">Email</h3>
+                    <p class="text-muted-foreground">hello@nexusblog.com</p>
+                    <p class="text-sm text-muted-foreground">We typically respond within 24 hours</p>
+                  </div>
                 </div>
-                <div class="p-6 pt-0">
-                  <form class="space-y-6">
-                    <div class="space-y-2"><label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="name">Name</label><input type="text" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm" id="name" name="name" placeholder="Your full name" required="" value=""></div>
-                    <div class="space-y-2"><label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="email">Email</label><input type="email" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm" id="email" name="email" placeholder="your.email@example.com" required="" value=""></div>
-                    <div class="space-y-2"><label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="subject">Subject</label><input type="text" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm" id="subject" name="subject" placeholder="What's this about?" required="" value=""></div>
-                    <div class="space-y-2"><label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="message">Message</label><textarea class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="message" name="message" placeholder="Tell us more about your inquiry..." rows="6" required=""></textarea></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-black hover:text-white border border-black h-10 px-4 py-2 w-full" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send h-4 w-4 mr-2">
-                        <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z">
-                        </path>
-                        <path d="m21.854 2.147-10.94 10.939"></path>
-                      </svg><span data-klar-wrap="">Send Message</span></button>
-                  </form>
+                <div class="flex items-start gap-4">
+                  <div class="p-2 bg-primary/10 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                      height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin h-5 w-5 text-primary">
+                      <path
+                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                      </path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg></div>
+                  <div>
+                    <h3 class="font-medium text-foreground">Location</h3>
+                    <p class="text-muted-foreground">Global</p>
+                    <p class="text-sm text-muted-foreground">We're a distributed team working worldwide</p>
+                  </div>
                 </div>
               </div>
-              <div class="space-y-8">
-                <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
-                  <div class="flex flex-col space-y-1.5 p-6">
-                    <h3 class="text-2xl font-semibold leading-none tracking-tight flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail h-5 w-5">
-                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                      </svg>Contact Information</h3>
-                    <p class="text-sm text-muted-foreground">Other ways to reach us</p>
+            </div>
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+              <div class="flex flex-col space-y-1.5 p-6">
+                <h3 class="text-2xl font-semibold leading-none tracking-tight">Frequently Asked Questions</h3>
+              </div>
+              <div class="p-6 pt-0">
+                <div class="space-y-4">
+                  <div>
+                    <h4 class="font-medium text-foreground mb-2">Can I contribute to the blog?</h4>
+                    <p class="text-sm text-muted-foreground">We welcome guest contributors! Please reach out with
+                      your ideas and writing samples.</p>
                   </div>
-                  <div class="p-6 pt-0 space-y-6">
-                    <div class="flex items-start gap-4">
-                      <div class="p-2 bg-primary/10 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail h-5 w-5 text-primary">
-                          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                        </svg></div>
-                      <div>
-                        <h3 class="font-medium text-foreground">Email</h3>
-                        <p class="text-muted-foreground">hello@nexusblog.com</p>
-                        <p class="text-sm text-muted-foreground">We typically respond within 24 hours</p>
-                      </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                      <div class="p-2 bg-primary/10 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin h-5 w-5 text-primary">
-                          <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
-                          </path>
-                          <circle cx="12" cy="10" r="3"></circle>
-                        </svg></div>
-                      <div>
-                        <h3 class="font-medium text-foreground">Location</h3>
-                        <p class="text-muted-foreground">Global</p>
-                        <p class="text-sm text-muted-foreground">We're a distributed team working worldwide</p>
-                      </div>
-                    </div>
+                  <div>
+                    <h4 class="font-medium text-foreground mb-2">How often do you publish new content?</h4>
+                    <p class="text-sm text-muted-foreground">We publish new articles several times a week across all
+                      our categories.</p>
                   </div>
-                </div>
-                <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
-                  <div class="flex flex-col space-y-1.5 p-6">
-                    <h3 class="text-2xl font-semibold leading-none tracking-tight">Frequently Asked Questions</h3>
-                  </div>
-                  <div class="p-6 pt-0">
-                    <div class="space-y-4">
-                      <div>
-                        <h4 class="font-medium text-foreground mb-2">Can I contribute to the blog?</h4>
-                        <p class="text-sm text-muted-foreground">We welcome guest contributors! Please reach out with
-                          your ideas and writing samples.</p>
-                      </div>
-                      <div>
-                        <h4 class="font-medium text-foreground mb-2">How often do you publish new content?</h4>
-                        <p class="text-sm text-muted-foreground">We publish new articles several times a week across all
-                          our categories.</p>
-                      </div>
-                      <div>
-                        <h4 class="font-medium text-foreground mb-2">Do you offer partnerships or collaborations?</h4>
-                        <p class="text-sm text-muted-foreground">Yes! We're open to partnerships with brands and
-                          creators that align with our values.</p>
-                      </div>
-                    </div>
+                  <div>
+                    <h4 class="font-medium text-foreground mb-2">Do you offer partnerships or collaborations?</h4>
+                    <p class="text-sm text-muted-foreground">Yes! We're open to partnerships with brands and
+                      creators that align with our values.</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </main>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

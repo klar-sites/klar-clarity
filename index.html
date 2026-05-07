@@ -242,6 +242,10 @@
     <template data-for="tag-cloud" data-query="facets('blog-post', 'tags')">
       <a href="/tag/{{ value }}">{{ value }} ({{ count }})</a>
     </template>
+    <template data-for="vocabs" data-query="vocabularies('blog-post')">
+      <h3>{{ name }}</h3>
+      {% for v in values %}<li>{{ v }}</li>{% endfor %}
+    </template>
     <div id="hero-template-container" class="features">
       <div>En blogg för alla de som tycker det är k ul att bloggs</div>
       <div>https://cdn.jsdelivr.net/gh/klar-sites/klar-clarity@main/images/fashion-post-4m_ykv-I.jpg</div>
@@ -255,6 +259,19 @@
       <a href="/tag/Authenticity">Authenticity (5)</a>
     
       <a href="/tag/Leadership">Leadership (5)</a>
+    </div>
+    <div id="vocabs">
+      <h3>categories</h3>
+      <li>Technology</li><li>Podcast</li><li>Lifestyle</li><li>Business</li>
+    
+      <h3>topics</h3>
+      <li>Digital Marketing</li><li>Personal Branding</li>
+    
+      <h3>tags</h3>
+      <li>Leadership</li><li>Authenticity</li>
+    
+      <h3>authors</h3>
+      <li>Lisa Eriksson</li><li>Per Oscarsson</li>
     </div>
     <div id="root">
       <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">

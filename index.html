@@ -230,6 +230,10 @@
     </script>
   </head>
   <body>
+    <template data-for="hero-template-container" data-query="list('blog-post', {order: 'updated_at:desc', limit: 1})">
+            <div>{{url}}</div>
+            <div>{{content.title}}</div>
+          </template>
     <div id="root">
       <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
         <ol tabindex="-1" class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
@@ -312,10 +316,7 @@
             <div>/blog/blog-post-6.html</div>
             <div>En blogg för alla de som tycker det är k ul att bloggs</div>
           </div>
-          <template data-for="hero-template-container" data-query="list('blog-post', {order: 'updated_at:desc', limit: 1})">
-            <div>{{url}}</div>
-            <div>{{title}}</div>
-          </template>
+          
 
           <article class="container-blog py-16" id="klar-hero" data-klar-static="">
             <div class="grid lg:grid-cols-2 gap-12 items-center">

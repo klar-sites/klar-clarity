@@ -20,6 +20,26 @@
     <meta name="twitter:site" content="@nexus_blog">
     <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/8jp6KAG7qJZgRp4lIs04ZYXqlhL2/social-images/social-1758609028260-download.jpg">
     <script src="/script.js" type="module"></script>
+    <script>
+      (function() {
+        try {
+          var d = document.documentElement,
+            c = d.classList;
+          var e = localStorage.getItem('theme');
+          if (e === 'dark') {
+            d.style.colorScheme = 'dark';
+            c.remove('light');
+            c.add('dark');
+            // localStorage.setItem('theme', 'dark');
+          } else {
+            d.style.colorScheme = 'light';
+            c.remove('dark');
+            c.add('light');
+            // localStorage.setItem('theme', 'light');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-primary-foreground px-4 py-2 rounded z-50">Skip
@@ -393,6 +413,7 @@
         </script>
       </div>
     </div>
+
 
 
 

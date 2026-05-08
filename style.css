@@ -4305,12 +4305,7 @@
           outline-width: 3px;
         }
       }
-    </style>
-    <script defer="" src="/~flock.js" data-proxy-url="/~api/analytics"></script>
-    <meta name="twitter:title" content="Nexus - Personal Blog | Fashion, Technology &amp; Lifestyle">
-    <meta name="twitter:description"
-      content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
-    <style type="text/css">
+    
       :where(html[dir="ltr"]),
       :where([data-sonner-toaster][dir="ltr"]) {
         --toast-icon-margin-start: -3px;

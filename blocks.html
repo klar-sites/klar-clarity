@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" class="light" style="color-scheme: light;">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;display=swap"
+      rel="stylesheet" media="all">
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;display=swap"
+      rel="stylesheet">
+    <title>Nexus - Personal Blog | Fashion, Technology &amp; Lifestyle</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description"
+      content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
+    <meta name="author" content="Nexus Blog">
+    <link rel="canonical" href="https://nexus.lovable.app/">
+    <meta property="og:title" content="Nexus - Personal Blog | Fashion, Technology &amp; Lifestyle">
+    <meta property="og:description"
+      content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
+    <meta property="og:type" content="website">
+    <meta property="og:image"
+      content="https://storage.googleapis.com/gpt-engineer-file-uploads/8jp6KAG7qJZgRp4lIs04ZYXqlhL2/social-images/social-1758609028260-download.jpg">
+    <meta property="og:url" content="https://nexus.lovable.app/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@nexus_blog">
+    <meta name="twitter:image"
+      content="https://storage.googleapis.com/gpt-engineer-file-uploads/8jp6KAG7qJZgRp4lIs04ZYXqlhL2/social-images/social-1758609028260-download.jpg">
+    <meta name="twitter:title" content="Nexus - Personal Blog | Fashion, Technology &amp; Lifestyle">
+    <meta name="twitter:description"
+      content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
+    <script type="module" src="/script.js"></script>
+    <script src="https://editor.klar.website/sdk/content-static.iife.js"></script>
+    <script>
+      /*
+      let projectId = 404;
+
+      function getProjectId() {
+        const projectData = localStorage.getItem('klar') ? JSON.parse(localStorage.getItem('klar')) : {};
+        return projectData.activeProjectId || projectId;
+      }
+      // ----------------------------
+      // Klar client
+      // ----------------------------
+      window.projectId = getProjectId();
+      window.klarSdk = KlarSdk.createKlarClient({
+        source: location.host ===
+          '' ?
+          `http://localhost:5173/db/${projectId}.json` : `http://localhost:5173/db/${projectId}.json`
+      });
+      const posts = klarSdk.list('blog-post', {
+        order: 'updated_at:desc',
+        limit: 10
+      });
+      // console.log(projectId);
+      // console.log(klarSdk);
+      */
+    </script>
+    <script type="module" data-klar-strip>
+      // ----------------------------
+      // 1. Klar client: Declared in script.js
+      // ----------------------------
+      const [featured, allPosts] = await Promise.all([
+        klarSdk.list('blog-post', {
+          order: 'updated_at:desc',
+          limit: 2
+        }),
+        klarSdk.list('blog-post', {
+          order: 'updated_at:desc',
+          limit: 10
+        }),
+      ]);
+      // ----------------------------
+      // 2. Components
+      // ----------------------------
+      function Featured(post) {
+        return `
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="relative aspect-[4/3] overflow-hidden rounded-lg"><img src="${post.content.imageUrl}"
+                alt="Featured article: Featured Article Title — Hero Content Showcase - A professional image related to category"
+                class="object-cover w-full h-full transition-transform duration-700 hover:scale-105" decoding="async"
+                fetchpriority="high" width="592" height="444"></div>
+            <div class="space-y-6">
+              <h1 class="featured-title">${post.content.title}</h1>
+              <div class="flex items-center space-x-4 text-sm"><span class="blog-meta">${post.content.author} /
+                  WRITER</span><span class="text-muted-foreground" aria-hidden="true">—</span><span
+                  class="blog-meta">CATEGORY</span><span class="text-muted-foreground"
+                  aria-hidden="true">—</span><time class="blog-meta" datetime="2023-09-02">Date Format</time></div>
+              <p class="text-lg text-muted-foreground leading-relaxed">Featured article description — This is where
+                your main content excerpt would appear to give readers a preview of the full article.</p>
+              <div class="pt-4"><a href="${post.url}"
+                  aria-label="Read more about: Featured Article Title — Hero Content Showcase"
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3">READ
+                  MORE<span class="ml-2" aria-hidden="true">→</span></a></div>
+            </div>
+          </div>
+        `;
+      }
+
+      function AllPosts(posts) {
+        return `
+          ${posts.map(post => `
+            <article data-klar-static class="blog-card group cursor-pointer transition-all duration-300 hover:shadow-lg border border-transparent hover:border-black">
+              <a class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                aria-label="Read article: Blog Post Title — Main Content Description" href="/${post.filePath}">
+                <div class="relative overflow-hidden aspect-[4/3]"><img src="${post.content.imageUrl}"
+                    alt="Article image for: Blog Post Title — Main Content Description - A professional photo related to category"
+                    class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy" decoding="async" width="387" height="291"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 387px"></div>
+                <div class="p-6 space-y-3 "> 
+                  <div class="flex items-center space-x-2"><span class="blog-meta">CATEGORY</span><span
+                      class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta"
+                      datetime="2023-09-10">DATE</time></div>
+                  <h3
+                    class="font-bold text-foreground leading-tight transition-colors text-lg">
+                    ${post.content.title}</h3>
+                  <p class="text-sm text-muted-foreground leading-relaxed">Blog post excerpt — Brief description of
+                    the article content for preview.</p>
+                </div>
+              </a>
+            </article>
+          `).join('')}
+      `;
+      }
+      // ----------------------------
+      // 3. Run everything
+      // ----------------------------
+      const rootFeatured = document.getElementById("klar-hero");
+      const rootAllPosts = document.getElementById("all-posts");
+      console.log(allPosts);
+      // rootFeatured.innerHTML = Featured(featured[0]);
+      // rootAllPosts.innerHTML = AllPosts(allPosts);
+    </script>
+    <script data-klar-config>
+      const config = {
+        pageTypes: [{
+          name: 'blog-post',
+          editableElements: `.field-title     :field(name:title, type:string, order:1, section:'Content',sectionOrder:1, col:12),
+.field-image     :field(name:image, type:src, order:4, col: 10, section:'Content',sectionOrder:1),
+.field-category  :field(name:category, type:select, vocab:categories, strict:true, col:6, section:'Meta',sectionOrder:2),
+.field-author    :field(name:author, type:select, vocab:authors, strict:true, col:6, section:'Meta',sectionOrder:2),
+.field-createdAt :field(name:createdAt, type:date, format:'MMMM D, YYYY', field: createdAt, readonly:true, label: 'Created', col:12),
+.field-initial   :field(name:initial, type:string, order:5, col:6),
+.field-readTime  :field(name:readTime, type:string, order: 5, col: 6),
+.field-text      :field(name:text, type:html, ui:blocks)`
+        }],
+        pages: [{
+          name: 'blog/blog-post-1.html',
+          tags: [{
+              categories: ['Technology', 'Podcast', 'Lifestyle']
+            },
+            {
+              tags: ['Leadership', 'Authenticity']
+            }
+          ]
+        }, {
+          name: 'blog/blog-post-2.html',
+          tags: [{
+              categories: ['Technology', 'Business', 'Lifestyle']
+            },
+            {
+              tags: ['Leadership']
+            }
+          ]
+        }, {
+          name: 'blog/blog-post-3.html',
+          tags: [{
+              categories: ['Technology', 'Lifestyle']
+            },
+            {
+              tags: ['Authenticity']
+            }
+          ]
+        }, {
+          name: 'blog/blog-post-4.html',
+          tags: [{
+              categories: ['Technology', 'Podcast', 'Business', 'Lifestyle']
+            },
+            {
+              topics: ['Personal Branding']
+            },
+            {
+              tags: ['Leadership']
+            }
+          ]
+        }, {
+          name: 'blog/blog-post-5.html',
+          tags: [{
+              categories: ['Business', 'Lifestyle']
+            },
+            {
+              tags: ['Leadership', 'Authenticity']
+            }
+          ]
+        }, {
+          name: 'blog/blog-post-6.html',
+          tags: [{
+              categories: ['Technology']
+            },
+            {
+              topics: ['Personal Branding', 'Digital Marketing']
+            },
+            {
+              tags: ['Leadership', 'Authenticity']
+            }
+          ]
+        }, ],
+        tags: [{
+          'blog-post': {
+            categories: ['Technology', 'Podcast', 'Lifestyle'],
+            topics: ['Digital Marketing', 'Personal Branding'],
+            tags: ['Leadership', 'Authenticity'],
+            authors: ['Lisa Eriksson', 'Klar Karlsson', 'Niklas Svensson']
+          }
+        }]
+      };
+    </script>
+    <script>
+      (function() {
+        try {
+          var d = document.documentElement,
+            c = d.classList;
+          var e = localStorage.getItem('theme');
+          if (e === 'dark') {
+            d.style.colorScheme = 'dark';
+            c.remove('light');
+            c.add('dark');
+            // localStorage.setItem('theme', 'dark');
+          } else {
+            d.style.colorScheme = 'light';
+            c.remove('dark');
+            c.add('light');
+            // localStorage.setItem('theme', 'light');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root">
+      <div class="min-h-screen bg-background">
+        <header id="header" class="bg-background border-b border-border sticky top-0 z-50">
+          <div class="container-blog ">
+            <div class="flex items-center justify-between h-20">
+              <div class="flex-shrink-0"><a class="block" href="/">
+                  <h1 class="text-2xl font-bold text-foreground">nexus</h1>
+                </a></div>
+              <nav class="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Main navigation"><a
+                  class="nav-link" href="/posts.html">ALL POST</a><a class="nav-link"
+                  href="/business.html">BUSINESS</a><a class="nav-link" href="/technology.html">TECHNOLOGY</a><a
+                  class="nav-link" href="/podcast.html">PODCAST</a>
+              </nav>
+              <div class="hidden lg:flex items-center space-x-4"><a href="#" aria-label="Facebook"
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-facebook h-4 w-4">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                  </svg></a><a href="#" aria-label="Twitter"
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-twitter h-4 w-4">
+                    <path
+                      d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                    </path>
+                  </svg></a><a href="#" aria-label="Instagram"
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-instagram h-4 w-4">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                  </svg></a><a href="/search.html"
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3"
+                  aria-label="Search articles"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="lucide lucide-search h-4 w-4">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                  </svg></a><button
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-black hover:text-white border border-black h-9 w-9 p-0"
+                  aria-label="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-sun h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2"></path>
+                    <path d="M12 20v2"></path>
+                    <path d="m4.93 4.93 1.41 1.41"></path>
+                    <path d="m17.66 17.66 1.41 1.41"></path>
+                    <path d="M2 12h2"></path>
+                    <path d="M20 12h2"></path>
+                    <path d="m6.34 17.66-1.41 1.41"></path>
+                    <path d="m19.07 4.93-1.41 1.41"></path>
+                  </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-moon absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                  </svg></button></div><button id="mobile-menu-toggle"
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-black hover:text-white border border-black h-9 px-3 lg:hidden"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-menu h-5 w-5">
+                  <line x1="4" x2="20" y1="12" y2="12"></line>
+                  <line x1="4" x2="20" y1="6" y2="6"></line>
+                  <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg></button>
+            </div>
+            <div id="mobile-menu" class="hidden lg:hidden border-t border-border py-4">
+              <nav class="flex flex-col space-y-4" role="navigation" aria-label="Mobile navigation"><a class="nav-link"
+                  href="posts.html">ALL POST</a><a class="nav-link" href="business.html">BUSINESS</a><a class="nav-link"
+                  href="technology.html">TECHNOLOGY</a><a class="nav-link" href="podcast.html">PODCAST</a></nav>
+              <div class="mt-6 space-y-4">
+                <div class="flex space-x-2 items-center"><a href="#" aria-label="Facebook"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-facebook h-4 w-4">
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg></a><a href="#" aria-label="Twitter"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-twitter h-4 w-4">
+                      <path
+                        d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                      </path>
+                    </svg></a><a href="#" aria-label="Instagram"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-instagram h-4 w-4">
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                    </svg></a><button
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-black hover:text-white border border-black h-9 w-9 p-0"
+                    aria-label="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-sun h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0">
+                      <circle cx="12" cy="12" r="4"></circle>
+                      <path d="M12 2v2"></path>
+                      <path d="M12 20v2"></path>
+                      <path d="m4.93 4.93 1.41 1.41"></path>
+                      <path d="m17.66 17.66 1.41 1.41"></path>
+                      <path d="M2 12h2"></path>
+                      <path d="M20 12h2"></path>
+                      <path d="m6.34 17.66-1.41 1.41"></path>
+                      <path d="m19.07 4.93-1.41 1.41"></path>
+                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-moon absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100">
+                      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                    </svg></button></div><button
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-black bg-background hover:bg-black hover:text-white h-9 px-3"
+                  aria-label="Search articles"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="lucide lucide-search h-4 w-4">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                  </svg></button>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main id="main-content">
+          <div class="container-blog py-8">
+            <h2>Types</h2>
+            <p id="string">String</p>
+            <p id="text">Text</p>
+            <p id="number">1</p>
+              <p id="integer">5</p>
+              <p id="boolean">false</p>
+              <img id="image" src="/images/business-post-6IsrfXyD.jpg" alt="An alt text">
+              <p id="object"></p>
+              <p id="array"></p>
+              <h2>Format</h2>
+              <p id="date-time">2026-05-16T22:00:00.000Z</p>
+              <p id="date">2026-05-17</p>
+              <p id="time">13:57</p>
+              <p id="email">gabriel.lantz@me.com</p>
+              <p id="url">/images/test.html</p>
+              <p id="data-url">Text</p>
+              <p id="json">{
+                "test": "test"
+                }</p>
+              <p id="markdown">Markdown</p>
+              <p id="html">HTML</p>
+              <h2>List</h2>
+              <ul id="list">
+                <li>Item 1</li>
+                <li>Item 2</li>
+              </ul>
+              <h2>Blocks</h2>
+              <ul id="blocks">
+                <li>Block 1</li>
+                <li>Block 2</li>
+              </ul>
+            </div>
+          </div>
+        </main>
+        <footer class="bg-muted border-t border-border" role="contentinfo"></footer>
+      </div>
+    </div>
+  </body>
+</html>

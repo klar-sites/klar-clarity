@@ -396,7 +396,7 @@
           <script type="module">
             const allPostsTpl = document.getElementById('all-posts-tpl').innerHTML;
             posts.then(items => {
-              console.log(items)
+              // console.log(items);
               window.allPosts = items;
               klarSdk.insert('#all-posts', 'replace', klarSdk.render(items, allPostsTpl));
             });

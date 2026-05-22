@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en" class="light" style="color-scheme: light;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clarity — Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+  <style>
+  /* =========================================================================
+     CLARITY DESIGN SYSTEM
+     Plain HTML / CSS / JS. Component styling inspired by MDBootstrap.
+     Tokens mirror the live "Nexus" site: DM Sans, near-monochrome neutrals,
+     indigo #575ECF brand accent, 8px radius.
+
+     Every design token has a matching utility class so it can be used
+     directly on the website (e.g. .bg-brand, .text-muted, .radius-md, .shadow-2).
+     ========================================================================= */
+
+  /* ---------------------------------------------------------------------------
+     1. TOKENS  (single source of truth)
+     --------------------------------------------------------------------------- */
+  :root {
+    /* Color — neutrals */
+    --color-background:        #ffffff;
+    --color-foreground:        #141414;
+    --color-surface:           #ffffff;
+    --color-muted:             #f5f5f5;
+    --color-muted-foreground:  #737373;
+    --color-accent:            #f0f0f0;
+    --color-border:            #e5e5e5;
+
+    /* Color — primary (near-black, matches the site's primary action) */
+    --color-primary:            #141414;
+    --color-primary-foreground: #fafafa;
+
+    /* Color — secondary */
+    --color-secondary:            #f5f5f5;
+    --color-secondary-foreground: #333333;
+
+    /* Color — brand accent (the site focus color) */
+    --color-brand:            #575ecf;
+    --color-brand-hover:      #4850c4;
+    --color-brand-foreground: #ffffff;
+    --color-brand-soft:       #ecedfa;
+
+    /* Color — semantic / contextual */
+    --color-success:            #16a34a;
+    --color-success-foreground: #ffffff;
+    --color-success-soft:       #e7f6ec;
+    --color-warning:            #d97706;
+    --color-warning-foreground: #ffffff;
+    --color-warning-soft:       #fdf0e0;
+    --color-danger:             #dc2626;
+    --color-danger-foreground:  #ffffff;
+    --color-danger-soft:        #fdeaea;
+    --color-info:               #2563eb;
+    --color-info-foreground:    #ffffff;
+    --color-info-soft:          #e7eefd;
+    --color-light:              #f5f5f5;
+    --color-light-foreground:   #141414;
+    --color-dark:               #141414;
+    --color-dark-foreground:    #fafafa;
+
+    /* Typography */
+    --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+    --text-xs:   0.75rem;   /* 12 */
+    --text-sm:   0.875rem;  /* 14 */
+    --text-base: 1rem;      /* 16 */
+    --text-lg:   1.125rem;  /* 18 */
+    --text-xl:   1.25rem;   /* 20 */
+    --text-2xl:  1.5rem;    /* 24 */
+    --text-3xl:  1.875rem;  /* 30 */
+    --text-4xl:  2.5rem;    /* 40 */
+    --text-5xl:  3.5rem;    /* 56 */
+
+    --weight-regular:  400;
+    --weight-medium:   500;
+    --weight-semibold: 600;
+    --weight-bold:     700;
+
+    --leading-tight:  1.15;
+    --leading-snug:   1.3;
+    --leading-normal: 1.6;
+
+    /* Spacing scale (4px base) */
+    --space-1:  0.25rem;
+    --space-2:  0.5rem;
+    --space-3:  0.75rem;
+    --space-4:  1rem;
+    --space-5:  1.5rem;
+    --space-6:  2rem;
+    --space-7:  3rem;
+    --space-8:  4rem;
+
+    /* Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-pill: 9999px;
+
+    /* Elevation (MDB-like) */
+    --shadow-1: 0 1px 2px rgba(20,20,20,.06), 0 1px 3px rgba(20,20,20,.08);
+    --shadow-2: 0 2px 6px rgba(20,20,20,.08), 0 4px 12px rgba(20,20,20,.06);
+    --shadow-3: 0 8px 24px rgba(20,20,20,.12), 0 2px 6px rgba(20,20,20,.06);
+    --shadow-brand: 0 4px 14px rgba(87,94,207,.35);
+
+    /* Motion */
+    --ease: cubic-bezier(.4,0,.2,1);
+    --dur: 180ms;
+  }
+
+  /* Dark theme — flips neutrals, keeps the brand accent. */
+  html.dark {
+    --color-background:        #0c0d12;
+    --color-foreground:        #f4f4f5;
+    --color-surface:           #16171d;
+    --color-muted:             #1d1e26;
+    --color-muted-foreground:  #a1a1aa;
+    --color-accent:            #23242e;
+    --color-border:            #2a2b35;
+
+    --color-primary:            #f4f4f5;
+    --color-primary-foreground: #0c0d12;
+    --color-secondary:            #1d1e26;
+    --color-secondary-foreground: #e4e4e7;
+
+    --color-brand-soft:    #1c1e3a;
+    --color-success-soft:  #11241a;
+    --color-warning-soft:  #2a1e0c;
+    --color-danger-soft:   #2a1414;
+    --color-info-soft:     #121d3a;
+    --color-light:            #1d1e26;
+    --color-light-foreground: #f4f4f5;
+
+    --shadow-1: 0 1px 2px rgba(0,0,0,.4);
+    --shadow-2: 0 2px 8px rgba(0,0,0,.45);
+    --shadow-3: 0 10px 28px rgba(0,0,0,.55);
+  }
+
+  /* ---------------------------------------------------------------------------
+     2. BASE / RESET
+     --------------------------------------------------------------------------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--color-foreground);
+    background: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+    transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--color-brand); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1,h2,h3,h4,h5,h6 { margin: 0; line-height: var(--leading-tight); font-weight: var(--weight-bold); }
+  p { margin: 0; }
+
+  /* ---------------------------------------------------------------------------
+     3. TOKEN UTILITY CLASSES  (use these anywhere on the website)
+     --------------------------------------------------------------------------- */
+
+  /* Text color */
+  .text-foreground { color: var(--color-foreground); }
+  .text-muted      { color: var(--color-muted-foreground); }
+  .text-brand      { color: var(--color-brand); }
+  .text-primary    { color: var(--color-primary); }
+  .text-secondary  { color: var(--color-secondary-foreground); }
+  .text-success    { color: var(--color-success); }
+  .text-warning    { color: var(--color-warning); }
+  .text-danger     { color: var(--color-danger); }
+  .text-info       { color: var(--color-info); }
+  .text-on-brand   { color: var(--color-brand-foreground); }
+  .text-on-dark    { color: var(--color-dark-foreground); }
+
+  /* Background color */
+  .bg-background { background-color: var(--color-background); }
+  .bg-surface    { background-color: var(--color-surface); }
+  .bg-muted      { background-color: var(--color-muted); }
+  .bg-accent     { background-color: var(--color-accent); }
+  .bg-primary    { background-color: var(--color-primary);   color: var(--color-primary-foreground); }
+  .bg-secondary  { background-color: var(--color-secondary); color: var(--color-secondary-foreground); }
+  .bg-brand      { background-color: var(--color-brand);     color: var(--color-brand-foreground); }
+  .bg-brand-soft { background-color: var(--color-brand-soft); color: var(--color-brand); }
+  .bg-success    { background-color: var(--color-success);   color: var(--color-success-foreground); }
+  .bg-warning    { background-color: var(--color-warning);   color: var(--color-warning-foreground); }
+  .bg-danger     { background-color: var(--color-danger);    color: var(--color-danger-foreground); }
+  .bg-info       { background-color: var(--color-info);      color: var(--color-info-foreground); }
+  .bg-dark       { background-color: var(--color-dark);      color: var(--color-dark-foreground); }
+  .bg-light      { background-color: var(--color-light);     color: var(--color-light-foreground); }
+
+  /* Border color */
+  .border        { border: 1px solid var(--color-border); }
+  .border-brand  { border-color: var(--color-brand) !important; }
+
+  /* Font family */
+  .font-sans { font-family: var(--font-sans); }
+  .font-mono { font-family: var(--font-mono); }
+
+  /* Font size */
+  .text-size-xs   { font-size: var(--text-xs); }
+  .text-size-sm   { font-size: var(--text-sm); }
+  .text-size-base { font-size: var(--text-base); }
+  .text-size-lg   { font-size: var(--text-lg); }
+  .text-size-xl   { font-size: var(--text-xl); }
+  .text-size-2xl  { font-size: var(--text-2xl); }
+  .text-size-3xl  { font-size: var(--text-3xl); }
+  .text-size-4xl  { font-size: var(--text-4xl); }
+  .text-size-5xl  { font-size: var(--text-5xl); }
+
+  /* Font weight */
+  .weight-regular  { font-weight: var(--weight-regular); }
+  .weight-medium   { font-weight: var(--weight-medium); }
+  .weight-semibold { font-weight: var(--weight-semibold); }
+  .weight-bold     { font-weight: var(--weight-bold); }
+
+  /* Typography presets */
+  .display { font-size: var(--text-5xl); font-weight: var(--weight-bold); line-height: var(--leading-tight); letter-spacing: -0.02em; }
+  .h1 { font-size: var(--text-4xl); font-weight: var(--weight-bold); letter-spacing: -0.02em; }
+  .h2 { font-size: var(--text-3xl); font-weight: var(--weight-bold); letter-spacing: -0.01em; }
+  .h3 { font-size: var(--text-2xl); font-weight: var(--weight-semibold); }
+  .h4 { font-size: var(--text-xl); font-weight: var(--weight-semibold); }
+  .body-lg { font-size: var(--text-lg); line-height: var(--leading-normal); }
+  .body    { font-size: var(--text-base); line-height: var(--leading-normal); }
+  .caption { font-size: var(--text-sm); color: var(--color-muted-foreground); }
+  .overline { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .08em; font-weight: var(--weight-semibold); color: var(--color-muted-foreground); }
+
+  /* Radius */
+  .radius-sm   { border-radius: var(--radius-sm); }
+  .radius-md   { border-radius: var(--radius-md); }
+  .radius-lg   { border-radius: var(--radius-lg); }
+  .radius-pill { border-radius: var(--radius-pill); }
+
+  /* Shadow / elevation */
+  .shadow-1 { box-shadow: var(--shadow-1); }
+  .shadow-2 { box-shadow: var(--shadow-2); }
+  .shadow-3 { box-shadow: var(--shadow-3); }
+
+  /* Spacing (padding helpers) */
+  .p-1{padding:var(--space-1)} .p-2{padding:var(--space-2)} .p-3{padding:var(--space-3)}
+  .p-4{padding:var(--space-4)} .p-5{padding:var(--space-5)} .p-6{padding:var(--space-6)}
+
+  /* ---------------------------------------------------------------------------
+     4. COMPONENT — BUTTONS  (MDBootstrap style: filled, outline, sizes, states,
+        rounded, floating, block, ripple)
+     --------------------------------------------------------------------------- */
+  .btn {
+    --btn-bg: var(--color-primary);
+    --btn-fg: var(--color-primary-foreground);
+    --btn-bg-hover: #000;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: 0.625rem 1.25rem;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    line-height: 1.4;
+    letter-spacing: .01em;
+    color: var(--btn-fg);
+    background-color: var(--btn-bg);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    overflow: hidden;
+    user-select: none;
+    transition: background-color var(--dur) var(--ease),
+                box-shadow var(--dur) var(--ease),
+                border-color var(--dur) var(--ease),
+                color var(--dur) var(--ease),
+                transform var(--dur) var(--ease);
+  }
+  .btn:hover { background-color: var(--btn-bg-hover); box-shadow: var(--shadow-2); }
+  .btn:active { transform: translateY(1px); }
+  .btn:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--color-brand-soft), 0 0 0 1px var(--color-brand); }
+  .btn:disabled, .btn.disabled { opacity: .5; pointer-events: none; box-shadow: none; }
+
+  /* Filled variants */
+  .btn-primary  { --btn-bg: var(--color-primary);  --btn-fg: var(--color-primary-foreground); --btn-bg-hover:#000; }
+  .btn-brand    { --btn-bg: var(--color-brand);    --btn-fg: var(--color-brand-foreground);   --btn-bg-hover: var(--color-brand-hover); }
+  .btn-brand:hover { box-shadow: var(--shadow-brand); }
+  .btn-secondary{ --btn-bg: var(--color-secondary);--btn-fg: var(--color-secondary-foreground);--btn-bg-hover:#e8e8e8; }
+  .btn-success  { --btn-bg: var(--color-success);  --btn-fg: var(--color-success-foreground);  --btn-bg-hover:#138a3f; }
+  .btn-danger   { --btn-bg: var(--color-danger);   --btn-fg: var(--color-danger-foreground);   --btn-bg-hover:#c01f1f; }
+  .btn-warning  { --btn-bg: var(--color-warning);  --btn-fg: var(--color-warning-foreground);  --btn-bg-hover:#bd6905; }
+  .btn-info     { --btn-bg: var(--color-info);     --btn-fg: var(--color-info-foreground);     --btn-bg-hover:#1d54d1; }
+  .btn-light    { --btn-bg: var(--color-light);    --btn-fg: var(--color-light-foreground);    --btn-bg-hover:#e8e8e8; }
+  .btn-dark     { --btn-bg: var(--color-dark);     --btn-fg: var(--color-dark-foreground);     --btn-bg-hover:#000; }
+
+  /* Tertiary / ghost */
+  .btn-tertiary {
+    --btn-bg: transparent; --btn-fg: var(--color-foreground); --btn-bg-hover: var(--color-muted);
+  }
+  .btn-link {
+    --btn-bg: transparent; --btn-fg: var(--color-brand); --btn-bg-hover: var(--color-brand-soft);
+    box-shadow: none;
+  }
+  .btn-link:hover { box-shadow: none; }
+
+  /* Outline variants */
+  .btn-outline {
+    background-color: transparent;
+    border-color: currentColor;
+    box-shadow: none;
+  }
+  .btn-outline:hover { box-shadow: none; }
+  .btn-outline.btn-primary { color: var(--color-primary); border-color: var(--color-primary); }
+  .btn-outline.btn-primary:hover { background-color: var(--color-primary); color: var(--color-primary-foreground); }
+  .btn-outline.btn-brand   { color: var(--color-brand); border-color: var(--color-brand); }
+  .btn-outline.btn-brand:hover { background-color: var(--color-brand); color: var(--color-brand-foreground); }
+  .btn-outline.btn-success { color: var(--color-success); border-color: var(--color-success); }
+  .btn-outline.btn-success:hover { background-color: var(--color-success); color: #fff; }
+  .btn-outline.btn-danger  { color: var(--color-danger); border-color: var(--color-danger); }
+  .btn-outline.btn-danger:hover { background-color: var(--color-danger); color: #fff; }
+
+  /* Sizes */
+  .btn-sm { padding: 0.4rem 0.85rem; font-size: var(--text-xs); }
+  .btn-lg { padding: 0.85rem 1.75rem; font-size: var(--text-base); }
+  .btn-block { display: flex; width: 100%; }
+
+  /* Rounded */
+  .btn-rounded { border-radius: var(--radius-pill); }
+
+  /* Floating (circular icon button) */
+  .btn-floating {
+    width: 2.75rem; height: 2.75rem; padding: 0;
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-2);
+  }
+  .btn-floating.btn-sm { width: 2.1rem; height: 2.1rem; }
+  .btn-floating.btn-lg { width: 3.4rem; height: 3.4rem; }
+
+  /* Ripple effect (driven by JS below) */
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    background: currentColor;
+    opacity: .35;
+    pointer-events: none;
+    animation: ripple-anim 600ms var(--ease);
+  }
+  @keyframes ripple-anim { to { transform: scale(2.4); opacity: 0; } }
+
+  /* ---------------------------------------------------------------------------
+     5. COMPONENT — BADGES & CHIPS
+     --------------------------------------------------------------------------- */
+  .badge {
+    display: inline-flex; align-items: center; gap: var(--space-1);
+    padding: 0.2rem 0.6rem;
+    font-size: var(--text-xs); font-weight: var(--weight-semibold);
+    line-height: 1.4; border-radius: var(--radius-pill);
+    background: var(--color-muted); color: var(--color-foreground);
+  }
+  .badge-brand   { background: var(--color-brand-soft); color: var(--color-brand); }
+  .badge-success { background: var(--color-success-soft); color: var(--color-success); }
+  .badge-warning { background: var(--color-warning-soft); color: var(--color-warning); }
+  .badge-danger  { background: var(--color-danger-soft); color: var(--color-danger); }
+  .badge-info    { background: var(--color-info-soft); color: var(--color-info); }
+  .badge-solid   { background: var(--color-primary); color: var(--color-primary-foreground); }
+  .badge-dot::before { content:""; width:.45rem; height:.45rem; border-radius:50%; background: currentColor; }
+
+  .chip {
+    display:inline-flex; align-items:center; gap:var(--space-2);
+    padding:0.35rem 0.5rem 0.35rem 0.85rem;
+    border:1px solid var(--color-border); border-radius:var(--radius-pill);
+    font-size:var(--text-sm); background:var(--color-surface);
+  }
+  .chip .chip-close {
+    display:inline-flex; align-items:center; justify-content:center;
+    width:1.25rem; height:1.25rem; border-radius:50%;
+    background:var(--color-muted); cursor:pointer; border:0; color:var(--color-muted-foreground);
+  }
+  .chip .chip-close:hover { background:var(--color-danger-soft); color:var(--color-danger); }
+
+  /* ---------------------------------------------------------------------------
+     6. COMPONENT — ALERTS
+     --------------------------------------------------------------------------- */
+  .alert {
+    display:flex; gap:var(--space-3); align-items:flex-start;
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    font-size: var(--text-sm);
+  }
+  .alert .alert-icon { flex:0 0 auto; font-size:1.1rem; line-height:1.4; }
+  .alert .alert-title { font-weight: var(--weight-semibold); }
+  .alert-brand   { background:var(--color-brand-soft);   border-color:transparent; color:var(--color-brand); }
+  .alert-success { background:var(--color-success-soft); border-color:transparent; color:var(--color-success); }
+  .alert-warning { background:var(--color-warning-soft); border-color:transparent; color:var(--color-warning); }
+  .alert-danger  { background:var(--color-danger-soft);  border-color:transparent; color:var(--color-danger); }
+  .alert-info    { background:var(--color-info-soft);    border-color:transparent; color:var(--color-info); }
+
+  /* ---------------------------------------------------------------------------
+     7. COMPONENT — CARDS  (MDBootstrap structure: header / img / body / footer,
+        horizontal, overlay, contextual border)
+     --------------------------------------------------------------------------- */
+  .card {
+    display: flex; flex-direction: column;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+    transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .card-hover:hover { box-shadow: var(--shadow-3); transform: translateY(-4px); }
+  .card-img-top { width:100%; height:180px; object-fit:cover; }
+  .card-img-bottom { width:100%; height:180px; object-fit:cover; }
+  .card-header {
+    padding: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--color-border);
+    font-weight: var(--weight-semibold);
+  }
+  .card-body { padding: var(--space-5); display:flex; flex-direction:column; gap:var(--space-2); flex:1; }
+  .card-title { font-size: var(--text-xl); font-weight: var(--weight-bold); letter-spacing:-0.01em; }
+  .card-subtitle { font-size: var(--text-sm); color: var(--color-muted-foreground); }
+  .card-text { color: var(--color-foreground); }
+  .card-footer {
+    padding: var(--space-4) var(--space-5);
+    border-top: 1px solid var(--color-border);
+    display:flex; align-items:center; justify-content:space-between; gap:var(--space-3);
+    background: var(--color-muted);
+  }
+
+  /* Horizontal card */
+  .card-horizontal { flex-direction: row; }
+  .card-horizontal .card-img-side { width: 40%; min-width:140px; object-fit: cover; }
+
+  /* Image overlay card */
+  .card-overlay { position: relative; }
+  .card-overlay .card-img-top { height: 240px; }
+  .card-overlay .card-img-overlay {
+    position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end;
+    padding: var(--space-5); color:#fff;
+    background: linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,.15) 60%, transparent 100%);
+  }
+  .card-overlay .card-title, .card-overlay .card-text { color:#fff; }
+
+  /* Contextual border accent */
+  .card-accent-brand   { border-top: 3px solid var(--color-brand); }
+  .card-accent-success { border-top: 3px solid var(--color-success); }
+
+  /* ---------------------------------------------------------------------------
+     8. COMPONENT — FORM CONTROLS
+     --------------------------------------------------------------------------- */
+  .field { display:flex; flex-direction:column; gap:var(--space-2); }
+  .label { font-size: var(--text-sm); font-weight: var(--weight-medium); }
+  .input, .textarea, .select {
+    width:100%;
+    padding: 0.6rem 0.85rem;
+    font-family: var(--font-sans); font-size: var(--text-sm);
+    color: var(--color-foreground);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .input::placeholder, .textarea::placeholder { color: var(--color-muted-foreground); }
+  .input:focus, .textarea:focus, .select:focus {
+    outline:none; border-color: var(--color-brand);
+    box-shadow: 0 0 0 3px var(--color-brand-soft);
+  }
+  .textarea { min-height: 96px; resize: vertical; }
+  .field-hint { font-size: var(--text-xs); color: var(--color-muted-foreground); }
+  .input-error { border-color: var(--color-danger); }
+  .input-error:focus { box-shadow: 0 0 0 3px var(--color-danger-soft); }
+
+  .switch { position:relative; display:inline-flex; align-items:center; cursor:pointer; gap:var(--space-3); }
+  .switch input { position:absolute; opacity:0; }
+  .switch .track {
+    width:2.6rem; height:1.5rem; border-radius:var(--radius-pill);
+    background: var(--color-border); transition: background var(--dur) var(--ease);
+  }
+  .switch .track::after {
+    content:""; position:absolute; top:3px; left:3px; width:1.125rem; height:1.125rem;
+    background:#fff; border-radius:50%; box-shadow:var(--shadow-1);
+    transition: transform var(--dur) var(--ease);
+  }
+  .switch input:checked + .track { background: var(--color-brand); }
+  .switch input:checked + .track::after { transform: translateX(1.1rem); }
+
+  /* ---------------------------------------------------------------------------
+     9. COMPONENT — NAVBAR
+     --------------------------------------------------------------------------- */
+  .navbar {
+    display:flex; align-items:center; justify-content:space-between; gap:var(--space-5);
+    padding: var(--space-3) var(--space-5);
+    background: var(--color-surface);
+    border:1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-1);
+    width:100%;
+  }
+  .navbar .brand { font-weight: var(--weight-bold); font-size: var(--text-lg); letter-spacing:-0.01em; }
+  .navbar .nav-links { display:flex; gap:var(--space-5); list-style:none; margin:0; padding:0; }
+  .navbar .nav-links a { color: var(--color-muted-foreground); font-size: var(--text-sm); font-weight: var(--weight-medium); }
+  .navbar .nav-links a:hover { color: var(--color-foreground); text-decoration:none; }
+
+  /* =========================================================================
+     DOCUMENTATION CHROME  (only for this page — not part of the token system)
+     ========================================================================= */
+  .ds-page { max-width: 1080px; margin: 0 auto; padding: var(--space-6) var(--space-5) var(--space-8); }
+  .ds-topbar {
+    position: sticky; top:0; z-index: 10;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: var(--space-4) var(--space-5);
+    background: color-mix(in srgb, var(--color-background) 85%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .ds-topbar .brand { display:flex; align-items:center; gap:var(--space-3); font-weight:var(--weight-bold); }
+  .ds-logo { width:1.75rem; height:1.75rem; border-radius:var(--radius-md); background:var(--color-brand); display:grid; place-items:center; color:#fff; font-weight:700; }
+  .ds-hero { padding: var(--space-7) 0 var(--space-6); border-bottom:1px solid var(--color-border); margin-bottom: var(--space-7); }
+  .ds-hero p { color: var(--color-muted-foreground); max-width: 60ch; margin-top: var(--space-3); }
+  .ds-section { margin: var(--space-8) 0; }
+  .ds-section > h2 { font-size: var(--text-2xl); margin-bottom: var(--space-2); }
+  .ds-section > .ds-section-note { color: var(--color-muted-foreground); margin-bottom: var(--space-5); font-size: var(--text-sm); }
+  .ds-subtitle { font-size: var(--text-sm); font-weight:var(--weight-semibold); text-transform:uppercase; letter-spacing:.06em; color:var(--color-muted-foreground); margin: var(--space-6) 0 var(--space-3); }
+
+  /* Token swatch grids */
+  .swatch-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(170px,1fr)); gap: var(--space-4); }
+  .swatch { border:1px solid var(--color-border); border-radius:var(--radius-md); overflow:hidden; background:var(--color-surface); }
+  .swatch .chip-color { height:64px; }
+  .swatch .meta { padding: var(--space-3); }
+  .swatch .meta code { font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-muted-foreground); }
+  .swatch .meta .name { font-weight:var(--weight-semibold); font-size:var(--text-sm); display:block; }
+
+  .scale-row { display:flex; align-items:center; gap:var(--space-4); padding:var(--space-2) 0; border-bottom:1px dashed var(--color-border); }
+  .scale-row code { font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-muted-foreground); min-width:120px; }
+  .scale-bar { height:14px; background:var(--color-brand); border-radius:var(--radius-sm); }
+
+  /* The component-library listing wrappers (the structure the CMS reads) */
+  .ds-elements {
+    display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-4);
+    padding: var(--space-5);
+    border:1px dashed var(--color-border); border-radius:var(--radius-lg);
+    background: var(--color-muted);
+  }
+  .ds-elements--start { align-items:flex-start; }
+  .ds-elements--grid {
+    display:grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+    gap: var(--space-5); padding: var(--space-5);
+    border:1px dashed var(--color-border); border-radius:var(--radius-lg); background:var(--color-muted);
+  }
+  .ds-elements--col {
+    display:flex; flex-direction:column; gap: var(--space-6);
+    padding: var(--space-5);
+    border:1px dashed var(--color-border); border-radius:var(--radius-lg); background:var(--color-muted);
+  }
+  .ds-group-label {
+    display:flex; align-items:center; gap:var(--space-2);
+    font-size: var(--text-sm); font-weight: var(--weight-semibold);
+    text-transform:uppercase; letter-spacing:.06em; color: var(--color-muted-foreground);
+    margin: var(--space-6) 0 var(--space-3);
+  }
+  .ds-group-label::before { content:""; width:.5rem; height:.5rem; border-radius:50%; background:var(--color-brand); }
+
+  /* Pattern sections inside the "Sections" group */
+  .section-pattern { width:100%; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--color-border); }
+
+  .hero-pattern {
+    display:grid; grid-template-columns: 1.1fr .9fr; gap:var(--space-6); align-items:center;
+    padding: var(--space-7) var(--space-6); background: var(--color-surface);
+  }
+  .hero-pattern .eyebrow { margin-bottom: var(--space-3); }
+  .hero-pattern h2 { font-size: var(--text-4xl); letter-spacing:-0.02em; }
+  .hero-pattern p { color: var(--color-muted-foreground); margin: var(--space-4) 0 var(--space-5); }
+  .hero-pattern .hero-art { aspect-ratio: 4/3; border-radius:var(--radius-lg); background:linear-gradient(135deg, var(--color-brand), #8a90e6); }
+
+  .feature-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:var(--space-5); padding:var(--space-7) var(--space-6); background:var(--color-surface); }
+  .feature-item { display:flex; flex-direction:column; gap:var(--space-2); }
+  .feature-item .ico { width:2.5rem; height:2.5rem; display:grid; place-items:center; border-radius:var(--radius-md); background:var(--color-brand-soft); color:var(--color-brand); font-size:1.2rem; }
+
+  .cta-pattern { display:flex; align-items:center; justify-content:space-between; gap:var(--space-5); flex-wrap:wrap; padding:var(--space-7) var(--space-6); background:var(--color-primary); color:var(--color-primary-foreground); }
+  .cta-pattern h2 { font-size: var(--text-3xl); }
+  .cta-pattern p { opacity:.8; margin-top:var(--space-2); }
+
+  .newsletter-pattern { padding:var(--space-7) var(--space-6); background:var(--color-brand-soft); text-align:center; }
+  .newsletter-pattern h2 { color: var(--color-brand); font-size: var(--text-3xl); }
+  .newsletter-pattern .form-row { display:flex; gap:var(--space-3); max-width:440px; margin:var(--space-5) auto 0; }
+
+  .postgrid-pattern { display:grid; grid-template-columns: repeat(3,1fr); gap:var(--space-5); padding:var(--space-6); background:var(--color-surface); }
+
+  @media (max-width: 800px) {
+    .hero-pattern, .feature-grid, .postgrid-pattern { grid-template-columns: 1fr; }
+    .navbar .nav-links { display:none; }
+    .card-horizontal { flex-direction: column; }
+    .card-horizontal .card-img-side { width:100%; height:160px; }
+  }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===================== DOC TOPBAR ===================== -->
+  <header class="ds-topbar">
+    <div class="brand">
+      <span class="ds-logo">C</span>
+      <span>Clarity&nbsp;<span class="text-muted weight-regular">Design System</span></span>
+    </div>
+    <button class="btn btn-tertiary btn-sm" id="themeToggle" type="button">🌙 Dark</button>
+  </header>
+
+  <main class="ds-page">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="ds-hero">
+      <span class="badge badge-brand">v1.0</span>
+      <h1 class="display" style="margin-top:var(--space-4)">Clarity</h1>
+      <p>A plain HTML/CSS/JS design system for the Nexus site. Built on DM Sans, a near-monochrome
+      palette and the indigo <code>#575ECF</code> brand accent. Every token below ships with a utility
+      class you can drop straight onto markup. The full component library is rendered at the bottom of
+      the page, grouped for the Klar visual CMS.</p>
+    </section>
+
+    <!-- ===================== FOUNDATIONS: COLOR ===================== -->
+    <section class="ds-section">
+      <h2>Color tokens</h2>
+      <p class="ds-section-note">Each color exposes a <code>.bg-*</code> and/or <code>.text-*</code> utility class.</p>
+
+      <div class="ds-subtitle">Neutrals & brand</div>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="chip-color bg-primary"></div><div class="meta"><span class="name">Primary</span><code>.bg-primary</code></div></div>
+        <div class="swatch"><div class="chip-color bg-brand"></div><div class="meta"><span class="name">Brand</span><code>.bg-brand</code></div></div>
+        <div class="swatch"><div class="chip-color bg-secondary"></div><div class="meta"><span class="name">Secondary</span><code>.bg-secondary</code></div></div>
+        <div class="swatch"><div class="chip-color bg-muted"></div><div class="meta"><span class="name">Muted</span><code>.bg-muted</code></div></div>
+        <div class="swatch"><div class="chip-color bg-accent"></div><div class="meta"><span class="name">Accent</span><code>.bg-accent</code></div></div>
+        <div class="swatch"><div class="chip-color" style="background:var(--color-border)"></div><div class="meta"><span class="name">Border</span><code>.border</code></div></div>
+      </div>
+
+      <div class="ds-subtitle">Semantic</div>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="chip-color bg-success"></div><div class="meta"><span class="name">Success</span><code>.bg-success</code></div></div>
+        <div class="swatch"><div class="chip-color bg-warning"></div><div class="meta"><span class="name">Warning</span><code>.bg-warning</code></div></div>
+        <div class="swatch"><div class="chip-color bg-danger"></div><div class="meta"><span class="name">Danger</span><code>.bg-danger</code></div></div>
+        <div class="swatch"><div class="chip-color bg-info"></div><div class="meta"><span class="name">Info</span><code>.bg-info</code></div></div>
+      </div>
+    </section>
+
+    <!-- ===================== FOUNDATIONS: TYPOGRAPHY ===================== -->
+    <section class="ds-section">
+      <h2>Typography</h2>
+      <p class="ds-section-note">DM Sans. Presets: <code>.display .h1 .h2 .h3 .h4 .body-lg .body .caption .overline</code></p>
+      <div style="display:flex; flex-direction:column; gap:var(--space-3)">
+        <div class="display">Display — Read with clarity</div>
+        <div class="h1">Heading 1 — The Nexus journal</div>
+        <div class="h2">Heading 2 — Fashion, tech & lifestyle</div>
+        <div class="h3">Heading 3 — Featured stories</div>
+        <div class="h4">Heading 4 — Section label</div>
+        <div class="body-lg">Body large — an intro paragraph that sets the tone for an article.</div>
+        <div class="body">Body — the default reading size for article content and UI copy.</div>
+        <div class="caption">Caption — metadata, timestamps and helper text.</div>
+        <div class="overline">Overline — category</div>
+      </div>
+    </section>
+
+    <!-- ===================== FOUNDATIONS: SCALE / RADIUS / SHADOW ===================== -->
+    <section class="ds-section">
+      <h2>Spacing, radius & elevation</h2>
+      <p class="ds-section-note">Spacing classes <code>.p-1…6</code>, radius <code>.radius-sm/md/lg/pill</code>, elevation <code>.shadow-1/2/3</code>.</p>
+
+      <div class="ds-subtitle">Spacing scale</div>
+      <div class="scale-row"><code>--space-1 / 4px</code><span class="scale-bar" style="width:var(--space-1)"></span></div>
+      <div class="scale-row"><code>--space-2 / 8px</code><span class="scale-bar" style="width:var(--space-2)"></span></div>
+      <div class="scale-row"><code>--space-3 / 12px</code><span class="scale-bar" style="width:var(--space-3)"></span></div>
+      <div class="scale-row"><code>--space-4 / 16px</code><span class="scale-bar" style="width:var(--space-4)"></span></div>
+      <div class="scale-row"><code>--space-5 / 24px</code><span class="scale-bar" style="width:var(--space-5)"></span></div>
+      <div class="scale-row"><code>--space-6 / 32px</code><span class="scale-bar" style="width:var(--space-6)"></span></div>
+
+      <div class="ds-subtitle">Radius</div>
+      <div style="display:flex; gap:var(--space-4); flex-wrap:wrap">
+        <div class="bg-brand-soft radius-sm" style="width:90px;height:64px;display:grid;place-items:center"><code>sm</code></div>
+        <div class="bg-brand-soft radius-md" style="width:90px;height:64px;display:grid;place-items:center"><code>md</code></div>
+        <div class="bg-brand-soft radius-lg" style="width:90px;height:64px;display:grid;place-items:center"><code>lg</code></div>
+        <div class="bg-brand-soft radius-pill" style="width:120px;height:64px;display:grid;place-items:center"><code>pill</code></div>
+      </div>
+
+      <div class="ds-subtitle">Elevation</div>
+      <div style="display:flex; gap:var(--space-5); flex-wrap:wrap">
+        <div class="bg-surface radius-md shadow-1" style="width:120px;height:72px;display:grid;place-items:center"><code>shadow-1</code></div>
+        <div class="bg-surface radius-md shadow-2" style="width:120px;height:72px;display:grid;place-items:center"><code>shadow-2</code></div>
+        <div class="bg-surface radius-md shadow-3" style="width:120px;height:72px;display:grid;place-items:center"><code>shadow-3</code></div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         COMPONENT LIBRARY
+         Each group uses: data-klar-ds-elements="<Group name>"
+         ===================================================================== -->
+    <section class="ds-section">
+      <h2>Component library</h2>
+      <p class="ds-section-note">Full set of components, grouped for the Klar visual CMS.</p>
+
+      <!-- ---------- BUTTONS ---------- -->
+      <div class="ds-group-label">Buttons</div>
+      <div class="ds-elements" data-klar-ds-elements="Buttons">
+        <button class="btn btn-primary" type="button">Primary</button>
+        <button class="btn btn-brand" type="button">Brand</button>
+        <button class="btn btn-secondary" type="button">Secondary</button>
+        <button class="btn btn-tertiary" type="button">Tertiary</button>
+        <button class="btn btn-link" type="button">Link</button>
+        <button class="btn btn-success" type="button">Success</button>
+        <button class="btn btn-danger" type="button">Danger</button>
+        <button class="btn btn-warning" type="button">Warning</button>
+        <button class="btn btn-info" type="button">Info</button>
+        <button class="btn btn-dark" type="button">Dark</button>
+        <button class="btn btn-outline btn-primary" type="button">Outline</button>
+        <button class="btn btn-outline btn-brand" type="button">Outline brand</button>
+        <button class="btn btn-outline btn-danger" type="button">Outline danger</button>
+        <button class="btn btn-brand btn-rounded" type="button">Rounded</button>
+        <button class="btn btn-brand" type="button"><span>★</span> With icon</button>
+        <button class="btn btn-brand btn-sm" type="button">Small</button>
+        <button class="btn btn-brand btn-lg" type="button">Large</button>
+        <button class="btn btn-primary" type="button" disabled>Disabled</button>
+        <button class="btn btn-brand btn-floating" type="button" aria-label="Add">+</button>
+        <button class="btn btn-outline btn-primary btn-floating" type="button" aria-label="Like">♥</button>
+      </div>
+
+      <!-- ---------- BADGES & CHIPS ---------- -->
+      <div class="ds-group-label">Badges</div>
+      <div class="ds-elements" data-klar-ds-elements="Badges">
+        <span class="badge">Default</span>
+        <span class="badge badge-brand">Brand</span>
+        <span class="badge badge-solid">Solid</span>
+        <span class="badge badge-success badge-dot">Published</span>
+        <span class="badge badge-warning badge-dot">Draft</span>
+        <span class="badge badge-danger badge-dot">Archived</span>
+        <span class="badge badge-info">New</span>
+        <span class="chip">Technology <button class="chip-close" type="button" aria-label="Remove">×</button></span>
+        <span class="chip">Fashion <button class="chip-close" type="button" aria-label="Remove">×</button></span>
+      </div>
+
+      <!-- ---------- ALERTS ---------- -->
+      <div class="ds-group-label">Alerts</div>
+      <div class="ds-elements ds-elements--col" data-klar-ds-elements="Alerts">
+        <div class="alert alert-info"><span class="alert-icon">ℹ️</span><div><div class="alert-title">Heads up</div>A new editor build is available for your project.</div></div>
+        <div class="alert alert-success"><span class="alert-icon">✅</span><div><div class="alert-title">Saved</div>Your content was published successfully.</div></div>
+        <div class="alert alert-warning"><span class="alert-icon">⚠️</span><div><div class="alert-title">Unsaved changes</div>You have edits that haven't been published yet.</div></div>
+        <div class="alert alert-danger"><span class="alert-icon">⛔</span><div><div class="alert-title">Something went wrong</div>We couldn't reach the content API. Try again.</div></div>
+      </div>
+
+      <!-- ---------- CARDS ---------- -->
+      <div class="ds-group-label">Cards</div>
+      <div class="ds-elements ds-elements--grid" data-klar-ds-elements="Cards">
+
+        <!-- Basic card with image + footer -->
+        <article class="card card-hover">
+          <img class="card-img-top" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=60" alt="">
+          <div class="card-body">
+            <span class="overline">Fashion</span>
+            <h3 class="card-title">Autumn layering, simplified</h3>
+            <p class="card-text text-muted">A practical guide to building a capsule wardrobe for the colder months.</p>
+          </div>
+          <div class="card-footer">
+            <span class="caption">5 min read</span>
+            <button class="btn btn-link btn-sm" type="button">Read →</button>
+          </div>
+        </article>
+
+        <!-- Card with header -->
+        <article class="card card-accent-brand">
+          <div class="card-header">Weekly digest</div>
+          <div class="card-body">
+            <h3 class="card-title">Top stories</h3>
+            <p class="card-subtitle">Curated every Friday</p>
+            <p class="card-text text-muted">The most-read articles across technology, business and lifestyle.</p>
+            <button class="btn btn-brand btn-sm" type="button" style="margin-top:var(--space-2)">Subscribe</button>
+          </div>
+        </article>
+
+        <!-- Image overlay card -->
+        <article class="card card-overlay card-hover">
+          <img class="card-img-top" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=60" alt="">
+          <div class="card-img-overlay">
+            <span class="badge badge-solid">Technology</span>
+            <h3 class="card-title" style="margin-top:var(--space-2)">The state of edge computing</h3>
+            <p class="card-text" style="opacity:.85">What moving compute closer to users means for the web.</p>
+          </div>
+        </article>
+
+        <!-- Horizontal card -->
+        <article class="card card-horizontal card-hover" style="grid-column:1 / -1">
+          <img class="card-img-side" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=60" alt="">
+          <div class="card-body">
+            <span class="overline">Business</span>
+            <h3 class="card-title">Building a resilient remote team</h3>
+            <p class="card-text text-muted">Lessons from founders who scaled distributed companies past 100 people, and the rituals that kept their culture intact.</p>
+            <div style="display:flex; gap:var(--space-3); margin-top:var(--space-3)">
+              <button class="btn btn-primary btn-sm" type="button">Read article</button>
+              <button class="btn btn-tertiary btn-sm" type="button">Save</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- ---------- FORMS ---------- -->
+      <div class="ds-group-label">Forms</div>
+      <div class="ds-elements ds-elements--start" data-klar-ds-elements="Forms">
+        <div class="field" style="min-width:240px">
+          <label class="label" for="f-name">Full name</label>
+          <input class="input" id="f-name" type="text" placeholder="Jane Doe">
+          <span class="field-hint">As it should appear on your byline.</span>
+        </div>
+        <div class="field" style="min-width:240px">
+          <label class="label" for="f-email">Email</label>
+          <input class="input input-error" id="f-email" type="email" value="not-an-email">
+          <span class="field-hint text-danger">Enter a valid email address.</span>
+        </div>
+        <div class="field" style="min-width:240px">
+          <label class="label" for="f-cat">Category</label>
+          <select class="select" id="f-cat">
+            <option>Fashion</option><option>Technology</option><option>Business</option><option>Lifestyle</option>
+          </select>
+        </div>
+        <div class="field" style="min-width:280px; flex:1">
+          <label class="label" for="f-msg">Message</label>
+          <textarea class="textarea" id="f-msg" placeholder="Write something…"></textarea>
+        </div>
+        <label class="switch"><input type="checkbox" checked><span class="track"></span><span class="label">Email me replies</span></label>
+      </div>
+
+      <!-- ---------- NAVIGATION ---------- -->
+      <div class="ds-group-label">Navigation</div>
+      <div class="ds-elements" data-klar-ds-elements="Navigation">
+        <nav class="navbar">
+          <span class="brand">Nexus</span>
+          <ul class="nav-links">
+            <li><a href="#">Fashion</a></li>
+            <li><a href="#">Technology</a></li>
+            <li><a href="#">Business</a></li>
+            <li><a href="#">Lifestyle</a></li>
+          </ul>
+          <div style="display:flex; gap:var(--space-3)">
+            <button class="btn btn-tertiary btn-sm" type="button">Search</button>
+            <button class="btn btn-brand btn-sm" type="button">Subscribe</button>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTIONS — pattern variants composed from tokens + components
+         ===================================================================== -->
+    <section class="ds-section">
+      <h2>Sections</h2>
+      <p class="ds-section-note">Reusable page patterns assembled from the components above.</p>
+
+      <div class="ds-group-label">Sections</div>
+      <div class="ds-elements--col" data-klar-ds-elements="Sections">
+
+        <!-- Hero -->
+        <section class="section-pattern hero-pattern">
+          <div>
+            <span class="badge badge-brand eyebrow">Personal blog</span>
+            <h2>Ideas worth reading, written with clarity.</h2>
+            <p>Fashion, technology, business and lifestyle — distilled into stories you actually finish.</p>
+            <div style="display:flex; gap:var(--space-3)">
+              <button class="btn btn-brand btn-lg" type="button">Start reading</button>
+              <button class="btn btn-outline btn-primary btn-lg" type="button">Browse topics</button>
+            </div>
+          </div>
+          <div class="hero-art"></div>
+        </section>
+
+        <!-- Feature grid -->
+        <section class="section-pattern feature-grid">
+          <div class="feature-item"><span class="ico">✶</span><h3 class="h4">Curated weekly</h3><p class="text-muted">Hand-picked stories delivered every Friday — no noise.</p></div>
+          <div class="feature-item"><span class="ico">◷</span><h3 class="h4">Quick reads</h3><p class="text-muted">Most articles take under six minutes from start to finish.</p></div>
+          <div class="feature-item"><span class="ico">✦</span><h3 class="h4">Ad-free</h3><p class="text-muted">Reader-first layout with zero trackers and zero clutter.</p></div>
+        </section>
+
+        <!-- Post grid -->
+        <section class="section-pattern postgrid-pattern">
+          <article class="card card-hover">
+            <img class="card-img-top" src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=500&q=60" alt="">
+            <div class="card-body"><span class="overline">Lifestyle</span><h3 class="card-title">Slow mornings</h3><p class="card-text text-muted">A routine for starting the day intentionally.</p></div>
+          </article>
+          <article class="card card-hover">
+            <img class="card-img-top" src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=500&q=60" alt="">
+            <div class="card-body"><span class="overline">Technology</span><h3 class="card-title">On-device AI</h3><p class="card-text text-muted">Why the next wave runs in your pocket.</p></div>
+          </article>
+          <article class="card card-hover">
+            <img class="card-img-top" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=60" alt="">
+            <div class="card-body"><span class="overline">Business</span><h3 class="card-title">Pricing with confidence</h3><p class="card-text text-muted">A framework for charging what you're worth.</p></div>
+          </article>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="section-pattern newsletter-pattern">
+          <span class="overline">Stay in the loop</span>
+          <h2>The Friday digest</h2>
+          <p class="text-muted">One email a week. The best of Nexus. Unsubscribe anytime.</p>
+          <div class="form-row">
+            <input class="input" type="email" placeholder="you@example.com">
+            <button class="btn btn-brand" type="button">Subscribe</button>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section-pattern cta-pattern">
+          <div>
+            <h2>Have a story to tell?</h2>
+            <p>Pitch us your idea — we publish guest writers every month.</p>
+          </div>
+          <button class="btn btn-brand btn-lg" type="button">Submit a pitch</button>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script>
+  /* ---------------------------------------------------------------------------
+     JS — ripple effect (MDB-style), theme toggle, chip removal
+     --------------------------------------------------------------------------- */
+  (function () {
+    // Ripple on every .btn
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('.btn');
+      if (!btn || btn.disabled) return;
+      var rect = btn.getBoundingClientRect();
+      var size = Math.max(rect.width, rect.height);
+      var span = document.createElement('span');
+      span.className = 'ripple';
+      span.style.width = span.style.height = size + 'px';
+      span.style.left = (e.clientX - rect.left - size / 2) + 'px';
+      span.style.top = (e.clientY - rect.top - size / 2) + 'px';
+      btn.appendChild(span);
+      span.addEventListener('animationend', function () { span.remove(); });
+    });
+
+    // Theme toggle
+    var toggle = document.getElementById('themeToggle');
+    var root = document.documentElement;
+    toggle.addEventListener('click', function () {
+      var dark = root.classList.toggle('dark');
+      root.classList.toggle('light', !dark);
+      root.style.colorScheme = dark ? 'dark' : 'light';
+      toggle.textContent = dark ? '☀️ Light' : '🌙 Dark';
+    });
+
+    // Removable chips
+    document.addEventListener('click', function (e) {
+      var close = e.target.closest('.chip-close');
+      if (close) close.closest('.chip').remove();
+    });
+  })();
+  </script>
+</body>
+</html>

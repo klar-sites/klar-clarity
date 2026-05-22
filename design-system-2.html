@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" class="light" style="color-scheme: light;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Design System v2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <!-- The one and only stylesheet. Everything below is built from its tokens & components. -->
+  <link rel="stylesheet" href="design-system-2.css">
+  <style>
+    /* ---- Documentation chrome only (not part of the design system) ---- */
+    .ds-wrap { max-width: 80rem; margin-inline: auto; padding: 2rem 1.5rem 6rem; }
+    .ds-topbar {
+      position: sticky; top: 0; z-index: 60;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.5rem; margin-bottom: 2rem;
+      background-color: hsl(var(--background)); border-bottom: 1px solid hsl(var(--border));
+    }
+    .ds-section { padding-block: 3rem; border-top: 1px solid hsl(var(--border)); }
+    .ds-section:first-of-type { border-top: 0; }
+    .ds-section > h2 { font-size: var(--text-3xl); margin-bottom: .5rem; }
+    .ds-section > p.ds-note { color: hsl(var(--muted-foreground)); margin-bottom: 2rem; max-width: 48rem; }
+    .ds-sub { font-size: var(--text-sm); font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+              color: hsl(var(--muted-foreground)); margin: 2rem 0 1rem; }
+    .ds-grid { display: grid; gap: 1rem; }
+    .ds-swatches { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+    .ds-swatch { border: 1px solid hsl(var(--border)); border-radius: var(--radius); overflow: hidden; }
+    .ds-swatch__chip { height: 72px; }
+    .ds-swatch__meta { padding: .5rem .75rem; font-size: var(--text-xs); }
+    .ds-swatch__meta code { display: block; color: hsl(var(--muted-foreground)); margin-top: .25rem; }
+    .ds-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+    .ds-stack { display: flex; flex-direction: column; gap: .5rem; }
+    .ds-token-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+    .ds-token-table th, .ds-token-table td { text-align: left; padding: .5rem .75rem; border-bottom: 1px solid hsl(var(--border)); }
+    .ds-token-table code { font-size: var(--text-xs); color: hsl(var(--muted-foreground)); }
+    .ds-bar { height: 1.25rem; background-color: hsl(var(--primary)); border-radius: 2px; }
+    /* The component-library list containers (the data-klar-ds-elements blocks). */
+    .ds-elements {
+      display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start;
+      padding: 1.5rem; border: 1px dashed hsl(var(--border)); border-radius: var(--radius);
+      background-color: hsl(var(--muted) / .4);
+    }
+    .ds-elements--block { flex-direction: column; align-items: stretch; }
+    .ds-elements--block > * { width: 100%; }
+  </style>
+</head>
+<body>
+
+  <!-- ====================================================================
+       Topbar with theme toggle (plain JS)
+       ==================================================================== -->
+  <div class="ds-topbar">
+    <strong class="brand" style="font-size:var(--text-xl)">nexus / design system</strong>
+    <button class="btn btn-icon" id="theme-toggle" aria-label="Toggle theme" title="Toggle light / dark">
+      <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </button>
+  </div>
+
+  <div class="ds-wrap">
+
+    <header style="margin-bottom:3rem">
+      <h1 class="featured-title">Nexus Design System</h1>
+      <p class="lead" style="margin-top:1rem">A minimalist, black-and-white editorial system for the Nexus blog. Plain HTML, CSS and JavaScript — every token below is exposed as a utility class and every component is a single, copy-pasteable element.</p>
+    </header>
+
+    <!-- ================================================================
+         FOUNDATIONS
+         ================================================================ -->
+
+    <!-- Colors -->
+    <section class="ds-section">
+      <h2>Colors</h2>
+      <p class="ds-note">Semantic color tokens. Stored as raw HSL channels so they compose with alpha. Each has a <code>.bg-*</code> and/or <code>.text-*</code> utility.</p>
+      <div class="ds-grid ds-swatches">
+        <div class="ds-swatch"><div class="ds-swatch__chip bg-background" style="box-shadow:inset 0 0 0 1px hsl(var(--border))"></div><div class="ds-swatch__meta">Background<code>.bg-background</code></div></div>
+        <div class="ds-swatch"><div class="ds-swatch__chip bg-foreground"></div><div class="ds-swatch__meta">Foreground<code>.bg-foreground / .text-foreground</code></div></div>
+        <div class="ds-swatch"><div class="ds-swatch__chip bg-primary"></div><div class="ds-swatch__meta">Primary<code>.bg-primary / .text-primary</code></div></div>
+        <div class="ds-swatch"><div class="ds-swatch__chip bg-secondary"></div><div class="ds-swatch__meta">Secondary<code>.bg-secondary</code></div></div>
+        <div class="ds-swatch"><div class="ds-swatch__chip bg-muted"></div><div class="ds-swatch__meta">Muted<code>.bg-muted</code></div></div>
+        <div class="ds-swatch"><div class="ds-swatch__chip bg-accent"></div><div class="ds-swatch__meta">Accent<code>.bg-accent</code></div></div>
+        <div class="ds-swatch"><div class="ds-swatch__chip" style="background:hsl(var(--muted-foreground))"></div><div class="ds-swatch__meta">Muted Foreground<code>.text-muted-foreground</code></div></div>
+        <div class="ds-swatch"><div class="ds-swatch__chip" style="background:hsl(var(--border))"></div><div class="ds-swatch__meta">Border<code>.border-border</code></div></div>
+        <div class="ds-swatch"><div class="ds-swatch__chip bg-destructive"></div><div class="ds-swatch__meta">Destructive<code>.bg-destructive / .text-destructive</code></div></div>
+      </div>
+    </section>
+
+    <!-- Typography -->
+    <section class="ds-section">
+      <h2>Typography</h2>
+      <p class="ds-note">Typeface is <strong>DM Sans</strong>. The type scale runs from <code>--text-xs</code> (12px) to <code>--text-4xl</code> (36px), each exposed as a <code>.text-*</code> utility.</p>
+      <div class="ds-stack">
+        <div class="text-4xl font-bold">text-4xl · The quick brown fox</div>
+        <div class="text-3xl font-bold">text-3xl · The quick brown fox</div>
+        <div class="text-2xl font-bold">text-2xl · The quick brown fox</div>
+        <div class="text-xl font-medium">text-xl · The quick brown fox</div>
+        <div class="text-lg">text-lg · The quick brown fox</div>
+        <div class="text-base">text-base · The quick brown fox</div>
+        <div class="text-sm">text-sm · The quick brown fox</div>
+        <div class="text-xs">text-xs · The quick brown fox</div>
+      </div>
+      <p class="ds-sub">Weights</p>
+      <div class="ds-row">
+        <span class="text-xl font-normal">Normal 400</span>
+        <span class="text-xl font-medium">Medium 500</span>
+        <span class="text-xl font-bold">Bold 700</span>
+      </div>
+      <p class="ds-sub">Named text styles</p>
+      <div class="ds-stack">
+        <span class="featured-title">.featured-title</span>
+        <span class="section-title">.section-title</span>
+        <span class="lead">.lead — an intro paragraph in muted foreground.</span>
+        <span class="blog-meta">.blog-meta — category · date</span>
+        <span class="eyebrow">.eyebrow</span>
+      </div>
+    </section>
+
+    <!-- Spacing -->
+    <section class="ds-section">
+      <h2>Spacing</h2>
+      <p class="ds-note">A 4px-based scale plus two layout constants: <code>--section-padding</code> (4rem) and <code>--card-padding</code> (1.5rem).</p>
+      <table class="ds-token-table">
+        <thead><tr><th>Token</th><th>Value</th><th></th></tr></thead>
+        <tbody>
+          <tr><td><code>--space-1</code></td><td>0.25rem</td><td><div class="ds-bar" style="width:.25rem"></div></td></tr>
+          <tr><td><code>--space-2</code></td><td>0.5rem</td><td><div class="ds-bar" style="width:.5rem"></div></td></tr>
+          <tr><td><code>--space-3</code></td><td>0.75rem</td><td><div class="ds-bar" style="width:.75rem"></div></td></tr>
+          <tr><td><code>--space-4</code></td><td>1rem</td><td><div class="ds-bar" style="width:1rem"></div></td></tr>
+          <tr><td><code>--space-6</code></td><td>1.5rem</td><td><div class="ds-bar" style="width:1.5rem"></div></td></tr>
+          <tr><td><code>--space-8</code></td><td>2rem</td><td><div class="ds-bar" style="width:2rem"></div></td></tr>
+          <tr><td><code>--space-12</code></td><td>3rem</td><td><div class="ds-bar" style="width:3rem"></div></td></tr>
+          <tr><td><code>--space-16</code></td><td>4rem</td><td><div class="ds-bar" style="width:4rem"></div></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Radius & Elevation -->
+    <section class="ds-section">
+      <h2>Radius &amp; Elevation</h2>
+      <p class="ds-sub">Border radius</p>
+      <div class="ds-row">
+        <div class="bg-muted rounded-sm" style="width:96px;height:64px"></div>
+        <div class="bg-muted rounded-md" style="width:96px;height:64px"></div>
+        <div class="bg-muted rounded-full" style="width:96px;height:64px"></div>
+      </div>
+      <p class="ds-sub">Shadows</p>
+      <div class="ds-row">
+        <div class="bg-card shadow-sm rounded" style="width:120px;height:72px"></div>
+        <div class="bg-card shadow-md rounded" style="width:120px;height:72px"></div>
+        <div class="bg-card shadow-lg rounded" style="width:120px;height:72px"></div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         COMPONENT LIBRARY
+         Every group is a div with [data-klar-ds-elements="GroupName"].
+         Components live directly inside the listing div.
+         ================================================================ -->
+    <section class="ds-section">
+      <h2>Component Library</h2>
+      <p class="ds-note">A full inventory of components. Each block below is tagged with <code>data-klar-ds-elements</code> for tooling.</p>
+
+      <p class="ds-sub">Buttons</p>
+      <div class="ds-elements" data-klar-ds-elements="Buttons">
+        <button class="btn">Default</button>
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-outline">Outline</button>
+        <button class="btn btn-ghost">Ghost</button>
+        <button class="btn btn-destructive">Destructive</button>
+        <button class="btn btn-sm">Small</button>
+        <button class="btn btn-lg">Large</button>
+        <button class="btn" disabled>Disabled</button>
+        <button class="btn btn-icon" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <a class="btn" href="#">Read more <span aria-hidden="true">→</span></a>
+      </div>
+
+      <p class="ds-sub">Badges</p>
+      <div class="ds-elements" data-klar-ds-elements="Badges">
+        <span class="badge">Default</span>
+        <span class="badge badge-secondary">Secondary</span>
+        <span class="badge badge-muted">Muted</span>
+        <span class="badge badge-outline">Outline</span>
+      </div>
+
+      <p class="ds-sub">Cards</p>
+      <div class="ds-elements" data-klar-ds-elements="Cards">
+        <div class="card" style="max-width:340px">
+          <div class="card__header">
+            <h3 class="card__title">Card title</h3>
+            <p class="card__subtitle">Supporting subtitle text</p>
+          </div>
+          <div class="card__body">
+            <p class="text-sm text-muted-foreground">The card body holds the primary content. It stretches to fill available space between header and footer.</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn-sm">Action</button>
+            <button class="btn btn-ghost btn-sm">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="ds-sub">Blog cards</p>
+      <div class="ds-elements" data-klar-ds-elements="BlogCards">
+        <article class="blog-card" style="max-width:380px">
+          <a class="block" href="#">
+            <div class="blog-card__media">
+              <img src="/images/tech-post-HXCQgDvH.jpg" alt="Article thumbnail" width="387" height="291">
+            </div>
+            <div class="blog-card__body">
+              <div class="flex items-center gap-2">
+                <span class="blog-meta">Technology</span>
+                <span class="text-muted-foreground text-xs" aria-hidden="true">—</span>
+                <time class="blog-meta" datetime="2026-05-22">May 22, 2026</time>
+              </div>
+              <h3 class="blog-card__title">En blogg för alla de som älskar att skriva</h3>
+              <p class="blog-card__excerpt">Blog post excerpt — a brief description of the article content for preview.</p>
+            </div>
+          </a>
+        </article>
+      </div>
+
+      <p class="ds-sub">Form fields</p>
+      <div class="ds-elements ds-elements--block" data-klar-ds-elements="Forms" style="max-width:420px">
+        <div class="field">
+          <label class="label" for="f-name">Full name</label>
+          <input class="input" id="f-name" type="text" placeholder="Jane Doe">
+        </div>
+        <div class="field">
+          <label class="label" for="f-email">Email</label>
+          <input class="input" id="f-email" type="email" placeholder="you@example.com">
+          <span class="field__hint">We will never share your email.</span>
+        </div>
+        <div class="field">
+          <label class="label" for="f-msg">Message</label>
+          <textarea class="textarea" id="f-msg" placeholder="Type your message…"></textarea>
+        </div>
+        <div class="field">
+          <label class="label" for="f-cat">Category</label>
+          <select class="select" id="f-cat">
+            <option>Technology</option><option>Business</option><option>Lifestyle</option>
+          </select>
+        </div>
+        <label class="check"><input type="checkbox" checked> Subscribe to the newsletter</label>
+        <div class="field">
+          <label class="label" for="f-err">Field with error</label>
+          <input class="input" id="f-err" type="text" value="invalid" aria-invalid="true" style="border-color:hsl(var(--destructive))">
+          <span class="field__error">This value is not valid.</span>
+        </div>
+      </div>
+
+      <p class="ds-sub">Alerts</p>
+      <div class="ds-elements ds-elements--block" data-klar-ds-elements="Alerts" style="max-width:560px">
+        <div class="alert alert-info">
+          <div><div class="alert__title">Heads up</div>An informational message for the reader.</div>
+        </div>
+        <div class="alert alert-destructive">
+          <div><div class="alert__title">Something went wrong</div>Please review the highlighted fields and try again.</div>
+        </div>
+      </div>
+
+      <p class="ds-sub">Navigation &amp; links</p>
+      <div class="ds-elements" data-klar-ds-elements="Navigation">
+        <nav class="nav">
+          <a class="nav-link" href="#">ALL POST</a>
+          <a class="nav-link" href="#">BUSINESS</a>
+          <a class="nav-link" href="#">TECHNOLOGY</a>
+          <a class="nav-link" href="#">PODCAST</a>
+        </nav>
+        <a class="footer-link" href="#">Footer link</a>
+      </div>
+
+      <p class="ds-sub">Dividers</p>
+      <div class="ds-elements ds-elements--block" data-klar-ds-elements="Dividers" style="max-width:560px">
+        <hr class="divider">
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         PATTERN VARIANTS  →  data-klar-ds-elements="Sections"
+         Composed, full-width page sections.
+         ================================================================ -->
+    <section class="ds-section">
+      <h2>Patterns</h2>
+      <p class="ds-note">Composed, page-level sections assembled from the components above.</p>
+
+      <div class="ds-elements ds-elements--block" data-klar-ds-elements="Sections">
+
+        <!-- Header pattern -->
+        <header class="site-header" style="position:static">
+          <div class="container">
+            <div class="site-header__bar">
+              <a class="brand" href="#">nexus</a>
+              <nav class="nav">
+                <a class="nav-link" href="#">ALL POST</a>
+                <a class="nav-link" href="#">BUSINESS</a>
+                <a class="nav-link" href="#">TECHNOLOGY</a>
+                <a class="nav-link" href="#">PODCAST</a>
+              </nav>
+              <div class="flex items-center gap-2">
+                <a class="btn btn-icon" href="#" aria-label="Search"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Hero pattern -->
+        <section class="section">
+          <div class="container">
+            <div class="hero">
+              <div class="hero__media"><img src="/images/work-lifestyle-Bg_wzXQT.jpg" alt="Featured" width="592" height="444"></div>
+              <div class="hero__body">
+                <h1 class="featured-title">En blogg för alla de som älskar att skriva och skratta</h1>
+                <div class="flex items-center gap-4 text-sm">
+                  <span class="blog-meta">Per Oscarsson / Writer</span>
+                  <span class="text-muted-foreground" aria-hidden="true">—</span>
+                  <span class="blog-meta">Lifestyle</span>
+                </div>
+                <p class="lead">Featured article description — this is where your main content excerpt would appear to give readers a preview of the full article.</p>
+                <div class="pt-4"><a class="btn" href="#">READ MORE <span aria-hidden="true">→</span></a></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Post grid pattern -->
+        <section class="section">
+          <div class="container">
+            <h2 class="section-title mb-8">All Posts</h2>
+            <div class="post-grid">
+              <article class="blog-card"><a class="block" href="#"><div class="blog-card__media"><img src="/images/tech-post-HXCQgDvH.jpg" alt="" width="387" height="291"></div><div class="blog-card__body"><div class="flex items-center gap-2"><span class="blog-meta">Technology</span><span class="text-muted-foreground text-xs">—</span><time class="blog-meta">May 22, 2026</time></div><h3 class="blog-card__title">En blogg för alla de som tycker det är kul att blogga</h3><p class="blog-card__excerpt">Blog post excerpt — brief description of the article content.</p></div></a></article>
+              <article class="blog-card"><a class="block" href="#"><div class="blog-card__media"><img src="/images/lifestyle-post-B2o5gHGK (1).jpg" alt="" width="387" height="291"></div><div class="blog-card__body"><div class="flex items-center gap-2"><span class="blog-meta">Lifestyle</span><span class="text-muted-foreground text-xs">—</span><time class="blog-meta">May 22, 2026</time></div><h3 class="blog-card__title">En blogg för alla de som tycker det är kul att blogg</h3><p class="blog-card__excerpt">Blog post excerpt — brief description of the article content.</p></div></a></article>
+              <article class="blog-card"><a class="block" href="#"><div class="blog-card__media"><img src="/images/business-post-6IsrfXyD.jpg" alt="" width="387" height="291"></div><div class="blog-card__body"><div class="flex items-center gap-2"><span class="blog-meta">Business</span><span class="text-muted-foreground text-xs">—</span><time class="blog-meta">May 22, 2026</time></div><h3 class="blog-card__title">En blogg för alla de som tycker det är kul</h3><p class="blog-card__excerpt">Blog post excerpt — brief description of the article content.</p></div></a></article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Newsletter pattern -->
+        <section class="section">
+          <div class="container">
+            <div class="newsletter">
+              <h2 class="section-title">Subscribe to Nexus</h2>
+              <p class="lead">Get the latest in fashion, technology and lifestyle, straight to your inbox.</p>
+              <form class="newsletter__form" onsubmit="return false">
+                <input class="input" type="email" placeholder="you@example.com" aria-label="Email">
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer pattern -->
+        <footer class="site-footer">
+          <div class="container" style="padding-block:3rem">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div class="space-y-4">
+                <h2 class="text-lg font-bold text-foreground">nexus</h2>
+                <p class="text-sm text-muted-foreground">A personal blog exploring fashion, technology, business, and lifestyle trends.</p>
+              </div>
+              <div class="space-y-4">
+                <h3 class="font-medium text-foreground">Categories</h3>
+                <ul class="space-y-2"><li><a class="footer-link" href="#">Fashion</a></li><li><a class="footer-link" href="#">Technology</a></li><li><a class="footer-link" href="#">Business</a></li><li><a class="footer-link" href="#">Lifestyle</a></li></ul>
+              </div>
+              <div class="space-y-4">
+                <h3 class="font-medium text-foreground">Quick Links</h3>
+                <ul class="space-y-2"><li><a class="footer-link" href="#">About</a></li><li><a class="footer-link" href="#">Contact</a></li><li><a class="footer-link" href="#">Privacy</a></li><li><a class="footer-link" href="#">Terms</a></li></ul>
+              </div>
+              <div class="space-y-4">
+                <h3 class="font-medium text-foreground">Connect</h3>
+                <div class="flex gap-4"><a class="footer-link" href="#">Facebook</a><a class="footer-link" href="#">Twitter</a><a class="footer-link" href="#">Instagram</a></div>
+              </div>
+            </div>
+            <div class="mt-8 pt-4" style="border-top:1px solid hsl(var(--border));text-align:center">
+              <p class="text-sm text-muted-foreground">© 2026 Nexus Blog. All rights reserved.</p>
+            </div>
+          </div>
+        </footer>
+
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // Theme toggle — flips the .dark class on <html> and persists the choice.
+    (function () {
+      var root = document.documentElement;
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark') { root.classList.add('dark'); root.classList.remove('light'); root.style.colorScheme = 'dark'; }
+      document.getElementById('theme-toggle').addEventListener('click', function () {
+        var dark = root.classList.toggle('dark');
+        root.classList.toggle('light', !dark);
+        root.style.colorScheme = dark ? 'dark' : 'light';
+        localStorage.setItem('theme', dark ? 'dark' : 'light');
+      });
+    })();
+  </script>
+</body>
+</html>

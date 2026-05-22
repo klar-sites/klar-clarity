@@ -1,0 +1,435 @@
+  /* =====================================================================
+     NEXUS DESIGN SYSTEM
+     Plain HTML / CSS / JS. Exact match of the live site (style.css):
+     DM Sans, monochrome HSL palette, shadcn-style components.
+     ---------------------------------------------------------------------
+     1. Reset            5. Utility classes (one per token)
+     2. Design tokens    6. Components (BEM)
+     3. Base elements    7. Documentation-only styling
+     ===================================================================== */
+
+  /* ---------- 1. Reset ------------------------------------------------ */
+  *, *::before, *::after { box-sizing: border-box; border-width: 0; border-style: solid; border-color: hsl(var(--border)); }
+  * { margin: 0; }
+  html { -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+  img, svg, video { display: block; max-width: 100%; }
+  button, input, textarea, select { font: inherit; color: inherit; }
+
+  /* ---------- 2. Design tokens --------------------------------------- */
+  :root {
+    /* Color — HSL channels (use with hsl(var(--token))) */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+    --primary: 0 0% 8%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 20%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 94%;
+    --accent-foreground: 0 0% 8%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 8%;
+
+    /* Typography */
+    --font-sans: "DM Sans", system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --text-xs: .75rem;
+    --text-sm: .875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --font-medium: 500;
+    --font-bold: 700;
+
+    /* Spacing scale */
+    --space-1: .25rem;
+    --space-2: .5rem;
+    --space-3: .75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+
+    /* Radius */
+    --radius-sm: .375rem;
+    --radius-md: .5rem;
+    --radius: .5rem;
+
+    /* Shadow */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / .05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);
+
+    /* Layout */
+    --content-width: 80rem;
+    --header-height: 80px;
+    --section-padding: 4rem;
+    --card-padding: 1.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+
+  /* ---------- 3. Base elements --------------------------------------- */
+  body {
+    font-family: var(--font-sans);
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    line-height: 1.5;
+  }
+  a { color: inherit; text-decoration: none; }
+  h1,h2,h3,h4,h5,h6 { line-height: 1.25; font-weight: var(--font-bold); }
+
+  /* =====================================================================
+     5. UTILITY CLASSES — one per token
+     ===================================================================== */
+
+  /* Text color */
+  .text-foreground          { color: hsl(var(--foreground)); }
+  .text-muted-foreground    { color: hsl(var(--muted-foreground)); }
+  .text-primary             { color: hsl(var(--primary)); }
+  .text-primary-foreground  { color: hsl(var(--primary-foreground)); }
+  .text-secondary-foreground{ color: hsl(var(--secondary-foreground)); }
+  .text-accent-foreground   { color: hsl(var(--accent-foreground)); }
+  .text-destructive         { color: hsl(var(--destructive)); }
+  .text-card-foreground     { color: hsl(var(--card-foreground)); }
+
+  /* Background color */
+  .bg-background  { background-color: hsl(var(--background)); }
+  .bg-foreground  { background-color: hsl(var(--foreground)); }
+  .bg-card        { background-color: hsl(var(--card)); }
+  .bg-primary     { background-color: hsl(var(--primary)); }
+  .bg-secondary   { background-color: hsl(var(--secondary)); }
+  .bg-muted       { background-color: hsl(var(--muted)); }
+  .bg-accent      { background-color: hsl(var(--accent)); }
+  .bg-destructive { background-color: hsl(var(--destructive)); }
+
+  /* Border color */
+  .border-border      { border-color: hsl(var(--border)); }
+  .border-input       { border-color: hsl(var(--input)); }
+  .border-primary     { border-color: hsl(var(--primary)); }
+  .border-destructive { border-color: hsl(var(--destructive)); }
+
+  /* Font size */
+  .text-xs   { font-size: var(--text-xs);   line-height: 1rem; }
+  .text-sm   { font-size: var(--text-sm);   line-height: 1.25rem; }
+  .text-base { font-size: var(--text-base); line-height: 1.5rem; }
+  .text-lg   { font-size: var(--text-lg);   line-height: 1.75rem; }
+  .text-xl   { font-size: var(--text-xl);   line-height: 1.75rem; }
+  .text-2xl  { font-size: var(--text-2xl);  line-height: 2rem; }
+  .text-3xl  { font-size: var(--text-3xl);  line-height: 2.25rem; }
+  .text-4xl  { font-size: var(--text-4xl);  line-height: 2.5rem; }
+
+  /* Font weight */
+  .font-medium { font-weight: var(--font-medium); }
+  .font-bold   { font-weight: var(--font-bold); }
+  .font-mono   { font-family: var(--font-mono); }
+  .uppercase   { text-transform: uppercase; letter-spacing: .025em; }
+
+  /* Radius */
+  .rounded-sm   { border-radius: var(--radius-sm); }
+  .rounded-md   { border-radius: var(--radius-md); }
+  .rounded-lg   { border-radius: var(--radius); }
+  .rounded-full { border-radius: 9999px; }
+
+  /* Shadow */
+  .shadow-sm { box-shadow: var(--shadow-sm); }
+  .shadow-md { box-shadow: var(--shadow-md); }
+
+  /* Spacing (padding / margin / gap helpers per token) */
+  .p-2{padding:var(--space-2)} .p-3{padding:var(--space-3)} .p-4{padding:var(--space-4)} .p-6{padding:var(--space-6)} .p-8{padding:var(--space-8)}
+  .gap-2{gap:var(--space-2)} .gap-3{gap:var(--space-3)} .gap-4{gap:var(--space-4)} .gap-6{gap:var(--space-6)} .gap-8{gap:var(--space-8)} .gap-12{gap:var(--space-12)}
+  .mt-2{margin-top:var(--space-2)} .mt-4{margin-top:var(--space-4)} .mt-8{margin-top:var(--space-8)}
+  .mb-2{margin-bottom:var(--space-2)} .mb-4{margin-bottom:var(--space-4)} .mb-6{margin-bottom:var(--space-6)} .mb-8{margin-bottom:var(--space-8)}
+
+  /* Layout helpers (so components render without a framework) */
+  .flex{display:flex} .grid{display:grid} .inline-flex{display:inline-flex} .block{display:block} .hidden{display:none}
+  .flex-col{flex-direction:column} .flex-wrap{flex-wrap:wrap}
+  .items-center{align-items:center} .items-start{align-items:flex-start}
+  .justify-center{justify-content:center} .justify-between{justify-content:space-between}
+  .w-full{width:100%} .text-center{text-align:center}
+
+  /* =====================================================================
+     6. COMPONENTS (BEM)
+     ===================================================================== */
+
+  /* ---------- Container ---------------------------------------------- */
+  .container-blog {
+    width: 100%;
+    max-width: var(--content-width);
+    margin-inline: auto;
+    padding-inline: var(--space-6);
+  }
+
+  /* ---------- Button -------------------------------------------------
+     .btn                 base (also the default = outline look)
+     .btn.btn-primary     solid dark fill
+     .btn.btn-outline     bordered, fills on hover (default style)
+     .btn.btn-ghost       no border until hover
+     .btn.btn-sm / .btn-lg / .btn-icon   sizes
+  -------------------------------------------------------------------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    white-space: nowrap;
+    height: 2.5rem;            /* h-10 */
+    padding-inline: var(--space-4);
+    border: 1px solid #000;
+    border-radius: var(--radius-md);
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    transition: color .2s, background-color .2s, border-color .2s;
+  }
+  .btn:hover { background-color: #000; color: #fff; }
+  .btn:focus-visible { outline: none; box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring)); }
+  .btn:disabled { pointer-events: none; opacity: .5; }
+  .btn svg { width: 1rem; height: 1rem; flex-shrink: 0; }
+
+  .btn.btn-primary { background-color: hsl(var(--primary)); color: hsl(var(--primary-foreground)); border-color: #000; }
+  .btn.btn-primary:hover { background-color: #000; color: #fff; }
+
+  .btn.btn-outline { background-color: hsl(var(--background)); color: hsl(var(--foreground)); border-color: #000; }
+
+  .btn.btn-ghost { border-color: transparent; background-color: transparent; }
+  .btn.btn-ghost:hover { background-color: #000; color: #fff; border-color: #000; }
+
+  .btn.btn-sm   { height: 2.25rem; padding-inline: var(--space-3); }   /* h-9 px-3 */
+  .btn.btn-lg   { height: 2.75rem; padding-inline: var(--space-8); }   /* h-11 px-8 */
+  .btn.btn-icon { height: 2.25rem; width: 2.25rem; padding: 0; }       /* h-9 w-9 */
+
+  /* ---------- Badge / category tag ----------------------------------
+     Mirrors the site's `.blog-meta`: uppercase, tracked, small.
+  -------------------------------------------------------------------- */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: .125rem .5rem;
+    border: 1px solid transparent;
+    border-radius: 9999px;
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    line-height: 1rem;
+  }
+  .badge.badge-primary   { background-color: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+  .badge.badge-secondary { background-color: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); }
+  .badge.badge-outline   { border-color: hsl(var(--border)); color: hsl(var(--foreground)); }
+  .badge.badge-meta      { background: none; padding: 0; text-transform: uppercase; letter-spacing: .025em; color: hsl(var(--muted-foreground)); }
+
+  /* ---------- Card ---------------------------------------------------
+     .card  >  .card__header / .card__body / .card__footer
+  -------------------------------------------------------------------- */
+  .card {
+    overflow: hidden;
+    border: 1px solid hsl(var(--border));
+    border-radius: calc(var(--radius) - 2px);
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow .2s, border-color .3s;
+  }
+  .card__header { padding: var(--card-padding); padding-bottom: 0; }
+  .card__header .card__title { font-size: var(--text-lg); font-weight: var(--font-bold); line-height: 1.3; }
+  .card__header .card__subtitle { font-size: var(--text-sm); color: hsl(var(--muted-foreground)); margin-top: var(--space-1); }
+  .card__body   { padding: var(--card-padding); display: flex; flex-direction: column; gap: var(--space-3); }
+  .card__footer { padding: var(--card-padding); padding-top: 0; display: flex; align-items: center; gap: var(--space-3); }
+  .card__media  { aspect-ratio: 4 / 3; overflow: hidden; }
+  .card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+
+  /* Blog card — interactive variant used in post grids */
+  .blog-card { cursor: pointer; }
+  .blog-card:hover { box-shadow: var(--shadow-md); border-color: #000; }
+  .blog-card:hover .card__media img { transform: scale(1.05); }
+  .blog-card__title { font-size: var(--text-lg); font-weight: var(--font-bold); line-height: 1.3; color: hsl(var(--foreground)); }
+  .blog-card__excerpt { font-size: var(--text-sm); color: hsl(var(--muted-foreground)); line-height: 1.6; }
+
+  /* ---------- Form ---------------------------------------------------
+     .form-group > .label + .input / .textarea
+  -------------------------------------------------------------------- */
+  .form-group { display: flex; flex-direction: column; gap: var(--space-2); }
+  .label { font-size: var(--text-sm); font-weight: var(--font-medium); line-height: 1; }
+  .input, .textarea {
+    width: 100%;
+    border: 1px solid hsl(var(--input));
+    border-radius: var(--radius-md);
+    background-color: hsl(var(--background));
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-sm);
+    transition: box-shadow .2s, border-color .2s;
+  }
+  .input { height: 2.5rem; }
+  .textarea { min-height: 80px; resize: vertical; }
+  .input::placeholder, .textarea::placeholder { color: hsl(var(--muted-foreground)); }
+  .input:focus-visible, .textarea:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+  }
+  .input:disabled, .textarea:disabled { cursor: not-allowed; opacity: .5; }
+
+  /* ---------- Nav link ----------------------------------------------- */
+  .nav-link {
+    border-radius: var(--radius-sm);
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: hsl(var(--foreground));
+    transition: color .2s, background-color .2s;
+  }
+  .nav-link:hover { color: hsl(var(--muted-foreground)); }
+
+  /* ---------- Alert -------------------------------------------------- */
+  .alert {
+    display: flex;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius-md);
+    background-color: hsl(var(--card));
+    font-size: var(--text-sm);
+  }
+  .alert__title { font-weight: var(--font-bold); margin-bottom: var(--space-1); }
+  .alert.alert-destructive { border-color: hsl(var(--destructive) / .5); color: hsl(var(--destructive)); }
+
+  /* ---------- Avatar ------------------------------------------------- */
+  .avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem; height: 2.5rem;
+    border-radius: 9999px;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    font-weight: var(--font-bold);
+    overflow: hidden;
+  }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .avatar.avatar-lg { width: 6rem; height: 6rem; font-size: var(--text-2xl); }
+
+  /* ---------- Section title (heading used above content blocks) ------ */
+  .section-title { margin-bottom: var(--space-8); font-size: var(--text-2xl); font-weight: var(--font-bold); color: hsl(var(--foreground)); }
+  .featured-title { font-size: var(--text-4xl); font-weight: var(--font-bold); line-height: 1.25; color: hsl(var(--foreground)); }
+
+  /* ---------- Header / Footer patterns ------------------------------- */
+  .site-header { background-color: hsl(var(--background)); border-bottom: 1px solid hsl(var(--border)); }
+  .site-header__inner { display: flex; align-items: center; justify-content: space-between; height: var(--header-height); }
+  .site-header__logo { font-size: var(--text-2xl); font-weight: var(--font-bold); }
+  .site-footer { background-color: hsl(var(--muted)); border-top: 1px solid hsl(var(--border)); }
+
+  /* =====================================================================
+     7. DOCUMENTATION-ONLY styling (the page chrome around the library)
+     ===================================================================== */
+  .ds-page { padding-bottom: 6rem; }
+  .ds-hero { padding: 4rem 0 2rem; border-bottom: 1px solid hsl(var(--border)); margin-bottom: 3rem; }
+  .ds-section { margin-bottom: 4rem; }
+  .ds-section > h2 { font-size: var(--text-3xl); margin-bottom: .25rem; }
+  .ds-section > p.ds-lead { color: hsl(var(--muted-foreground)); margin-bottom: 1.5rem; }
+  .ds-subhead { font-size: var(--text-sm); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: hsl(var(--muted-foreground)); margin: 2rem 0 1rem; }
+
+  /* Token visualisations */
+  .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
+  .swatch__chip { height: 64px; border-radius: var(--radius-md); border: 1px solid hsl(var(--border)); }
+  .swatch__name { font-size: var(--text-sm); font-weight: 500; margin-top: .5rem; }
+  .swatch__val  { font-size: var(--text-xs); color: hsl(var(--muted-foreground)); font-family: var(--font-mono); }
+  .type-row { display: flex; align-items: baseline; gap: 1.5rem; padding: .5rem 0; border-bottom: 1px solid hsl(var(--border)); }
+  .type-row code { font-size: var(--text-xs); color: hsl(var(--muted-foreground)); min-width: 90px; }
+  .token-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+  .token-table th, .token-table td { text-align: left; padding: .6rem .75rem; border-bottom: 1px solid hsl(var(--border)); }
+  .token-table th { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .05em; color: hsl(var(--muted-foreground)); }
+  .token-table td code { font-family: var(--font-mono); font-size: var(--text-xs); }
+
+  /* Component-library group wrappers (these carry data-klar-ds-elements) */
+  .ds-group { padding: 1.5rem; border: 1px dashed hsl(var(--border)); border-radius: var(--radius-md); margin-bottom: 1.5rem; background: hsl(var(--background)); }
+  .ds-group--row { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+  .ds-group--stack { display: flex; flex-direction: column; gap: 1rem; }
+  .ds-group--grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+  .ds-group--sections { display: flex; flex-direction: column; gap: 2.5rem; padding: 0; border: 0; }
+  .ds-group::before {
+    content: attr(data-klar-ds-elements);
+    display: block; width: 100%;
+    font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    color: hsl(var(--muted-foreground)); margin-bottom: 1rem;
+  }
+  .ds-group--sections::before { margin-bottom: 0; }
+
+  /* Bordered preview frame for full-width section patterns */
+  .ds-pattern { border: 1px solid hsl(var(--border)); border-radius: var(--radius-md); overflow: hidden; }
+  .ds-pattern > .pad { padding: 2.5rem 1.5rem; }
+
+  /* =====================================================================
+     8. LAYOUT UTILITIES — responsive grids, spacing & media helpers
+        (so full pages can be composed from design-system classes only)
+     ===================================================================== */
+
+  /* Vertical / horizontal section padding (matches site `py-16` / `py-12`) */
+  .py-12 { padding-block: var(--space-12); }
+  .py-16 { padding-block: var(--space-16); }
+  .pt-4  { padding-top: var(--space-4); }
+
+  /* Stacked rhythm (replaces Tailwind `space-y-*`) */
+  .space-y-3 > * + * { margin-top: var(--space-3); }
+  .space-y-4 > * + * { margin-top: var(--space-4); }
+  .space-y-6 > * + * { margin-top: var(--space-6); }
+  .space-x-2 > * + * { margin-left: var(--space-2); }
+  .space-x-4 > * + * { margin-left: var(--space-4); }
+
+  /* Media helpers */
+  .relative      { position: relative; }
+  .overflow-hidden { overflow: hidden; }
+  .aspect-4-3    { aspect-ratio: 4 / 3; }
+  .object-cover  { width: 100%; height: 100%; object-fit: cover; }
+  .leading-relaxed { line-height: 1.625; }
+  .leading-tight   { line-height: 1.25; }
+  .img-zoom        { transition: transform .5s; }
+  .group:hover .img-zoom { transform: scale(1.05); }
+
+  /* Responsive grids — mobile-first, matching the live breakpoints.
+     Base = 1 column; widen at the md (768px) and lg (1024px) stops. */
+  .grid-cols-1 { grid-template-columns: 1fr; }
+  @media (min-width: 768px) {
+    .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .md\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .lg\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .lg\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .lg\:flex { display: flex; }
+    .lg\:hidden { display: none; }
+  }
+  /* Hide the desktop nav until lg, like the live header */
+  .nav-desktop { display: none; }
+  @media (min-width: 1024px) { .nav-desktop { display: flex; } }
